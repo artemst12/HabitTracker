@@ -7,27 +7,135 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15F7CE442A4844CE00F6041F /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE432A4844CE00F6041F /* WelcomePresenter.swift */; };
+		15F7CE462A48463700F6041F /* WelcomeViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE452A48463600F6041F /* WelcomeViewInput.swift */; };
+		15F7CE482A48464200F6041F /* WelcomeViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE472A48464200F6041F /* WelcomeViewOutput.swift */; };
+		15F7CE4A2A48469400F6041F /* WelcomePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE492A48469400F6041F /* WelcomePresenterInput.swift */; };
+		15F7CE4C2A4846A200F6041F /* WelcomePresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE4B2A4846A200F6041F /* WelcomePresenterOutput.swift */; };
+		15F7CE4E2A4846EA00F6041F /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE4D2A4846EA00F6041F /* WelcomeInteractor.swift */; };
+		15F7CE502A48476100F6041F /* WelcomeInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE4F2A48476100F6041F /* WelcomeInteractorInput.swift */; };
+		15F7CE522A48476A00F6041F /* WelcomeInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE512A48476A00F6041F /* WelcomeInteractorOutput.swift */; };
+		15F7CE542A48488000F6041F /* WelcomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE532A48488000F6041F /* WelcomeRouter.swift */; };
+		15F7CE562A48489100F6041F /* WelcomeRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE552A48489100F6041F /* WelcomeRouterInput.swift */; };
+		15F7CE582A48489A00F6041F /* WelcomeRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE572A48489A00F6041F /* WelcomeRouterOutput.swift */; };
+		15F7CE5B2A484ACB00F6041F /* WelcomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE5A2A484ACB00F6041F /* WelcomeConfigurator.swift */; };
 		AC60FA6E2A4464CD00E6FD1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */; };
 		AC60FA702A4464CD00E6FD1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */; };
-		AC60FA722A4464CD00E6FD1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA712A4464CD00E6FD1A /* ViewController.swift */; };
+		AC60FA722A4464CD00E6FD1A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA712A4464CD00E6FD1A /* WelcomeView.swift */; };
 		AC60FA752A4464CD00E6FD1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC60FA732A4464CD00E6FD1A /* Main.storyboard */; };
 		AC60FA772A4464CE00E6FD1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC60FA762A4464CE00E6FD1A /* Assets.xcassets */; };
 		AC60FA7A2A4464CE00E6FD1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC60FA782A4464CE00E6FD1A /* LaunchScreen.storyboard */; };
 		AC60FA872A45AFB200E6FD1A /* CustomLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA862A45AFB200E6FD1A /* CustomLabels.swift */; };
 		AC60FA892A47102D00E6FD1A /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA882A47102D00E6FD1A /* CustomButtons.swift */; };
+		AC60FA912A4A005B00E6FD1A /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA902A4A005B00E6FD1A /* InformationView.swift */; };
+		AC60FA932A4A011300E6FD1A /* InformationViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA922A4A011300E6FD1A /* InformationViewInput.swift */; };
+		AC60FA952A4A016B00E6FD1A /* InformationViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA942A4A016B00E6FD1A /* InformationViewOutput.swift */; };
+		AC60FA972A4B10E800E6FD1A /* InformationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA962A4B10E800E6FD1A /* InformationRouter.swift */; };
+		AC60FA992A4B11B500E6FD1A /* InformationRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA982A4B11B500E6FD1A /* InformationRouterInput.swift */; };
+		AC60FA9B2A4B11F600E6FD1A /* InformationRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA9A2A4B11F600E6FD1A /* InformationRouterOutput.swift */; };
+		AC60FA9D2A4B12EF00E6FD1A /* InformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA9C2A4B12EF00E6FD1A /* InformationPresenter.swift */; };
+		AC60FA9F2A4B157F00E6FD1A /* InformationPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA9E2A4B157F00E6FD1A /* InformationPresenterInput.swift */; };
+		AC60FAA12A4B15A600E6FD1A /* InformationPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAA02A4B15A600E6FD1A /* InformationPresenterOutput.swift */; };
+		AC60FAA32A4B161700E6FD1A /* InformationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAA22A4B161700E6FD1A /* InformationInteractor.swift */; };
+		AC60FAA52A4B169F00E6FD1A /* InformationInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAA42A4B169F00E6FD1A /* InformationInteractorInput.swift */; };
+		AC60FAA72A4B16C300E6FD1A /* InformationInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAA62A4B16C300E6FD1A /* InformationInteractorOutput.swift */; };
+		AC60FAA92A4B171A00E6FD1A /* InformationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAA82A4B171A00E6FD1A /* InformationConfigurator.swift */; };
+		AC60FAAB2A4C585200E6FD1A /* CustomTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAAA2A4C585200E6FD1A /* CustomTextFields.swift */; };
+		AC60FAAD2A4C5BEF00E6FD1A /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAAC2A4C5BEF00E6FD1A /* DatePicker.swift */; };
+		AC60FAB52A4CA43400E6FD1A /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAB42A4CA43400E6FD1A /* GenderView.swift */; };
+		AC60FAB72A4D742200E6FD1A /* GenderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAB62A4D742200E6FD1A /* GenderConfigurator.swift */; };
+		AC60FAB92A4D74B100E6FD1A /* GenderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAB82A4D74B100E6FD1A /* GenderRouter.swift */; };
+		AC60FABB2A4D755D00E6FD1A /* GenderRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FABA2A4D755D00E6FD1A /* GenderRouterInput.swift */; };
+		AC60FABD2A4D759600E6FD1A /* GenderRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FABC2A4D759600E6FD1A /* GenderRouterOutput.swift */; };
+		AC60FABF2A4D75BA00E6FD1A /* GenderViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FABE2A4D75BA00E6FD1A /* GenderViewInput.swift */; };
+		AC60FAC12A4D75E800E6FD1A /* GenderViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAC02A4D75E800E6FD1A /* GenderViewOutput.swift */; };
+		AC60FAC32A4D76AF00E6FD1A /* GenderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAC22A4D76AF00E6FD1A /* GenderPresenter.swift */; };
+		AC60FAC52A4D77B400E6FD1A /* GenderPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAC42A4D77B400E6FD1A /* GenderPresenterInput.swift */; };
+		AC60FAC72A4D77D200E6FD1A /* GenderPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAC62A4D77D200E6FD1A /* GenderPresenterOutput.swift */; };
+		AC60FAC92A4D77EE00E6FD1A /* GenderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAC82A4D77EE00E6FD1A /* GenderInteractor.swift */; };
+		AC60FACB2A4D788B00E6FD1A /* GenderInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FACA2A4D788B00E6FD1A /* GenderInteractorInput.swift */; };
+		AC60FACD2A4D78AF00E6FD1A /* GenderInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FACC2A4D78AF00E6FD1A /* GenderInteractorOutput.swift */; };
+		AC60FAD22A4DDD9D00E6FD1A /* GenderItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAD12A4DDD9D00E6FD1A /* GenderItems.swift */; };
+		AC60FADA2A501C8D00E6FD1A /* CongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAD92A501C8D00E6FD1A /* CongratsView.swift */; };
+		AC60FADC2A501D5C00E6FD1A /* CongratsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FADB2A501D5C00E6FD1A /* CongratsViewInput.swift */; };
+		AC60FADE2A501D8600E6FD1A /* CongratsViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FADD2A501D8600E6FD1A /* CongratsViewOutput.swift */; };
+		AC60FAE02A501DED00E6FD1A /* CongratsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FADF2A501DED00E6FD1A /* CongratsRouter.swift */; };
+		AC60FAE22A501E9500E6FD1A /* CongratsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAE12A501E9500E6FD1A /* CongratsRouterInput.swift */; };
+		AC60FAE42A501EB200E6FD1A /* CongratsRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAE32A501EB200E6FD1A /* CongratsRouterOutput.swift */; };
+		AC60FAE62A501F2300E6FD1A /* CongratsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAE52A501F2300E6FD1A /* CongratsPresenter.swift */; };
+		AC60FAE82A502A3300E6FD1A /* CongratsPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAE72A502A3300E6FD1A /* CongratsPresenterInput.swift */; };
+		AC60FAEA2A502A5100E6FD1A /* CongratsPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAE92A502A5100E6FD1A /* CongratsPresenterOutput.swift */; };
+		AC60FAEC2A502A8E00E6FD1A /* CongratsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAEB2A502A8E00E6FD1A /* CongratsInteractor.swift */; };
+		AC60FAEE2A502B3500E6FD1A /* CongratsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAED2A502B3500E6FD1A /* CongratsInteractorInput.swift */; };
+		AC60FAF02A502B5300E6FD1A /* CongratsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAEF2A502B5300E6FD1A /* CongratsInteractorOutput.swift */; };
+		AC60FAF22A502B9C00E6FD1A /* CongratsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAF12A502B9C00E6FD1A /* CongratsConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15F7CE432A4844CE00F6041F /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
+		15F7CE452A48463600F6041F /* WelcomeViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewInput.swift; sourceTree = "<group>"; };
+		15F7CE472A48464200F6041F /* WelcomeViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewOutput.swift; sourceTree = "<group>"; };
+		15F7CE492A48469400F6041F /* WelcomePresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenterInput.swift; sourceTree = "<group>"; };
+		15F7CE4B2A4846A200F6041F /* WelcomePresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenterOutput.swift; sourceTree = "<group>"; };
+		15F7CE4D2A4846EA00F6041F /* WelcomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
+		15F7CE4F2A48476100F6041F /* WelcomeInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractorInput.swift; sourceTree = "<group>"; };
+		15F7CE512A48476A00F6041F /* WelcomeInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractorOutput.swift; sourceTree = "<group>"; };
+		15F7CE532A48488000F6041F /* WelcomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouter.swift; sourceTree = "<group>"; };
+		15F7CE552A48489100F6041F /* WelcomeRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouterInput.swift; sourceTree = "<group>"; };
+		15F7CE572A48489A00F6041F /* WelcomeRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouterOutput.swift; sourceTree = "<group>"; };
+		15F7CE5A2A484ACB00F6041F /* WelcomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeConfigurator.swift; sourceTree = "<group>"; };
 		AC60FA6A2A4464CD00E6FD1A /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC60FA712A4464CD00E6FD1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC60FA712A4464CD00E6FD1A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		AC60FA742A4464CD00E6FD1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC60FA762A4464CE00E6FD1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC60FA792A4464CE00E6FD1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC60FA7B2A4464CE00E6FD1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC60FA862A45AFB200E6FD1A /* CustomLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabels.swift; sourceTree = "<group>"; };
 		AC60FA882A47102D00E6FD1A /* CustomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
+		AC60FA902A4A005B00E6FD1A /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		AC60FA922A4A011300E6FD1A /* InformationViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewInput.swift; sourceTree = "<group>"; };
+		AC60FA942A4A016B00E6FD1A /* InformationViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewOutput.swift; sourceTree = "<group>"; };
+		AC60FA962A4B10E800E6FD1A /* InformationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationRouter.swift; sourceTree = "<group>"; };
+		AC60FA982A4B11B500E6FD1A /* InformationRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationRouterInput.swift; sourceTree = "<group>"; };
+		AC60FA9A2A4B11F600E6FD1A /* InformationRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationRouterOutput.swift; sourceTree = "<group>"; };
+		AC60FA9C2A4B12EF00E6FD1A /* InformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPresenter.swift; sourceTree = "<group>"; };
+		AC60FA9E2A4B157F00E6FD1A /* InformationPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPresenterInput.swift; sourceTree = "<group>"; };
+		AC60FAA02A4B15A600E6FD1A /* InformationPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPresenterOutput.swift; sourceTree = "<group>"; };
+		AC60FAA22A4B161700E6FD1A /* InformationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationInteractor.swift; sourceTree = "<group>"; };
+		AC60FAA42A4B169F00E6FD1A /* InformationInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationInteractorInput.swift; sourceTree = "<group>"; };
+		AC60FAA62A4B16C300E6FD1A /* InformationInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationInteractorOutput.swift; sourceTree = "<group>"; };
+		AC60FAA82A4B171A00E6FD1A /* InformationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationConfigurator.swift; sourceTree = "<group>"; };
+		AC60FAAA2A4C585200E6FD1A /* CustomTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFields.swift; sourceTree = "<group>"; };
+		AC60FAAC2A4C5BEF00E6FD1A /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		AC60FAB42A4CA43400E6FD1A /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		AC60FAB62A4D742200E6FD1A /* GenderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderConfigurator.swift; sourceTree = "<group>"; };
+		AC60FAB82A4D74B100E6FD1A /* GenderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderRouter.swift; sourceTree = "<group>"; };
+		AC60FABA2A4D755D00E6FD1A /* GenderRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderRouterInput.swift; sourceTree = "<group>"; };
+		AC60FABC2A4D759600E6FD1A /* GenderRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderRouterOutput.swift; sourceTree = "<group>"; };
+		AC60FABE2A4D75BA00E6FD1A /* GenderViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewInput.swift; sourceTree = "<group>"; };
+		AC60FAC02A4D75E800E6FD1A /* GenderViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewOutput.swift; sourceTree = "<group>"; };
+		AC60FAC22A4D76AF00E6FD1A /* GenderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPresenter.swift; sourceTree = "<group>"; };
+		AC60FAC42A4D77B400E6FD1A /* GenderPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPresenterInput.swift; sourceTree = "<group>"; };
+		AC60FAC62A4D77D200E6FD1A /* GenderPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPresenterOutput.swift; sourceTree = "<group>"; };
+		AC60FAC82A4D77EE00E6FD1A /* GenderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderInteractor.swift; sourceTree = "<group>"; };
+		AC60FACA2A4D788B00E6FD1A /* GenderInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderInteractorInput.swift; sourceTree = "<group>"; };
+		AC60FACC2A4D78AF00E6FD1A /* GenderInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderInteractorOutput.swift; sourceTree = "<group>"; };
+		AC60FAD12A4DDD9D00E6FD1A /* GenderItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderItems.swift; sourceTree = "<group>"; };
+		AC60FAD92A501C8D00E6FD1A /* CongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsView.swift; sourceTree = "<group>"; };
+		AC60FADB2A501D5C00E6FD1A /* CongratsViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewInput.swift; sourceTree = "<group>"; };
+		AC60FADD2A501D8600E6FD1A /* CongratsViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsViewOutput.swift; sourceTree = "<group>"; };
+		AC60FADF2A501DED00E6FD1A /* CongratsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsRouter.swift; sourceTree = "<group>"; };
+		AC60FAE12A501E9500E6FD1A /* CongratsRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsRouterInput.swift; sourceTree = "<group>"; };
+		AC60FAE32A501EB200E6FD1A /* CongratsRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsRouterOutput.swift; sourceTree = "<group>"; };
+		AC60FAE52A501F2300E6FD1A /* CongratsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsPresenter.swift; sourceTree = "<group>"; };
+		AC60FAE72A502A3300E6FD1A /* CongratsPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsPresenterInput.swift; sourceTree = "<group>"; };
+		AC60FAE92A502A5100E6FD1A /* CongratsPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsPresenterOutput.swift; sourceTree = "<group>"; };
+		AC60FAEB2A502A8E00E6FD1A /* CongratsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsInteractor.swift; sourceTree = "<group>"; };
+		AC60FAED2A502B3500E6FD1A /* CongratsInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsInteractorInput.swift; sourceTree = "<group>"; };
+		AC60FAEF2A502B5300E6FD1A /* CongratsInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsInteractorOutput.swift; sourceTree = "<group>"; };
+		AC60FAF12A502B9C00E6FD1A /* CongratsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +149,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15F7CE402A48432400F6041F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				15F7CE4D2A4846EA00F6041F /* WelcomeInteractor.swift */,
+				15F7CE4F2A48476100F6041F /* WelcomeInteractorInput.swift */,
+				15F7CE512A48476A00F6041F /* WelcomeInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		15F7CE412A48432A00F6041F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				15F7CE432A4844CE00F6041F /* WelcomePresenter.swift */,
+				15F7CE492A48469400F6041F /* WelcomePresenterInput.swift */,
+				15F7CE4B2A4846A200F6041F /* WelcomePresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		15F7CE422A48433000F6041F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				15F7CE532A48488000F6041F /* WelcomeRouter.swift */,
+				15F7CE552A48489100F6041F /* WelcomeRouterInput.swift */,
+				15F7CE572A48489A00F6041F /* WelcomeRouterOutput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		15F7CE592A484ABC00F6041F /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				15F7CE5A2A484ACB00F6041F /* WelcomeConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		15F7CE5C2A484EA400F6041F /* Design System */ = {
+			isa = PBXGroup;
+			children = (
+				15F7CE5D2A484EAC00F6041F /* Reusable Components */,
+			);
+			path = "Design System";
+			sourceTree = "<group>";
+		};
+		15F7CE5D2A484EAC00F6041F /* Reusable Components */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FA862A45AFB200E6FD1A /* CustomLabels.swift */,
+				AC60FA882A47102D00E6FD1A /* CustomButtons.swift */,
+				AC60FAAA2A4C585200E6FD1A /* CustomTextFields.swift */,
+				AC60FAAC2A4C5BEF00E6FD1A /* DatePicker.swift */,
+			);
+			path = "Reusable Components";
+			sourceTree = "<group>";
+		};
 		AC60FA612A4464CD00E6FD1A = {
 			isa = PBXGroup;
 			children = (
@@ -60,25 +225,16 @@
 		AC60FA6C2A4464CD00E6FD1A /* HabitTracker */ = {
 			isa = PBXGroup;
 			children = (
-				AC60FA812A44B8C200E6FD1A /* Service */,
+				15F7CE5C2A484EA400F6041F /* Design System */,
 				AC60FA822A44B8D200E6FD1A /* Presentation */,
 				AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */,
 				AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */,
-				AC60FA862A45AFB200E6FD1A /* CustomLabels.swift */,
-				AC60FA882A47102D00E6FD1A /* CustomButtons.swift */,
 				AC60FA732A4464CD00E6FD1A /* Main.storyboard */,
 				AC60FA762A4464CE00E6FD1A /* Assets.xcassets */,
 				AC60FA782A4464CE00E6FD1A /* LaunchScreen.storyboard */,
 				AC60FA7B2A4464CE00E6FD1A /* Info.plist */,
 			);
 			path = HabitTracker;
-			sourceTree = "<group>";
-		};
-		AC60FA812A44B8C200E6FD1A /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		AC60FA822A44B8D200E6FD1A /* Presentation */ = {
@@ -92,25 +248,215 @@
 		AC60FA832A44B92C00E6FD1A /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				AC60FA842A44B96000E6FD1A /* First */,
+				AC60FA842A44B96000E6FD1A /* Welcome */,
+				AC60FA8A2A49FFD800E6FD1A /* Information */,
+				AC60FAAE2A4CA3E900E6FD1A /* Gender */,
+				AC60FAD32A4DEE5D00E6FD1A /* Congrats */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
 		};
-		AC60FA842A44B96000E6FD1A /* First */ = {
+		AC60FA842A44B96000E6FD1A /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				15F7CE592A484ABC00F6041F /* Configurator */,
+				15F7CE402A48432400F6041F /* Interactor */,
+				15F7CE412A48432A00F6041F /* Presenter */,
+				15F7CE422A48433000F6041F /* Router */,
 				AC60FA852A44B9BF00E6FD1A /* View */,
 			);
-			path = First;
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		AC60FA852A44B9BF00E6FD1A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AC60FA712A4464CD00E6FD1A /* ViewController.swift */,
+				AC60FA712A4464CD00E6FD1A /* WelcomeView.swift */,
+				15F7CE452A48463600F6041F /* WelcomeViewInput.swift */,
+				15F7CE472A48464200F6041F /* WelcomeViewOutput.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AC60FA8A2A49FFD800E6FD1A /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FA8F2A4A003C00E6FD1A /* Configurator */,
+				AC60FA8E2A4A003100E6FD1A /* Interactor */,
+				AC60FA8D2A4A002900E6FD1A /* Presenter */,
+				AC60FA8C2A4A002200E6FD1A /* Router */,
+				AC60FA8B2A4A001C00E6FD1A /* View */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		AC60FA8B2A4A001C00E6FD1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FA902A4A005B00E6FD1A /* InformationView.swift */,
+				AC60FA922A4A011300E6FD1A /* InformationViewInput.swift */,
+				AC60FA942A4A016B00E6FD1A /* InformationViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC60FA8C2A4A002200E6FD1A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FA962A4B10E800E6FD1A /* InformationRouter.swift */,
+				AC60FA982A4B11B500E6FD1A /* InformationRouterInput.swift */,
+				AC60FA9A2A4B11F600E6FD1A /* InformationRouterOutput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AC60FA8D2A4A002900E6FD1A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FA9C2A4B12EF00E6FD1A /* InformationPresenter.swift */,
+				AC60FA9E2A4B157F00E6FD1A /* InformationPresenterInput.swift */,
+				AC60FAA02A4B15A600E6FD1A /* InformationPresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC60FA8E2A4A003100E6FD1A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAA22A4B161700E6FD1A /* InformationInteractor.swift */,
+				AC60FAA42A4B169F00E6FD1A /* InformationInteractorInput.swift */,
+				AC60FAA62A4B16C300E6FD1A /* InformationInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		AC60FA8F2A4A003C00E6FD1A /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAA82A4B171A00E6FD1A /* InformationConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		AC60FAAE2A4CA3E900E6FD1A /* Gender */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAB32A4CA41900E6FD1A /* Configurator */,
+				AC60FAB22A4CA41200E6FD1A /* Interactor */,
+				AC60FAB12A4CA40C00E6FD1A /* Presenter */,
+				AC60FAB02A4CA40600E6FD1A /* Router */,
+				AC60FAAF2A4CA40200E6FD1A /* View */,
+			);
+			path = Gender;
+			sourceTree = "<group>";
+		};
+		AC60FAAF2A4CA40200E6FD1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAB42A4CA43400E6FD1A /* GenderView.swift */,
+				AC60FABE2A4D75BA00E6FD1A /* GenderViewInput.swift */,
+				AC60FAC02A4D75E800E6FD1A /* GenderViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC60FAB02A4CA40600E6FD1A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAB82A4D74B100E6FD1A /* GenderRouter.swift */,
+				AC60FABA2A4D755D00E6FD1A /* GenderRouterInput.swift */,
+				AC60FABC2A4D759600E6FD1A /* GenderRouterOutput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AC60FAB12A4CA40C00E6FD1A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAC22A4D76AF00E6FD1A /* GenderPresenter.swift */,
+				AC60FAC42A4D77B400E6FD1A /* GenderPresenterInput.swift */,
+				AC60FAC62A4D77D200E6FD1A /* GenderPresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC60FAB22A4CA41200E6FD1A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAC82A4D77EE00E6FD1A /* GenderInteractor.swift */,
+				AC60FACA2A4D788B00E6FD1A /* GenderInteractorInput.swift */,
+				AC60FACC2A4D78AF00E6FD1A /* GenderInteractorOutput.swift */,
+				AC60FAD12A4DDD9D00E6FD1A /* GenderItems.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		AC60FAB32A4CA41900E6FD1A /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAB62A4D742200E6FD1A /* GenderConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		AC60FAD32A4DEE5D00E6FD1A /* Congrats */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAD82A4DEEB400E6FD1A /* Configurator */,
+				AC60FAD72A4DEEAD00E6FD1A /* Interactor */,
+				AC60FAD62A4DEEA700E6FD1A /* Presenter */,
+				AC60FAD52A4DEEA300E6FD1A /* Router */,
+				AC60FAD42A4DEE9C00E6FD1A /* View */,
+			);
+			path = Congrats;
+			sourceTree = "<group>";
+		};
+		AC60FAD42A4DEE9C00E6FD1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAD92A501C8D00E6FD1A /* CongratsView.swift */,
+				AC60FADB2A501D5C00E6FD1A /* CongratsViewInput.swift */,
+				AC60FADD2A501D8600E6FD1A /* CongratsViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC60FAD52A4DEEA300E6FD1A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FADF2A501DED00E6FD1A /* CongratsRouter.swift */,
+				AC60FAE12A501E9500E6FD1A /* CongratsRouterInput.swift */,
+				AC60FAE32A501EB200E6FD1A /* CongratsRouterOutput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AC60FAD62A4DEEA700E6FD1A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAE52A501F2300E6FD1A /* CongratsPresenter.swift */,
+				AC60FAE72A502A3300E6FD1A /* CongratsPresenterInput.swift */,
+				AC60FAE92A502A5100E6FD1A /* CongratsPresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC60FAD72A4DEEAD00E6FD1A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAEB2A502A8E00E6FD1A /* CongratsInteractor.swift */,
+				AC60FAED2A502B3500E6FD1A /* CongratsInteractorInput.swift */,
+				AC60FAEF2A502B5300E6FD1A /* CongratsInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		AC60FAD82A4DEEB400E6FD1A /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				AC60FAF12A502B9C00E6FD1A /* CongratsConfigurator.swift */,
+			);
+			path = Configurator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,11 +530,65 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC60FA722A4464CD00E6FD1A /* ViewController.swift in Sources */,
+				AC60FA722A4464CD00E6FD1A /* WelcomeView.swift in Sources */,
+				15F7CE442A4844CE00F6041F /* WelcomePresenter.swift in Sources */,
+				AC60FAF22A502B9C00E6FD1A /* CongratsConfigurator.swift in Sources */,
+				15F7CE582A48489A00F6041F /* WelcomeRouterOutput.swift in Sources */,
+				AC60FAE62A501F2300E6FD1A /* CongratsPresenter.swift in Sources */,
+				AC60FAA92A4B171A00E6FD1A /* InformationConfigurator.swift in Sources */,
+				AC60FA9D2A4B12EF00E6FD1A /* InformationPresenter.swift in Sources */,
+				AC60FAE82A502A3300E6FD1A /* CongratsPresenterInput.swift in Sources */,
+				AC60FAEC2A502A8E00E6FD1A /* CongratsInteractor.swift in Sources */,
+				AC60FAF02A502B5300E6FD1A /* CongratsInteractorOutput.swift in Sources */,
+				15F7CE502A48476100F6041F /* WelcomeInteractorInput.swift in Sources */,
+				15F7CE4E2A4846EA00F6041F /* WelcomeInteractor.swift in Sources */,
+				AC60FABD2A4D759600E6FD1A /* GenderRouterOutput.swift in Sources */,
+				AC60FAAD2A4C5BEF00E6FD1A /* DatePicker.swift in Sources */,
+				AC60FAC12A4D75E800E6FD1A /* GenderViewOutput.swift in Sources */,
+				AC60FAEA2A502A5100E6FD1A /* CongratsPresenterOutput.swift in Sources */,
+				AC60FABB2A4D755D00E6FD1A /* GenderRouterInput.swift in Sources */,
+				15F7CE482A48464200F6041F /* WelcomeViewOutput.swift in Sources */,
+				AC60FA992A4B11B500E6FD1A /* InformationRouterInput.swift in Sources */,
+				AC60FAC32A4D76AF00E6FD1A /* GenderPresenter.swift in Sources */,
+				15F7CE462A48463700F6041F /* WelcomeViewInput.swift in Sources */,
+				AC60FAE22A501E9500E6FD1A /* CongratsRouterInput.swift in Sources */,
+				AC60FAA72A4B16C300E6FD1A /* InformationInteractorOutput.swift in Sources */,
+				15F7CE522A48476A00F6041F /* WelcomeInteractorOutput.swift in Sources */,
+				AC60FA952A4A016B00E6FD1A /* InformationViewOutput.swift in Sources */,
+				15F7CE562A48489100F6041F /* WelcomeRouterInput.swift in Sources */,
+				AC60FAA52A4B169F00E6FD1A /* InformationInteractorInput.swift in Sources */,
+				15F7CE4A2A48469400F6041F /* WelcomePresenterInput.swift in Sources */,
+				AC60FA972A4B10E800E6FD1A /* InformationRouter.swift in Sources */,
+				AC60FADA2A501C8D00E6FD1A /* CongratsView.swift in Sources */,
+				AC60FA932A4A011300E6FD1A /* InformationViewInput.swift in Sources */,
 				AC60FA6E2A4464CD00E6FD1A /* AppDelegate.swift in Sources */,
+				15F7CE5B2A484ACB00F6041F /* WelcomeConfigurator.swift in Sources */,
+				15F7CE4C2A4846A200F6041F /* WelcomePresenterOutput.swift in Sources */,
+				AC60FAA12A4B15A600E6FD1A /* InformationPresenterOutput.swift in Sources */,
 				AC60FA702A4464CD00E6FD1A /* SceneDelegate.swift in Sources */,
+				AC60FACD2A4D78AF00E6FD1A /* GenderInteractorOutput.swift in Sources */,
+				AC60FADC2A501D5C00E6FD1A /* CongratsViewInput.swift in Sources */,
+				AC60FA912A4A005B00E6FD1A /* InformationView.swift in Sources */,
+				AC60FA9F2A4B157F00E6FD1A /* InformationPresenterInput.swift in Sources */,
+				AC60FAD22A4DDD9D00E6FD1A /* GenderItems.swift in Sources */,
+				15F7CE542A48488000F6041F /* WelcomeRouter.swift in Sources */,
+				AC60FAE42A501EB200E6FD1A /* CongratsRouterOutput.swift in Sources */,
+				AC60FAB52A4CA43400E6FD1A /* GenderView.swift in Sources */,
+				AC60FAB92A4D74B100E6FD1A /* GenderRouter.swift in Sources */,
+				AC60FADE2A501D8600E6FD1A /* CongratsViewOutput.swift in Sources */,
 				AC60FA872A45AFB200E6FD1A /* CustomLabels.swift in Sources */,
+				AC60FAE02A501DED00E6FD1A /* CongratsRouter.swift in Sources */,
+				AC60FACB2A4D788B00E6FD1A /* GenderInteractorInput.swift in Sources */,
+				AC60FABF2A4D75BA00E6FD1A /* GenderViewInput.swift in Sources */,
+				AC60FAEE2A502B3500E6FD1A /* CongratsInteractorInput.swift in Sources */,
 				AC60FA892A47102D00E6FD1A /* CustomButtons.swift in Sources */,
+				AC60FA9B2A4B11F600E6FD1A /* InformationRouterOutput.swift in Sources */,
+				AC60FAAB2A4C585200E6FD1A /* CustomTextFields.swift in Sources */,
+				AC60FAC72A4D77D200E6FD1A /* GenderPresenterOutput.swift in Sources */,
+				AC60FAC92A4D77EE00E6FD1A /* GenderInteractor.swift in Sources */,
+				AC60FAA32A4B161700E6FD1A /* InformationInteractor.swift in Sources */,
+				AC60FAC52A4D77B400E6FD1A /* GenderPresenterInput.swift in Sources */,
+				AC60FAB72A4D742200E6FD1A /* GenderConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        window?.rootViewController = FirstView()
+        window?.rootViewController = UINavigationController(
+            rootViewController: WelcomeConfigurator().configure()//WelcomeConfigurator().configure()
+        )
         window?.makeKeyAndVisible()
     }
 
