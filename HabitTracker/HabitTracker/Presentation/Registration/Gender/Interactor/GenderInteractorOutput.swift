@@ -8,4 +8,6 @@
 import Foundation
 
 protocol GenderInteractorOutput: AnyObject {
+
+    func itemsLoaded(_ items: [EmojiItems])
 }

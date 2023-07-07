@@ -12,20 +12,20 @@ final class WelcomeView: UIViewController {
     var output: WelcomeViewOutput?
 
     private let titleLabel = StyledLabel(
-        font: .systemFont(ofSize: 32, weight: .bold),
-        color: .white
+        font: .systemFont(ofSize: Fonts.titleSize, weight: Weigth.bold),
+        color: Colors.white
     )
 
     private let descriptionLabel = StyledLabel(
-        font: .systemFont(ofSize: 14, weight: .medium),
-        color: .lightGray
+        font: .systemFont(ofSize: Fonts.descriptionSize, weight: Weigth.medium),
+        color: Colors.lightGray
     )
 
     private let nextButton = CustomButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = Colors.background
         setupUI()
     }
 }
@@ -46,11 +46,11 @@ private extension WelcomeView {
     }
 
     func setupView() {
+        titleLabel.text = "Health.Strong.Flexible. Be the best!".localized()
+        view.addSubview(titleLabel)
+        
         descriptionLabel.text = "The neuroscience of happiness in your pocket!"
         view.addSubview(descriptionLabel)
-
-        titleLabel.text = "Health.Strong.Flexible. Be the best!"
-        view.addSubview(titleLabel)
 
         nextButton.setTitle("Next", for: .normal)
         nextButton.addAction(.init(handler: { [weak self] action in

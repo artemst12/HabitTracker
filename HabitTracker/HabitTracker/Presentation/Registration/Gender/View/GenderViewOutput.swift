@@ -8,6 +8,8 @@
 import Foundation
 
 protocol GenderViewOutput {
+
     func nextButtonTapped()
-    func getItems() -> [EmojiItems]
+
+    func getItems()
 }

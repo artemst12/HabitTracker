@@ -19,8 +19,8 @@ final class GenderInteractor {
 
 extension GenderInteractor: GenderInteractorInput {
     
-    func loadData() -> [EmojiItems] {
-        return items
+    func loadData() {
+        output?.itemsLoaded(items)
     }
 }
 

@@ -20,10 +20,14 @@ extension GenderPresenter: GenderViewOutput {
         router?.next(CongratsConfigurator().configure())
     }
     
-    func getItems() -> [EmojiItems] {
-        interactor?.loadData() ?? []
+    func getItems() {
+        interactor?.loadData()
     }
 }
 
 extension GenderPresenter: GenderInteractorOutput {
+
+    func itemsLoaded(_ items: [EmojiItems]) {
+        view?.updateButtons(items)
+    }
 }

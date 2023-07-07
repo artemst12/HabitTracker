@@ -8,4 +8,6 @@
 import Foundation
 
 protocol GenderViewInput: AnyObject {
+
+    func updateButtons(_ buttons: [EmojiItems])
 }

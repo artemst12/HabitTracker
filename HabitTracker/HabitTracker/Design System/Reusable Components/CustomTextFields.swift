@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol DefaultValidator: UITextFieldDelegate {
+
+    var currentState: TextFieldValidator.State { get }
+}
+
 final class CustomTextField: UITextField {
-    
-    override init(frame: CGRect){
+
+    override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         setupUI()
@@ -27,6 +32,17 @@ final class CustomTextField: UITextField {
     func set(icon: UIImage) {
         self.leftView = UIImageView(image: icon)
     }
+
+    private var validator: DefaultValidator?
+
+    var isValid: Bool {
+        validator?.currentState == .success
+    }
+
+    func set(delegate: DefaultValidator?) {
+        self.validator = delegate
+        self.delegate = delegate
+    }
 }
 
 private extension CustomTextField {
@@ -34,10 +50,25 @@ private extension CustomTextField {
     func setupUI() {
         setupTextField()
     }
-    
+
     func setupTextField() {
-        self.backgroundColor = .init(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-        self.layer.cornerRadius = 12
-        self.textColor = .white
+        self.backgroundColor = Colors.lightBlack
+        self.layer.cornerRadius = Constants.radiusTextField
+        self.textColor = Colors.white
+    }
+}
+
+extension CustomTextField {
+    
+    func setLeftPaddingPoints(_ amount: CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    
+    func setRightPaddingPoints(_ amount: CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
     }
 }

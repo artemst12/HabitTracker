@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GenderInteractorInput {
-    func loadData() -> [EmojiItems]
+    func loadData()
 }

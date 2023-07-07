@@ -24,6 +24,9 @@ final class CustomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // TODO: Смена стиля кнопки
+    // TODO: Вынести цвета в дизайн систему
+
     func change(state: Style) {
         switch state {
         case .enabled:
@@ -42,9 +45,9 @@ private extension CustomButton {
     
     func setupButton() {
         self.setTitleColor(.black, for: .normal)
-        self.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
-        self.backgroundColor = .init(red: 178/255, green: 240/255, blue: 66/255, alpha: 1)
-        self.layer.cornerRadius = 14
+        self.titleLabel?.font = .systemFont(ofSize: Fonts.buttonTitle, weight: .medium)
+        self.backgroundColor = Colors.lightGreen
+        self.layer.cornerRadius = Constants.cornerRadiusNextButton
     }
 }
 
@@ -57,11 +60,18 @@ final class CustomGenderButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
+        genderLabel.translatesAutoresizingMaskIntoConstraints = false
         setupUI()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func configure(emojiText: String, genderText: String) {
+        emojiLabel.text = emojiText
+        genderLabel.text = genderText
     }
 }
 
@@ -74,32 +84,31 @@ private extension CustomGenderButton {
     
     func setupButton() {
         self.addSubview(emojiLabel)
-        emojiLabel.textColor = .white
-        emojiLabel.font = .systemFont(ofSize: 32)
-        
+        emojiLabel.textColor = Colors.white
+        emojiLabel.font = .systemFont(ofSize: Fonts.emojiSize)
+        emojiLabel.textAlignment = .center
+
         self.addSubview(genderLabel)
-        genderLabel.textColor = .white
-        genderLabel.font = .systemFont(ofSize: 18, weight: .bold)
-        
-        self.backgroundColor = .init(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-        self.layer.cornerRadius = 16
+        genderLabel.textColor = Colors.white
+        genderLabel.font = .systemFont(ofSize: Fonts.buttonLabelSize, weight: Weigth.bold)
+        genderLabel.textAlignment = .center
+
+        self.backgroundColor = Colors.lightBlack
+        self.layer.cornerRadius = Constants.cornerRadiusGenderButton
     }
         
     func setupConstraints() {
+//        emojiLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+//        genderLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 170),
-            self.widthAnchor.constraint(equalToConstant: 160),
-            
             emojiLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             emojiLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
-            
-            genderLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            genderLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor, constant: 15)
+
+            genderLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            genderLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            genderLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor, constant: 15),
+            genderLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12)
         ])
-    }
-    
-    func configure(emojiText: String, genderText: String) {
-        emojiLabel.text = emojiText
-        genderLabel.text = genderText
     }
 }

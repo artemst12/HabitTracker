@@ -12,13 +12,13 @@ final class CongratsView: UIViewController {
     var output: CongratsViewOutput?
     
     private let titleLabel = StyledLabel(
-        font: .systemFont(ofSize: 32, weight: .bold),
-        color: .white
+        font: .systemFont(ofSize: Fonts.titleSize, weight: Weigth.bold),
+        color: Colors.white
     )
     
     private let descriptionLabel = StyledLabel(
-        font: .systemFont(ofSize: 14, weight: .medium),
-        color: .lightGray
+        font: .systemFont(ofSize: Fonts.descriptionSize, weight: Weigth.medium),
+        color: Colors.lightGray
     )
     
     private let buttonStart = CustomButton()
@@ -45,7 +45,7 @@ private extension CongratsView {
     }
     
     func setupView() {
-        view.backgroundColor = .black
+        view.backgroundColor = Colors.background
     }
     
     func setupLabels() {

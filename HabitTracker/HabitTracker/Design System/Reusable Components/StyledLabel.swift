@@ -1,5 +1,5 @@
 //
-//  CustomLabel.swift
+//  StyledLabel.swift
 //  HabitTracker
 //
 //  Created by Артем Ступников on 23.06.2023.

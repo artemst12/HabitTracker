@@ -12,15 +12,19 @@ final class GenderView: UIViewController {
     var output: GenderViewOutput?
     
     private let titleLabel = StyledLabel(
-        font: .systemFont(ofSize: 32, weight: .bold),
-        color: .white
+        font: .systemFont(ofSize: Fonts.titleSize, weight: Weigth.bold),
+        color: Colors.white
     )
     
     private let descriptionLabel = StyledLabel(
-        font: .systemFont(ofSize: 14, weight: .medium),
-        color: .lightGray
+        font: .systemFont(ofSize: Fonts.descriptionSize, weight: Weigth.medium),
+        color: Colors.lightGray
     )
     
+    private var genderCollectionView: UICollectionView!
+    private var genderCollectionViewAdapter: GenderCollectionViewAdapter?
+
+    // TODO: Кнопки должны быть массивом в CollectionView
     private let maleButton = CustomGenderButton()
     private let femaleButton = CustomGenderButton()
     
@@ -31,13 +35,26 @@ final class GenderView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        output?.getItems()
     }
 }
 
 // MARK: GenderViewInput
 extension GenderView: GenderViewInput {
+
+    // TODO: конфиг по массиву кнопок, а не отдельное свойство для каждой кнопки
+    func updateButtons(_ buttons: [EmojiItems]) {
+        maleButton.configure(emojiText: buttons[0].emoji, genderText: buttons[0].genderLabel)
+        femaleButton.configure(emojiText: buttons[1].emoji, genderText: buttons[1].genderLabel)
+    }
 }
 
+// MARK: - GenderCollectionViewAdapterOutput
+extension GenderView: GenderCollectionViewAdapterOutput {
+    
+}
+
+//MARK: - Private methods
 private extension GenderView {
     
     func setupUI() {
@@ -48,15 +65,35 @@ private extension GenderView {
     }
     
     func setupView() {
-        view.backgroundColor = .black
+        view.backgroundColor = Colors.background
     }
     
     func setupLabels() {
         view.addSubview(titleLabel)
-        titleLabel.text = "What's your gender?"
+        titleLabel.text = "What's your gender?".localized()
         
         view.addSubview(descriptionLabel)
         descriptionLabel.text = "To make sure we recommended the right settings for you. :)"
+    }
+    
+    func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = .init(width: 60, height: 80)
+        layout.sectionInset = .init(top: 0, left: 20, bottom: 0, right: 20)
+
+        genderCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        genderCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(genderCollectionView)
+
+        genderCollectionViewAdapter = GenderCollectionViewAdapter(
+            data: [],
+            collectionView: genderCollectionView,
+            output: self
+        )
+        
+//        genderCollectionView.delegate = genderCollectionViewAdapter
+//        genderCollectionView.dataSource = genderCollectionViewAdapter
     }
     
     func setupButtons() {
@@ -89,7 +126,7 @@ private extension GenderView {
             
             femaleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
             femaleButton.leadingAnchor.constraint(equalTo: maleButton.trailingAnchor, constant: 20),
-//            femaleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            femaleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             
             nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),

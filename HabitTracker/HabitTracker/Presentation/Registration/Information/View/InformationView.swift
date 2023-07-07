@@ -7,33 +7,32 @@
 
 import UIKit
 
-final class InformationView: UIViewController, UITextFieldDelegate {
+final class InformationView: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
     var output: InformationViewOutput?
-    
+        
     private let titleLabel = StyledLabel(
-        font: .systemFont(ofSize: 32, weight: .bold),
-        color: .white
+        font: .systemFont(ofSize: Fonts.titleSize, weight: Weigth.bold),
+        color: Colors.white
     )
     
     private let enterNameLabel = StyledLabel(
-        font: .systemFont(ofSize: 14, weight: .medium),
-        color: .lightGray
+        font: .systemFont(ofSize: Fonts.descriptionSize, weight: Weigth.medium),
+        color: Colors.lightGray
     )
     
     private let enterDateLabel = StyledLabel(
-        font: .systemFont(ofSize: 14, weight: .medium),
-        color: .lightGray
+        font: .systemFont(ofSize: Fonts.descriptionSize, weight: Weigth.medium),
+        color: Colors.lightGray
     )
-    
-    private let nextButton = CustomButton()
     
     private var nameField = CustomTextField()
     private var dateField = CustomTextField()
-    private var changed: Bool = false
     
-    private let datePicker = UIDatePicker()
+    private let datePicker = DatePicker()
     
+    private let nextButton = CustomButton()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -44,20 +43,22 @@ final class InformationView: UIViewController, UITextFieldDelegate {
 extension InformationView: InformationViewInput {
 }
 
-// MARK: Private Methods
-private extension InformationView {
+// MARK: Methods
+ extension InformationView {
     
     func setupUI() {
         setupView()
         setupLabels()
         setupTextFields()
+//        swipe()
+        hideKeyboardWhenTappedAround()
         setupButtons()
         createDatepicker()
         setupConstraints()
     }
     
     func setupView() {
-        view.backgroundColor = .black
+        view.backgroundColor = Colors.background
     }
     
     func setupLabels() {
@@ -74,21 +75,44 @@ private extension InformationView {
     func setupTextFields() {
         view.addSubview(nameField)
         view.addSubview(dateField)
+
+//        TextFieldValidator(changedAction: { state in
+//            let hasError = [nameField, dateField]
+//                .map { $0.isValid }
+//                .contains(false)
+//
+//            nextButton.isEnabled = !hasError
+//        })
+    
+        nameField.set(delegate: TextFieldValidator())
+        dateField.set(delegate: TextFieldValidator())
+
+        nameField.setLeftPaddingPoints(10)
+        nameField.setRightPaddingPoints(10)
         
-        nameField.delegate = self
-            
-        nameField.set(icon: .add)
-        dateField.set(icon: .add)
+        dateField.setLeftPaddingPoints(10)
+        dateField.setRightPaddingPoints(10)
     }
     
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return true
+//    }
+//
+//    func swipe() {
+//        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboardOnSwipeDown))
+//        swipeDown.delegate = self
+//        swipeDown.direction = UISwipeGestureRecognizer.Direction.down
+//    }
+//
+//    @objc func hideKeyboardOnSwipeDown() {
+//        view.endEditing(true)
+//    }
+
     func createDatepicker() {
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
-        datePicker.backgroundColor = .init(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-        datePicker.setValue(UIColor.init(red: 210/255, green: 210/255, blue: 210/255, alpha: 1), forKeyPath: "textColor")
-        
-        dateField.inputView = datePicker
-        dateField.inputAccessoryView = createToolbar()
+        datePicker.setValue(Colors.darkBlack, forKeyPath: "textColor")
+        datePicker.set(textfield: dateField)
     }
     
     func setupButtons() {
@@ -98,22 +122,13 @@ private extension InformationView {
         }), for: .touchUpInside)
         view.addSubview(nextButton)
         
-//        nextButton.isEnabled = false
-//        let textFields = [nameField, dateField]
-//        for textField in textFields {
-////            if changed == false {
-//                textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-////            }
-//        }
+        let fields = [nameField, dateField]
+            .map { $0.isValid }
+            .contains(false)
+        
+//        nextButton.isEnabled = !hasError
     }
-//
-//    @objc func textFieldDidChange(textField: UITextField) {
-//
-//        if nextButton.isEnabled == false {
-//            nextButton.isEnabled = true
-//        }
-//    }
-    
+
     func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
@@ -145,57 +160,22 @@ private extension InformationView {
     }
 }
 
-// DatePicker
+// Скрытие клавиатуры
 private extension InformationView {
-    
-    func createToolbar() -> UIToolbar {
-        // toolbar
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        toolbar.layer.cornerRadius = 20
-        toolbar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        toolbar.clipsToBounds = true
-        toolbar.barTintColor = .init(red: 8/255, green: 8/255, blue: 8/255, alpha: 1)
-        
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(cancel))
-        cancelButton.tintColor = .white
-        
-        // done button
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: #selector(donePressed))
-        doneBtn.tintColor = .white
-        toolbar.setItems([cancelButton, space, doneBtn], animated: true)
-        
-        return toolbar
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
-    @objc func cancel() {
-        self.dateField.text = dateField.text
-        self.view.endEditing(true)
-    }
-    
-    @objc func donePressed() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-
-        self.dateField.text = dateFormatter.string(from: datePicker.date)
-        self.view.endEditing(true)
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
-// SetupTextField
-extension InformationView {
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let maxLength = 30
-        let currentString: NSString = textField.text! as NSString
-        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-        
-        if newString.length == maxLength {
-            textField.resignFirstResponder()
-        }
-        return newString.length <= maxLength
-    }
-}
+// TODO: Скрытие клавиатуры +
+// TODO: Скрытие кнопки назад
+// TODO: Отступы слева и справа у поля ввода (?) +
+// TODO: Нет отслеживания состояния заполненности полей
+// TODO: Цвета вынести в отдельные enum в дизайн систему +
+// TODO: Date Picker в отдельный компонент +
