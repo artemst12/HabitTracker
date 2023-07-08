@@ -22,7 +22,7 @@ final class GenderCollectionViewAdapter: NSObject {
         self.collectionView = collectionView
         self.output = output
         
-        self.collectionView?.register(CustomGenderButton.self, forCellWithReuseIdentifier: "CustomGenderButton")
+        self.collectionView?.register(GenderCollectionViewCell.self, forCellWithReuseIdentifier: "GenderCollectionViewCell")
     }
     
     func reload() {
@@ -30,26 +30,27 @@ final class GenderCollectionViewAdapter: NSObject {
     }
 }
 
-//extension GenderCollectionViewAdapter: UICollectionViewDelegate, UICollectionViewDataSource {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return data.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard collectionView.cellForItem(at: indexPath) is CustomGenderButton else {
-//            return
-//        }
-//    }
+extension GenderCollectionViewAdapter: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let tappedCell = collectionView.cellForItem(at: indexPath) as? GenderCollectionViewCell else {
+            return
+        }
         
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomGenderButton", for: indexPath) as? CustomGenderButton else {
-//            return UICollectionViewCell()
-//        }
-//
-//        let currentModel = data[indexPath.row]
-//        cell.configure(emojiText: currentModel.emoji, genderText: currentModel.genderLabel)
-//
-//        return cell
-//    }
-//}
+        
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenderCollectionViewCell", for: indexPath) as? GenderCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.configure()
+
+        return cell
+    }
+}

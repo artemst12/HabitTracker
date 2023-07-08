@@ -61,6 +61,7 @@ private extension GenderView {
         setupView()
         setupLabels()
         setupButtons()
+        setupCollectionView()
         setupConstrains()
     }
     
@@ -92,8 +93,8 @@ private extension GenderView {
             output: self
         )
         
-//        genderCollectionView.delegate = genderCollectionViewAdapter
-//        genderCollectionView.dataSource = genderCollectionViewAdapter
+        genderCollectionView.delegate = genderCollectionViewAdapter
+        genderCollectionView.dataSource = genderCollectionViewAdapter
     }
     
     func setupButtons() {
@@ -103,9 +104,9 @@ private extension GenderView {
             self?.output?.nextButtonTapped()
         }), for: .touchUpInside)
         
-        view.addSubview(maleButton)
+//        view.addSubview(maleButton)
         
-        view.addSubview(femaleButton)
+//        view.addSubview(femaleButton)
     }
     
     func setupConstrains() {
@@ -120,13 +121,18 @@ private extension GenderView {
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
-            maleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
-            maleButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            maleButton.trailingAnchor.constraint(equalTo: femaleButton.leadingAnchor, constant: -20),
+            genderCollectionView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            genderCollectionView.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20),
+            genderCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            genderCollectionView.heightAnchor.constraint(equalToConstant: 80),
             
-            femaleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
-            femaleButton.leadingAnchor.constraint(equalTo: maleButton.trailingAnchor, constant: 20),
-            femaleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+//            maleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+//            maleButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+//            maleButton.trailingAnchor.constraint(equalTo: femaleButton.leadingAnchor, constant: -20),
+//
+//            femaleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+//            femaleButton.leadingAnchor.constraint(equalTo: maleButton.trailingAnchor, constant: 20),
+//            femaleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             
             nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),

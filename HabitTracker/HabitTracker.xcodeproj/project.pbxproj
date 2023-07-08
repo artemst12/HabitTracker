@@ -73,8 +73,8 @@
 		AC60FAFD2A5599AC00E6FD1A /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FAFC2A5599AC00E6FD1A /* Extension + String.swift */; };
 		AC60FAFE2A559A6F00E6FD1A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC60FB002A559A6F00E6FD1A /* Localizable.strings */; };
 		AC60FB032A55AA9D00E6FD1A /* GenderCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FB022A55AA9D00E6FD1A /* GenderCollectionViewAdapter.swift */; };
-		AC60FB052A55C1A800E6FD1A /* GenderCollectionViewAdapterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FB042A55C1A800E6FD1A /* GenderCollectionViewAdapterOutput.swift */; };
 		AC60FB082A56B6F300E6FD1A /* CustomTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FB072A56B6F300E6FD1A /* CustomTextFieldValidator.swift */; };
+		AC60FB0A2A594F7200E6FD1A /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FB092A594F7200E6FD1A /* GenderCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,8 +149,8 @@
 		AC60FAFF2A559A6F00E6FD1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC60FB012A559A7300E6FD1A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC60FB022A55AA9D00E6FD1A /* GenderCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewAdapter.swift; sourceTree = "<group>"; };
-		AC60FB042A55C1A800E6FD1A /* GenderCollectionViewAdapterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewAdapterOutput.swift; sourceTree = "<group>"; };
 		AC60FB072A56B6F300E6FD1A /* CustomTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldValidator.swift; sourceTree = "<group>"; };
+		AC60FB092A594F7200E6FD1A /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -490,8 +490,8 @@
 		AC60FB062A55C73B00E6FD1A /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				AC60FB092A594F7200E6FD1A /* GenderCollectionViewCell.swift */,
 				AC60FB022A55AA9D00E6FD1A /* GenderCollectionViewAdapter.swift */,
-				AC60FB042A55C1A800E6FD1A /* GenderCollectionViewAdapterOutput.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -578,7 +578,6 @@
 				AC60FA9D2A4B12EF00E6FD1A /* InformationPresenter.swift in Sources */,
 				AC60FAE82A502A3300E6FD1A /* CongratsPresenterInput.swift in Sources */,
 				AC60FAEC2A502A8E00E6FD1A /* CongratsInteractor.swift in Sources */,
-				AC60FB052A55C1A800E6FD1A /* GenderCollectionViewAdapterOutput.swift in Sources */,
 				AC60FAF02A502B5300E6FD1A /* CongratsInteractorOutput.swift in Sources */,
 				15F7CE502A48476100F6041F /* WelcomeInteractorInput.swift in Sources */,
 				15F7CE4E2A4846EA00F6041F /* WelcomeInteractor.swift in Sources */,
@@ -615,6 +614,7 @@
 				AC60FAFD2A5599AC00E6FD1A /* Extension + String.swift in Sources */,
 				AC60FA9F2A4B157F00E6FD1A /* InformationPresenterInput.swift in Sources */,
 				AC60FAD22A4DDD9D00E6FD1A /* GenderItems.swift in Sources */,
+				AC60FB0A2A594F7200E6FD1A /* GenderCollectionViewCell.swift in Sources */,
 				15F7CE542A48488000F6041F /* WelcomeRouter.swift in Sources */,
 				AC60FAE42A501EB200E6FD1A /* CongratsRouterOutput.swift in Sources */,
 				AC60FAB52A4CA43400E6FD1A /* GenderView.swift in Sources */,
