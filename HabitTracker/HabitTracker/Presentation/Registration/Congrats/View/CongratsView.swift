@@ -50,15 +50,15 @@ private extension CongratsView {
     
     func setupLabels() {
         view.addSubview(titleLabel)
-        titleLabel.text = "Well done!"
+        titleLabel.text = "Well done!".localized()
         
         view.addSubview(descriptionLabel)
-        descriptionLabel.text = "You have been completed the 'Growth up' questionnaire: now we can personalise the data for you! :)"
+        descriptionLabel.text = "You have been completed the 'Growth up' questionnaire: now we can personalise the data for you! :)".localized()
     }
     
     func setupButtons() {
         view.addSubview(buttonStart)
-        buttonStart.setTitle("Let's start!", for: .normal)
+        buttonStart.setTitle("Let's start!".localized(), for: .normal)
     }
     
     func setupConstraints() {

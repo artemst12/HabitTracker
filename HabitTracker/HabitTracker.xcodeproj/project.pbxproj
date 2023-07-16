@@ -75,6 +75,7 @@
 		AC60FB032A55AA9D00E6FD1A /* GenderCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FB022A55AA9D00E6FD1A /* GenderCollectionViewAdapter.swift */; };
 		AC60FB082A56B6F300E6FD1A /* CustomTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FB072A56B6F300E6FD1A /* CustomTextFieldValidator.swift */; };
 		AC60FB0A2A594F7200E6FD1A /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FB092A594F7200E6FD1A /* GenderCollectionViewCell.swift */; };
+		AC60FB0C2A60835400E6FD1A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FB0B2A60835400E6FD1A /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +152,7 @@
 		AC60FB022A55AA9D00E6FD1A /* GenderCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		AC60FB072A56B6F300E6FD1A /* CustomTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldValidator.swift; sourceTree = "<group>"; };
 		AC60FB092A594F7200E6FD1A /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC60FB0B2A60835400E6FD1A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				AC60FB072A56B6F300E6FD1A /* CustomTextFieldValidator.swift */,
 				AC60FAAC2A4C5BEF00E6FD1A /* DatePicker.swift */,
 				AC60FAF32A541F1800E6FD1A /* Enums.swift */,
+				AC60FB0B2A60835400E6FD1A /* Extensions.swift */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				AC60FA9B2A4B11F600E6FD1A /* InformationRouterOutput.swift in Sources */,
 				AC60FAAB2A4C585200E6FD1A /* CustomTextFields.swift in Sources */,
 				AC60FAC72A4D77D200E6FD1A /* GenderPresenterOutput.swift in Sources */,
+				AC60FB0C2A60835400E6FD1A /* Extensions.swift in Sources */,
 				AC60FAC92A4D77EE00E6FD1A /* GenderInteractor.swift in Sources */,
 				AC60FAA32A4B161700E6FD1A /* InformationInteractor.swift in Sources */,
 				AC60FAC52A4D77B400E6FD1A /* GenderPresenterInput.swift in Sources */,
@@ -792,7 +796,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6ZZ9SAVTKD;
+				DEVELOPMENT_TEAM = 3MFA2WVJSU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HabitTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -820,7 +824,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6ZZ9SAVTKD;
+				DEVELOPMENT_TEAM = 3MFA2WVJSU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HabitTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

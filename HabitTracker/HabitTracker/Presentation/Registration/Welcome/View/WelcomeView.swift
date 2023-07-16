@@ -49,10 +49,10 @@ private extension WelcomeView {
         titleLabel.text = "Health.Strong.Flexible. Be the best!".localized()
         view.addSubview(titleLabel)
         
-        descriptionLabel.text = "The neuroscience of happiness in your pocket!"
+        descriptionLabel.text = "The neuroscience of happiness in your pocket!".localized()
         view.addSubview(descriptionLabel)
 
-        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitle("Next".localized(), for: .normal)
         nextButton.addAction(.init(handler: { [weak self] action in
             self?.output?.nextButtonTapped()
         }), for: .touchUpInside)

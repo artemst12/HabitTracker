@@ -8,7 +8,8 @@
 import UIKit
 
 protocol GenderCollectionViewAdapterOutput {
-    
+
+    func selected(model: EmojiItems)
 }
 
 final class GenderCollectionViewAdapter: NSObject {
@@ -24,6 +25,10 @@ final class GenderCollectionViewAdapter: NSObject {
         
         self.collectionView?.register(GenderCollectionViewCell.self, forCellWithReuseIdentifier: "GenderCollectionViewCell")
     }
+
+    func set(data: [EmojiItems]) {
+        self.data = data
+    }
     
     func reload() {
         self.collectionView?.reloadData()
@@ -37,20 +42,20 @@ extension GenderCollectionViewAdapter: UICollectionViewDelegate, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let tappedCell = collectionView.cellForItem(at: indexPath) as? GenderCollectionViewCell else {
+        guard collectionView.cellForItem(at: indexPath) is GenderCollectionViewCell else {
             return
         }
-        
-        
+
+        output?.selected(model: data[indexPath.item])
     }
-        
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenderCollectionViewCell", for: indexPath) as? GenderCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        cell.configure()
 
+        let model = data[indexPath.item]
+        cell.configure(emojiText: model.emoji, genderText: model.genderLabel)
         return cell
     }
 }

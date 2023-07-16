@@ -44,14 +44,17 @@ extension GenderView: GenderViewInput {
 
     // TODO: конфиг по массиву кнопок, а не отдельное свойство для каждой кнопки
     func updateButtons(_ buttons: [EmojiItems]) {
-        maleButton.configure(emojiText: buttons[0].emoji, genderText: buttons[0].genderLabel)
-        femaleButton.configure(emojiText: buttons[1].emoji, genderText: buttons[1].genderLabel)
+        genderCollectionViewAdapter?.set(data: buttons)
+        genderCollectionViewAdapter?.reload()
     }
 }
 
 // MARK: - GenderCollectionViewAdapterOutput
 extension GenderView: GenderCollectionViewAdapterOutput {
-    
+
+    func selected(model: EmojiItems) {
+        print(model.genderLabel)
+    }
 }
 
 //MARK: - Private methods
@@ -74,17 +77,20 @@ private extension GenderView {
         titleLabel.text = "What's your gender?".localized()
         
         view.addSubview(descriptionLabel)
-        descriptionLabel.text = "To make sure we recommended the right settings for you. :)"
+        descriptionLabel.text = "To make sure we recommended the right settings for you. :)".localized()
     }
     
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = .init(width: 60, height: 80)
-        layout.sectionInset = .init(top: 0, left: 20, bottom: 0, right: 20)
+        layout.itemSize = .init(width: 160, height: 180)
+//        layout.sectionInset = .init(top: 0, left: 20, bottom: 0, right: 20)
+//        layout.minimumInteritemSpacing = 2
+//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 
         genderCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         genderCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        genderCollectionView.backgroundColor = .clear
         view.addSubview(genderCollectionView)
 
         genderCollectionViewAdapter = GenderCollectionViewAdapter(
@@ -99,40 +105,30 @@ private extension GenderView {
     
     func setupButtons() {
         view.addSubview(nextButton)
-        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitle("Next".localized(), for: .normal)
         nextButton.addAction(.init(handler: { [weak self] action in
             self?.output?.nextButtonTapped()
         }), for: .touchUpInside)
-        
-//        view.addSubview(maleButton)
-        
-//        view.addSubview(femaleButton)
     }
+    
+    
     
     func setupConstrains() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25),
             descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
-            genderCollectionView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
-            genderCollectionView.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20),
-            genderCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
-            genderCollectionView.heightAnchor.constraint(equalToConstant: 80),
-            
-//            maleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
-//            maleButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-//            maleButton.trailingAnchor.constraint(equalTo: femaleButton.leadingAnchor, constant: -20),
-//
-//            femaleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
-//            femaleButton.leadingAnchor.constraint(equalTo: maleButton.trailingAnchor, constant: 20),
-//            femaleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            genderCollectionView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 25),
+            genderCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            genderCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            genderCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
             
             nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),

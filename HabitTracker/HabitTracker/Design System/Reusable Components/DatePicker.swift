@@ -58,7 +58,7 @@ extension DatePicker {
         cancelButton.tintColor = Colors.white
 
         // done button
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: #selector(donePressed))
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(donePressed))
         doneBtn.tintColor = Colors.white
         toolbar.setItems([cancelButton, space, doneBtn], animated: true)
 

@@ -25,7 +25,10 @@ final class InformationView: UIViewController, UITextFieldDelegate, UIGestureRec
         font: .systemFont(ofSize: Fonts.descriptionSize, weight: Weigth.medium),
         color: Colors.lightGray
     )
-    
+
+    private var scrollView = UIScrollView()
+    private var contentView = UIView()
+
     private var nameField = CustomTextField()
     private var dateField = CustomTextField()
     
@@ -33,9 +36,20 @@ final class InformationView: UIViewController, UITextFieldDelegate, UIGestureRec
     
     private let nextButton = CustomButton()
 
+    // MARK: Constraints
+    private var scrollViewBottomConstraint: NSLayoutConstraint?
+    private var nextButtonBottomConstraint: NSLayoutConstraint?
+    
+    private lazy var regex = "^(?=.*[а-я)(?=.*[А-Я])(?=.*\\d)(?=.[$@$!%*?&#])[А-Яа-я\\d$@$!%*?&#]"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservers()
     }
 }
 
@@ -45,47 +59,61 @@ extension InformationView: InformationViewInput {
 
 // MARK: Methods
  extension InformationView {
-    
-    func setupUI() {
+
+     func setupUI() {
         setupView()
+        setupScrollView()
         setupLabels()
         setupTextFields()
-//        swipe()
-        hideKeyboardWhenTappedAround()
         setupButtons()
         createDatepicker()
+        setupObservers()
         setupConstraints()
     }
-    
-    func setupView() {
+     
+     func setupView() {
         view.backgroundColor = Colors.background
+        self.navigationItem.hidesBackButton = true
+    }
+
+    func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.contentInset = .init(top: 0, left: 0, bottom: 100, right: 0)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.keyboardDismissMode = .onDrag
+
+        scrollView.addSubview(contentView)
+        scrollView.alwaysBounceVertical = true
+        contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupLabels() {
-        titleLabel.text = "Fill your information!"
-        view.addSubview(titleLabel)
+        titleLabel.text = "Fill your information!".localized()
+        contentView.addSubview(titleLabel)
         
-        enterNameLabel.text = "Enter your name"
-        view.addSubview(enterNameLabel)
+        enterNameLabel.text = "Enter your name".localized()
+        contentView.addSubview(enterNameLabel)
         
-        enterDateLabel.text = "Enter your date of birth"
-        view.addSubview(enterDateLabel)
+        enterDateLabel.text = "Enter your date of birth".localized()
+        contentView.addSubview(enterDateLabel)
     }
     
     func setupTextFields() {
-        view.addSubview(nameField)
-        view.addSubview(dateField)
+        contentView.addSubview(nameField)
+        contentView.addSubview(dateField)
 
-//        TextFieldValidator(changedAction: { state in
-//            let hasError = [nameField, dateField]
-//                .map { $0.isValid }
-//                .contains(false)
-//
-//            nextButton.isEnabled = !hasError
-//        })
-    
-        nameField.set(delegate: TextFieldValidator())
-        dateField.set(delegate: TextFieldValidator())
+        let textDidChanged: () -> Void = {
+            let isValid = [self.nameField, self.dateField]
+                .map { $0.isValid }
+                .contains(false)
+
+            self.view.backgroundColor = isValid ? .red : .yellow
+        }
+
+        nameField.set(delegate: TextFieldValidator(didUpdateBlock: textDidChanged))
+        dateField.set(delegate: TextFieldValidator(didUpdateBlock: textDidChanged))
+
+        dateField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
 
         nameField.setLeftPaddingPoints(10)
         nameField.setRightPaddingPoints(10)
@@ -93,66 +121,128 @@ extension InformationView: InformationViewInput {
         dateField.setLeftPaddingPoints(10)
         dateField.setRightPaddingPoints(10)
     }
-    
-//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        return true
-//    }
-//
-//    func swipe() {
-//        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboardOnSwipeDown))
-//        swipeDown.delegate = self
-//        swipeDown.direction = UISwipeGestureRecognizer.Direction.down
-//    }
-//
-//    @objc func hideKeyboardOnSwipeDown() {
-//        view.endEditing(true)
-//    }
 
-    func createDatepicker() {
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.datePickerMode = .date
-        datePicker.setValue(Colors.darkBlack, forKeyPath: "textColor")
-        datePicker.set(textfield: dateField)
-    }
-    
-    func setupButtons() {
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.addAction(.init(handler: { [weak self] action in
-            self?.output?.nextButtonTapped()
-        }), for: .touchUpInside)
-        view.addSubview(nextButton)
-        
-        let fields = [nameField, dateField]
-            .map { $0.isValid }
-            .contains(false)
-        
-//        nextButton.isEnabled = !hasError
+     @objc func textFieldChanged() {
+          let isValid = [self.nameField, self.dateField]
+              .map { $0.isValid }
+              .contains(false)
+ 
+          self.view.backgroundColor = isValid ? .red : .yellow
+     }
+     
+     func checkValidator() {
+         if nameField.isValid {
+             
+         }
+     }
+
+     func createDatepicker() {
+         datePicker.preferredDatePickerStyle = .wheels
+         datePicker.datePickerMode = .date
+         datePicker.setValue(Colors.darkBlack, forKeyPath: "textColor")
+         datePicker.set(textfield: dateField)
+     }
+     
+     func setupButtons() {
+         nextButton.setTitle("Next".localized(), for: .normal)
+         nextButton.addAction(.init(handler: { [weak self] action in
+             self?.output?.nextButtonTapped()
+         }), for: .touchUpInside)
+         view.addSubview(nextButton)
+     }
+
+     func setupObservers() {
+         NotificationCenter.default
+             .addObserver(
+                self,
+                selector: #selector(self.keyboardWillShow),
+                name: UIResponder.keyboardWillShowNotification,
+                object: nil)
+         NotificationCenter.default
+             .addObserver(
+                self,
+                selector: #selector(self.keyboardWillHide),
+                name: UIResponder.keyboardWillHideNotification,
+                object: nil)
+     }
+
+     func removeObservers() {
+         NotificationCenter.default.removeObserver(self,
+                                                   name: UIResponder.keyboardWillShowNotification,
+                                                   object: nil)
+         NotificationCenter.default.removeObserver(self,
+                                                   name: UIResponder.keyboardWillHideNotification,
+                                                   object: nil)
+     }
+
+     @objc func keyboardWillShow(notification: Notification) {
+         let keyboardSize = (notification.userInfo? [UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+         let keyboardHeight = keyboardSize?.height
+
+         self.scrollViewBottomConstraint?.constant = -(keyboardHeight! - view.safeAreaInsets.bottom)
+         self.nextButtonBottomConstraint?.constant = -(keyboardHeight! - view.safeAreaInsets.bottom + 40)
+
+         UIView.animate(withDuration: 0.5) {
+             self.view.layoutIfNeeded()
+         }
+     }
+
+     @objc func keyboardWillHide(notification: Notification) {
+
+        self.scrollViewBottomConstraint?.constant = view.safeAreaInsets.bottom
+        self.nextButtonBottomConstraint?.constant = -40
+
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
 
     func setupConstraints() {
+        let hContentView = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        hContentView.priority = .init(rawValue: 250)
+
+        let scrollViewBottomConstraint = scrollView.bottomAnchor
+            .constraint(equalTo: view.bottomAnchor, constant: 0)
+
+        let nextButtonBottomConstraint = nextButton.bottomAnchor
+            .constraint(equalTo: view.bottomAnchor, constant: -40)
+
+        self.scrollViewBottomConstraint = scrollViewBottomConstraint
+        self.nextButtonBottomConstraint = nextButtonBottomConstraint
+
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollViewBottomConstraint,
+
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo:scrollView.trailingAnchor),
+            hContentView,
+
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
             
             enterNameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
-            enterNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            enterNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
             
             nameField.topAnchor.constraint(equalTo: enterNameLabel.bottomAnchor, constant: 15),
-            nameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            nameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            nameField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
+            nameField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25),
             nameField.heightAnchor.constraint(equalToConstant: 50),
             
             enterDateLabel.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 30),
-            enterDateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            enterDateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
             
             dateField.topAnchor.constraint(equalTo: enterDateLabel.bottomAnchor, constant: 15),
-            dateField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            dateField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            dateField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
+            dateField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25),
             dateField.heightAnchor.constraint(equalToConstant: 50),
-            
-            nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
+
+            nextButtonBottomConstraint,
             nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             nextButton.heightAnchor.constraint(equalToConstant: 55)
@@ -160,21 +250,8 @@ extension InformationView: InformationViewInput {
     }
 }
 
-// Скрытие клавиатуры
-private extension InformationView {
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
 // TODO: Скрытие клавиатуры +
-// TODO: Скрытие кнопки назад
+// TODO: Скрытие кнопки назад +
 // TODO: Отступы слева и справа у поля ввода (?) +
 // TODO: Нет отслеживания состояния заполненности полей
 // TODO: Цвета вынести в отдельные enum в дизайн систему +

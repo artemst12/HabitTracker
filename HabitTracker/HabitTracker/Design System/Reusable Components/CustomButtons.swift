@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - NextButtons
 final class CustomButton: UIButton {
 
     enum Style {
@@ -25,7 +26,6 @@ final class CustomButton: UIButton {
     }
 
     // TODO: Смена стиля кнопки
-    // TODO: Вынести цвета в дизайн систему
 
     func change(state: Style) {
         switch state {
@@ -48,6 +48,12 @@ private extension CustomButton {
         self.titleLabel?.font = .systemFont(ofSize: Fonts.buttonTitle, weight: .medium)
         self.backgroundColor = Colors.lightGreen
         self.layer.cornerRadius = Constants.cornerRadiusNextButton
+        self.addTarget(self, action: #selector(animateClick(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func animateClick(sender: UIButton) {
+        print("animate")
+        self.animateView(sender)
     }
 }
 
@@ -95,6 +101,13 @@ private extension CustomGenderButton {
 
         self.backgroundColor = Colors.lightBlack
         self.layer.cornerRadius = Constants.cornerRadiusGenderButton
+        
+        self.addTarget(self, action: #selector(animateClick(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func animateClick(sender: UIButton) {
+        print("animate")
+        self.animateView(sender)
     }
         
     func setupConstraints() {

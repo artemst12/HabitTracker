@@ -14,11 +14,18 @@ final class TextFieldValidator: NSObject, DefaultValidator {
         case failure
     }
 
-    init(currentState: State = .failure) {
-        self.currentState = currentState
-    }
-
     var currentState: State
+    var didUpdateBlock: (() -> Void)? = nil
+
+    // weak var textfield: UITextField
+
+    init(currentState: State = .failure, didUpdateBlock: (() -> Void)? = nil) {
+        self.currentState = currentState
+        self.didUpdateBlock = didUpdateBlock
+    }
+}
+
+extension TextFieldValidator: UITextFieldDelegate {
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
@@ -35,6 +42,8 @@ final class TextFieldValidator: NSObject, DefaultValidator {
         }
 
         currentState = newString.length > 0 ? .success : .failure
+
+        didUpdateBlock?()
 
         return newString.length <= maxLength
     }

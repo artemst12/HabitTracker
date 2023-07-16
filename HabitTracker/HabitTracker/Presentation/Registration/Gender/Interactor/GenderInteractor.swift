@@ -13,7 +13,7 @@ final class GenderInteractor {
     
     private var items: [EmojiItems] = [
         .init(emoji: "🙂", genderLabel: "Male"),
-        .init(emoji: "🥳", genderLabel: "Female")
+        .init(emoji: "🥳", genderLabel: "Female"),
     ]
 }
 
