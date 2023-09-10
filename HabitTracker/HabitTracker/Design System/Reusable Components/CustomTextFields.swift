@@ -10,6 +10,7 @@ import UIKit
 protocol DefaultValidator: UITextFieldDelegate {
 
     var currentState: TextFieldValidator.State { get }
+
 }
 
 final class CustomTextField: UITextField {

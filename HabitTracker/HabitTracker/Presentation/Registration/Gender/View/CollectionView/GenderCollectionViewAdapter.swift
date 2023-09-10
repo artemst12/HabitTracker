@@ -42,10 +42,11 @@ extension GenderCollectionViewAdapter: UICollectionViewDelegate, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard collectionView.cellForItem(at: indexPath) is GenderCollectionViewCell else {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? GenderCollectionViewCell else {
             return
         }
 
+//        cell.isSelect = true
         output?.selected(model: data[indexPath.item])
     }
 

@@ -13,7 +13,7 @@ final class DatePicker: UIDatePicker {
         static let raduisDatePicker: CGFloat = 20
     }
 
-    private weak var textfield: UITextField?
+    private weak var textfield: CustomTextField?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ final class DatePicker: UIDatePicker {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func set(textfield: UITextField?) {
+    func set(textfield: CustomTextField?) {
         textfield?.inputView = self
         textfield?.inputAccessoryView = createToolbar()
         self.textfield = textfield

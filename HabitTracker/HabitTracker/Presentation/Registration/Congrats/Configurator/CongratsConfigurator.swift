@@ -12,7 +12,7 @@ protocol CongratsConfiguratorProtocol {
     func configure() -> UIViewController
 }
 
-final class CongratsConfigurator {
+final class CongratsConfigurator: CongratsConfiguratorProtocol {
     
     func configure() -> UIViewController {
         

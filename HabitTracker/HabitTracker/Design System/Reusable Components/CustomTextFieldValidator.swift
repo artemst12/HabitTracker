@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class TextFieldValidator: NSObject, DefaultValidator {
 
@@ -14,14 +15,60 @@ final class TextFieldValidator: NSObject, DefaultValidator {
         case failure
     }
 
+    enum Constants {
+        static let maxCount = 30
+    }
+
     var currentState: State
     var didUpdateBlock: (() -> Void)? = nil
 
-    // weak var textfield: UITextField
+    weak var textfield: UITextField?
 
-    init(currentState: State = .failure, didUpdateBlock: (() -> Void)? = nil) {
-        self.currentState = currentState
+    private var cancellable: Set<AnyCancellable> = []
+
+    init(
+        textfield: UITextField?,
+        didUpdateBlock: (() -> Void)? = nil
+    ) {
+        self.textfield = textfield
+        self.currentState = .failure
         self.didUpdateBlock = didUpdateBlock
+
+        super.init()
+
+        self.configureTextFieldValidation()
+    }
+
+    private func configureTextFieldValidation() {
+
+        textfield?.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
+
+        textfield?.publisher(for: \.text)
+            .sink(receiveValue: { text in
+                self.valueChanged()
+            })
+            .store(in: &cancellable)
+    }
+
+    @objc
+    func valueChanged() {
+        let isValid = checkValidation(textField: textfield, for: textfield?.text)
+
+        currentState = isValid ? .success : .failure
+
+        didUpdateBlock?()
+    }
+
+    private func checkValidation(textField: UITextField?, for text: String?) -> Bool {
+        guard let text else { return false }
+
+        if text.count == Constants.maxCount {
+            textField?.resignFirstResponder()
+        }
+
+        let isValid = text.count <= Constants.maxCount && text.count > 0
+
+        return isValid
     }
 }
 
@@ -30,21 +77,15 @@ extension TextFieldValidator: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         guard let text = textField.text as? NSString else {
-            return true
+            return false
         }
 
-        let maxLength = 30
-        let currentString: NSString = text
-        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+        let newString = text.replacingCharacters(in: range, with: string)
 
-        if newString.length == maxLength {
-            textField.resignFirstResponder()
-        }
-
-        currentState = newString.length > 0 ? .success : .failure
-
+        let isValid = checkValidation(textField: textField, for: newString)
+        currentState = isValid ? .success : .failure
         didUpdateBlock?()
 
-        return newString.length <= maxLength
+        return text.length <= Constants.maxCount
     }
 }

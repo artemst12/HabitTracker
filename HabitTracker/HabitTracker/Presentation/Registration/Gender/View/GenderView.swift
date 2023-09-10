@@ -91,6 +91,7 @@ private extension GenderView {
         genderCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         genderCollectionView.translatesAutoresizingMaskIntoConstraints = false
         genderCollectionView.backgroundColor = .clear
+        genderCollectionView.alwaysBounceHorizontal = true
         view.addSubview(genderCollectionView)
 
         genderCollectionViewAdapter = GenderCollectionViewAdapter(

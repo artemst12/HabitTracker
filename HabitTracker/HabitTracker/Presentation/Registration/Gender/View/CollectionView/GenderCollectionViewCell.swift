@@ -12,13 +12,15 @@ final class GenderCollectionViewCell: UICollectionViewCell {
     private var background: UIView?
     private var emoji: UILabel?
     private var label: UILabel?
-    
+
+    var isSelect: Bool?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         let backgroundView = UIView()
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundView.backgroundColor = Colors.lightBlack
+        backgroundView.backgroundColor = self.isSelected ? Colors.lightGreen : Colors.lightBlack
         backgroundView.layer.cornerRadius = Constants.cornerRadiusGenderButton
 
         let emojiLabel = UILabel()
@@ -33,6 +35,8 @@ final class GenderCollectionViewCell: UICollectionViewCell {
         addSubview(backgroundView)
         backgroundView.addSubview(emojiLabel)
         backgroundView.addSubview(genderLabel)
+
+
         
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: topAnchor),

@@ -103,17 +103,21 @@ extension InformationView: InformationViewInput {
         contentView.addSubview(dateField)
 
         let textDidChanged: () -> Void = {
-            let isValid = [self.nameField, self.dateField]
-                .map { $0.isValid }
+            let isInvalid = [self.nameField, self.dateField]
+                .map { $0.isValid } // [true, false].contains(false) == true
                 .contains(false)
 
-            self.view.backgroundColor = isValid ? .red : .yellow
+            self.nextButton.isUserInteractionEnabled = !isInvalid
+            self.nextButton.backgroundColor = isInvalid ? Colors.lightBlack : Colors.lightGreen
+            self.nextButton.titleLabel?.textColor = isInvalid ? .white : .darkText
         }
 
-        nameField.set(delegate: TextFieldValidator(didUpdateBlock: textDidChanged))
-        dateField.set(delegate: TextFieldValidator(didUpdateBlock: textDidChanged))
-
-        dateField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        nameField.set(
+            delegate: TextFieldValidator(textfield: nameField, didUpdateBlock: textDidChanged)
+        )
+        dateField.set(
+            delegate: TextFieldValidator(textfield: dateField, didUpdateBlock: textDidChanged)
+        )
 
         nameField.setLeftPaddingPoints(10)
         nameField.setRightPaddingPoints(10)
@@ -121,20 +125,6 @@ extension InformationView: InformationViewInput {
         dateField.setLeftPaddingPoints(10)
         dateField.setRightPaddingPoints(10)
     }
-
-     @objc func textFieldChanged() {
-          let isValid = [self.nameField, self.dateField]
-              .map { $0.isValid }
-              .contains(false)
- 
-          self.view.backgroundColor = isValid ? .red : .yellow
-     }
-     
-     func checkValidator() {
-         if nameField.isValid {
-             
-         }
-     }
 
      func createDatepicker() {
          datePicker.preferredDatePickerStyle = .wheels
@@ -221,7 +211,7 @@ extension InformationView: InformationViewInput {
             contentView.trailingAnchor.constraint(equalTo:scrollView.trailingAnchor),
             hContentView,
 
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
