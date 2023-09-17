@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol TodayConfiguratorProtocol: Assembly {
+protocol TodayConfiguratorProtocol {
     
-    func assembly() -> UIViewController
+    func configure() -> UIViewController
 }
 
 final class TodayConfigurator: TodayConfiguratorProtocol {
     
-    func assembly() -> UIViewController {
+    func configure() -> UIViewController {
         
         let interactor = TodayInteractor()
         let presenter = TodayPresenter()
@@ -28,12 +28,6 @@ final class TodayConfigurator: TodayConfiguratorProtocol {
         presenter.interactor = interactor
         presenter.router = router
         presenter.view = view
-        
-        let homeView = createNavController(
-            vc: view,
-            itemName: "New habit",
-            ItemImage: ""
-        )
         
         return view
     }

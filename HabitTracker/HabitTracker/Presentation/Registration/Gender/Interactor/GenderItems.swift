@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EmojiItems {
+struct EmojiItems: Equatable {
     let emoji: String
-    let genderLabel: String
+    let genderLabel:  String
 }

@@ -11,6 +11,8 @@ final class CongratsView: UIViewController {
     
     var output: CongratsViewOutput?
     
+    private let historyScreens = StackScreenView()
+    
     private let titleLabel = StyledLabel(
         font: .systemFont(ofSize: Fonts.titleSize, weight: Weigth.bold),
         color: Colors.white
@@ -46,6 +48,9 @@ private extension CongratsView {
     
     func setupView() {
         view.backgroundColor = Colors.background
+        
+        view.addSubview(historyScreens)
+        historyScreens.setScreenColor(welcomeColor: .white, informationColor: .white, genderColor: .white, congratsColor: .white)
     }
     
     func setupLabels() {
@@ -59,11 +64,19 @@ private extension CongratsView {
     func setupButtons() {
         view.addSubview(buttonStart)
         buttonStart.setTitle("Let's start!".localized(), for: .normal)
+        buttonStart.addAction(.init(handler: { [weak self] action in
+            self?.output?.nextButtonTapped()
+        }), for: .touchUpInside)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            
+            historyScreens.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            historyScreens.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            historyScreens.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),

@@ -11,6 +11,8 @@ final class GenderView: UIViewController {
     
     var output: GenderViewOutput?
     
+    private let historyScreens = StackScreenView()
+    
     private let titleLabel = StyledLabel(
         font: .systemFont(ofSize: Fonts.titleSize, weight: Weigth.bold),
         color: Colors.white
@@ -29,6 +31,8 @@ final class GenderView: UIViewController {
     private let femaleButton = CustomGenderButton()
     
     private let data: [EmojiItems] = []
+    
+    private let skipButton = UIButton()
     
     private let nextButton = CustomButton()
     
@@ -54,6 +58,7 @@ extension GenderView: GenderCollectionViewAdapterOutput {
 
     func selected(model: EmojiItems) {
         print(model.genderLabel)
+        genderCollectionViewAdapter?.select(item: model)
     }
 }
 
@@ -63,6 +68,7 @@ private extension GenderView {
     func setupUI() {
         setupView()
         setupLabels()
+        setupSkipButton()
         setupButtons()
         setupCollectionView()
         setupConstrains()
@@ -70,6 +76,9 @@ private extension GenderView {
     
     func setupView() {
         view.backgroundColor = Colors.background
+        
+        view.addSubview(historyScreens)
+        historyScreens.setScreenColor(welcomeColor: .white, informationColor: .white, genderColor: .white, congratsColor: .darkGray)
     }
     
     func setupLabels() {
@@ -104,6 +113,19 @@ private extension GenderView {
         genderCollectionView.dataSource = genderCollectionViewAdapter
     }
     
+    func setupSkipButton() {
+        view.addSubview(skipButton)
+        skipButton.translatesAutoresizingMaskIntoConstraints = false
+        skipButton.setTitle("Skip", for: .normal)
+        skipButton.setTitleColor(.lightGray, for: .normal)
+        skipButton.titleLabel?.font = .systemFont(ofSize: 16)
+        skipButton.backgroundColor = .clear
+        
+        skipButton.addAction(.init(handler: { [weak self] action in
+            self?.output?.nextButtonTapped()
+        }), for: .touchUpInside)
+    }
+    
     func setupButtons() {
         view.addSubview(nextButton)
         nextButton.setTitle("Next".localized(), for: .normal)
@@ -111,12 +133,15 @@ private extension GenderView {
             self?.output?.nextButtonTapped()
         }), for: .touchUpInside)
     }
-    
-    
-    
+
     func setupConstrains() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            
+            historyScreens.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            historyScreens.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            historyScreens.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
@@ -130,6 +155,9 @@ private extension GenderView {
             genderCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             genderCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             genderCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            
+            skipButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            skipButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             
             nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),

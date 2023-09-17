@@ -15,6 +15,7 @@ protocol GenderCollectionViewAdapterOutput {
 final class GenderCollectionViewAdapter: NSObject {
     
     private var data: [EmojiItems] = []
+    private var selectedItem: EmojiItems?
     private var collectionView: UICollectionView?
     private var output: GenderCollectionViewAdapterOutput?
     
@@ -22,14 +23,24 @@ final class GenderCollectionViewAdapter: NSObject {
         self.data = data
         self.collectionView = collectionView
         self.output = output
-        
+
         self.collectionView?.register(GenderCollectionViewCell.self, forCellWithReuseIdentifier: "GenderCollectionViewCell")
     }
 
     func set(data: [EmojiItems]) {
         self.data = data
     }
-    
+
+    func select(item: EmojiItems) {
+        selectedItem = item
+
+        for idx in 0..<data.count { // [male, female]
+            if let cell = collectionView?.cellForItem(at: IndexPath(item: idx, section: 0)) as? GenderCollectionViewCell {
+                cell.setSelected(selectedItem == data[idx])
+            }
+        }
+    }
+
     func reload() {
         self.collectionView?.reloadData()
     }
@@ -42,11 +53,6 @@ extension GenderCollectionViewAdapter: UICollectionViewDelegate, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? GenderCollectionViewCell else {
-            return
-        }
-
-//        cell.isSelect = true
         output?.selected(model: data[indexPath.item])
     }
 

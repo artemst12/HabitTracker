@@ -28,9 +28,13 @@ final class InformationView: UIViewController, UITextFieldDelegate, UIGestureRec
 
     private var scrollView = UIScrollView()
     private var contentView = UIView()
+    
+    private let historyScreens = StackScreenView()
 
     private var nameField = CustomTextField()
     private var dateField = CustomTextField()
+    
+    private let skipButton = UIButton()
     
     private let datePicker = DatePicker()
     
@@ -41,7 +45,7 @@ final class InformationView: UIViewController, UITextFieldDelegate, UIGestureRec
     private var nextButtonBottomConstraint: NSLayoutConstraint?
     
     private lazy var regex = "^(?=.*[а-я)(?=.*[А-Я])(?=.*\\d)(?=.[$@$!%*?&#])[А-Яа-я\\d$@$!%*?&#]"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -65,6 +69,7 @@ extension InformationView: InformationViewInput {
         setupScrollView()
         setupLabels()
         setupTextFields()
+        setupSkipButton()
         setupButtons()
         createDatepicker()
         setupObservers()
@@ -72,8 +77,11 @@ extension InformationView: InformationViewInput {
     }
      
      func setupView() {
-        view.backgroundColor = Colors.background
-        self.navigationItem.hidesBackButton = true
+         view.backgroundColor = Colors.background
+         self.navigationItem.hidesBackButton = true
+         
+         view.addSubview(historyScreens)
+         historyScreens.setScreenColor(welcomeColor: .white, informationColor: .white, genderColor: .darkGray, congratsColor: .darkGray)
     }
 
     func setupScrollView() {
@@ -124,13 +132,26 @@ extension InformationView: InformationViewInput {
         
         dateField.setLeftPaddingPoints(10)
         dateField.setRightPaddingPoints(10)
-    }
+        }
 
      func createDatepicker() {
          datePicker.preferredDatePickerStyle = .wheels
          datePicker.datePickerMode = .date
          datePicker.setValue(Colors.darkBlack, forKeyPath: "textColor")
          datePicker.set(textfield: dateField)
+     }
+     
+     func setupSkipButton() {
+         view.addSubview(skipButton)
+         skipButton.translatesAutoresizingMaskIntoConstraints = false
+         skipButton.setTitle("Skip", for: .normal)
+         skipButton.setTitleColor(.lightGray, for: .normal)
+         skipButton.titleLabel?.font = .systemFont(ofSize: 16)
+         skipButton.backgroundColor = .clear
+         
+         skipButton.addAction(.init(handler: { [weak self] action in
+             self?.output?.nextButtonTapped()
+         }), for: .touchUpInside)
      }
      
      func setupButtons() {
@@ -210,8 +231,12 @@ extension InformationView: InformationViewInput {
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo:scrollView.trailingAnchor),
             hContentView,
+            
+            historyScreens.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            historyScreens.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            historyScreens.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
 
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
@@ -226,6 +251,9 @@ extension InformationView: InformationViewInput {
             
             enterDateLabel.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 30),
             enterDateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
+            
+            skipButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            skipButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             
             dateField.topAnchor.constraint(equalTo: enterDateLabel.bottomAnchor, constant: 15),
             dateField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),

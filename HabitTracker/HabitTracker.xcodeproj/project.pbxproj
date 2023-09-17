@@ -89,8 +89,7 @@
 		AC97975A2AA5CF340011EE94 /* TodayInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797592AA5CF340011EE94 /* TodayInteractorInput.swift */; };
 		AC97975C2AA5CF480011EE94 /* TodayInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97975B2AA5CF480011EE94 /* TodayInteractorOutput.swift */; };
 		AC97975E2AA5CF550011EE94 /* TodayConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97975D2AA5CF550011EE94 /* TodayConfigurator.swift */; };
-		AC9797612AAA1D710011EE94 /* NavigationTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797602AAA1D710011EE94 /* NavigationTabbar.swift */; };
-		AC9797632AAA1F910011EE94 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797622AAA1F910011EE94 /* Assembly.swift */; };
+		AC9797652AAF82C20011EE94 /* StackScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797642AAF82C20011EE94 /* StackScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,8 +180,7 @@
 		AC9797592AA5CF340011EE94 /* TodayInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractorInput.swift; sourceTree = "<group>"; };
 		AC97975B2AA5CF480011EE94 /* TodayInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractorOutput.swift; sourceTree = "<group>"; };
 		AC97975D2AA5CF550011EE94 /* TodayConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayConfigurator.swift; sourceTree = "<group>"; };
-		AC9797602AAA1D710011EE94 /* NavigationTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabbar.swift; sourceTree = "<group>"; };
-		AC9797622AAA1F910011EE94 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		AC9797642AAF82C20011EE94 /* StackScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +250,7 @@
 				AC60FAAC2A4C5BEF00E6FD1A /* DatePicker.swift */,
 				AC60FAF32A541F1800E6FD1A /* Enums.swift */,
 				AC60FB0B2A60835400E6FD1A /* Extensions.swift */,
+				AC9797642AAF82C20011EE94 /* StackScreenView.swift */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -292,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				AC60FA832A44B92C00E6FD1A /* Registration */,
-				AC97975F2AAA1D060011EE94 /* NavigationBar */,
 				AC97973E2AA5CCD90011EE94 /* Home */,
 			);
 			path = Presentation;
@@ -599,15 +597,6 @@
 			path = Configurator;
 			sourceTree = "<group>";
 		};
-		AC97975F2AAA1D060011EE94 /* NavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				AC9797602AAA1D710011EE94 /* NavigationTabbar.swift */,
-				AC9797622AAA1F910011EE94 /* Assembly.swift */,
-			);
-			path = NavigationBar;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -686,7 +675,6 @@
 				AC60FAF22A502B9C00E6FD1A /* CongratsConfigurator.swift in Sources */,
 				15F7CE582A48489A00F6041F /* WelcomeRouterOutput.swift in Sources */,
 				AC9797462AA5CE870011EE94 /* TodayView.swift in Sources */,
-				AC9797632AAA1F910011EE94 /* Assembly.swift in Sources */,
 				AC9797562AA5CF1A0011EE94 /* TodayPresenterOutput.swift in Sources */,
 				AC60FAE62A501F2300E6FD1A /* CongratsPresenter.swift in Sources */,
 				AC60FAA92A4B171A00E6FD1A /* InformationConfigurator.swift in Sources */,
@@ -722,6 +710,7 @@
 				AC60FA972A4B10E800E6FD1A /* InformationRouter.swift in Sources */,
 				AC60FADA2A501C8D00E6FD1A /* CongratsView.swift in Sources */,
 				AC60FA932A4A011300E6FD1A /* InformationViewInput.swift in Sources */,
+				AC9797652AAF82C20011EE94 /* StackScreenView.swift in Sources */,
 				AC60FA6E2A4464CD00E6FD1A /* AppDelegate.swift in Sources */,
 				AC97974E2AA5CECC0011EE94 /* TodayRouterInput.swift in Sources */,
 				15F7CE5B2A484ACB00F6041F /* WelcomeConfigurator.swift in Sources */,
@@ -738,7 +727,6 @@
 				AC60FAFD2A5599AC00E6FD1A /* Extension + String.swift in Sources */,
 				AC9797522AA5CEF50011EE94 /* TodayPresenter.swift in Sources */,
 				AC60FA9F2A4B157F00E6FD1A /* InformationPresenterInput.swift in Sources */,
-				AC9797612AAA1D710011EE94 /* NavigationTabbar.swift in Sources */,
 				AC60FAD22A4DDD9D00E6FD1A /* GenderItems.swift in Sources */,
 				AC60FB0A2A594F7200E6FD1A /* GenderCollectionViewCell.swift in Sources */,
 				15F7CE542A48488000F6041F /* WelcomeRouter.swift in Sources */,

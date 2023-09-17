@@ -17,6 +17,9 @@ final class CongratsPresenter {
 // MARK: CongratsViewOutput
 extension CongratsPresenter: CongratsViewOutput {
     
+    func nextButtonTapped() {
+        router?.next(TodayConfigurator().configure())
+    }
 }
 
 // MARK: CongratsInteractorOutput

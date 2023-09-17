@@ -30,6 +30,7 @@ enum Constants {
     static let radiusTextField: CGFloat = 12
     static let cornerRadiusNextButton: CGFloat = 14
     static let cornerRadiusGenderButton: CGFloat = 16
+    static let cornerRadiusHistoryScreens: CGFloat = 3
 }
 
 enum Weigth {
