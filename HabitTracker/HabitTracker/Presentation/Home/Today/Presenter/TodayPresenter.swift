@@ -16,6 +16,13 @@ final class TodayPresenter {
 
 extension TodayPresenter: TodayViewOutput {
     
+    func statsButtonTapped() {
+        router?.next(StatsConfigurator().configure())
+    }
+    
+    func calendarButtonTapped() {
+        router?.next(CalendarConfigurator().configure())
+    }
 }
 
 extension TodayPresenter: TodayInteractorOutput {

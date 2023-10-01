@@ -54,6 +54,7 @@ extension GenderCollectionViewAdapter: UICollectionViewDelegate, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         output?.selected(model: data[indexPath.item])
+        print("item at \(indexPath.section)/\(indexPath.item) tapped")
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

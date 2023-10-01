@@ -20,6 +20,10 @@ extension InformationPresenter: InformationViewOutput {
     func nextButtonTapped() {
         router?.next(GenderConfigurator().configure())
     }
+    
+    func skipButtonTapped() {
+        router?.next(TodayConfigurator().configure())
+    }
 }
 
 // MARK: - InformationInteractorOutput

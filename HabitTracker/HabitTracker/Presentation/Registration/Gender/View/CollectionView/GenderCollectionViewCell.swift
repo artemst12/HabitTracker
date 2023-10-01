@@ -60,7 +60,7 @@ final class GenderCollectionViewCell: UICollectionViewCell {
             : Colors.lightBlack
 
         self.genderLabel?.textColor = selected
-            ? Colors.darkBlack
+        ?   .black
             : Colors.white
     }
 

@@ -31,9 +31,7 @@ final class GenderView: UIViewController {
     private let femaleButton = CustomGenderButton()
     
     private let data: [EmojiItems] = []
-    
-    private let skipButton = UIButton()
-    
+        
     private let nextButton = CustomButton()
     
     override func viewDidLoad() {
@@ -59,6 +57,9 @@ extension GenderView: GenderCollectionViewAdapterOutput {
     func selected(model: EmojiItems) {
         print(model.genderLabel)
         genderCollectionViewAdapter?.select(item: model)
+        nextButton.isEnabled = true
+        nextButton.backgroundColor = Colors.lightGreen
+        nextButton.setTitleColor(.black, for: .normal)
     }
 }
 
@@ -68,13 +69,13 @@ private extension GenderView {
     func setupUI() {
         setupView()
         setupLabels()
-        setupSkipButton()
         setupButtons()
         setupCollectionView()
         setupConstrains()
     }
     
     func setupView() {
+        navigationItem.hidesBackButton = true
         view.backgroundColor = Colors.background
         
         view.addSubview(historyScreens)
@@ -113,25 +114,15 @@ private extension GenderView {
         genderCollectionView.dataSource = genderCollectionViewAdapter
     }
     
-    func setupSkipButton() {
-        view.addSubview(skipButton)
-        skipButton.translatesAutoresizingMaskIntoConstraints = false
-        skipButton.setTitle("Skip", for: .normal)
-        skipButton.setTitleColor(.lightGray, for: .normal)
-        skipButton.titleLabel?.font = .systemFont(ofSize: 16)
-        skipButton.backgroundColor = .clear
-        
-        skipButton.addAction(.init(handler: { [weak self] action in
-            self?.output?.nextButtonTapped()
-        }), for: .touchUpInside)
-    }
-    
     func setupButtons() {
         view.addSubview(nextButton)
         nextButton.setTitle("Next".localized(), for: .normal)
         nextButton.addAction(.init(handler: { [weak self] action in
             self?.output?.nextButtonTapped()
         }), for: .touchUpInside)
+        nextButton.isEnabled = false
+        nextButton.backgroundColor = Colors.lightBlack
+        nextButton.setTitleColor(.white, for: .normal)
     }
 
     func setupConstrains() {
@@ -155,9 +146,6 @@ private extension GenderView {
             genderCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             genderCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             genderCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
-            
-            skipButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            skipButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             
             nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),

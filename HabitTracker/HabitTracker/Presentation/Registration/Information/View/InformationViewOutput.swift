@@ -10,4 +10,5 @@ import Foundation
 protocol InformationViewOutput {
     
     func nextButtonTapped()
+    func skipButtonTapped()
 }

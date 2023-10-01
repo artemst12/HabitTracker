@@ -81,7 +81,12 @@ extension InformationView: InformationViewInput {
          self.navigationItem.hidesBackButton = true
          
          view.addSubview(historyScreens)
-         historyScreens.setScreenColor(welcomeColor: .white, informationColor: .white, genderColor: .darkGray, congratsColor: .darkGray)
+         historyScreens.setScreenColor(
+            welcomeColor: .white,
+            informationColor: .white,
+            genderColor: .darkGray,
+            congratsColor: .darkGray
+         )
     }
 
     func setupScrollView() {
@@ -117,7 +122,7 @@ extension InformationView: InformationViewInput {
 
             self.nextButton.isUserInteractionEnabled = !isInvalid
             self.nextButton.backgroundColor = isInvalid ? Colors.lightBlack : Colors.lightGreen
-            self.nextButton.titleLabel?.textColor = isInvalid ? .white : .darkText
+            self.nextButton.setTitleColor(isInvalid ? .white : .black, for: .normal)
         }
 
         nameField.set(
@@ -150,7 +155,7 @@ extension InformationView: InformationViewInput {
          skipButton.backgroundColor = .clear
          
          skipButton.addAction(.init(handler: { [weak self] action in
-             self?.output?.nextButtonTapped()
+             self?.output?.skipButtonTapped()
          }), for: .touchUpInside)
      }
      

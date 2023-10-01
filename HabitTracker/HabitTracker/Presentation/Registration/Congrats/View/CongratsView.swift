@@ -47,6 +47,7 @@ private extension CongratsView {
     }
     
     func setupView() {
+        navigationItem.hidesBackButton = true
         view.backgroundColor = Colors.background
         
         view.addSubview(historyScreens)

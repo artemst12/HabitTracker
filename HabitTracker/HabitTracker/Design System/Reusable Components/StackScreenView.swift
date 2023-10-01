@@ -13,7 +13,9 @@ final class StackScreenView: UIView {
     private var informationScreen = UIView()
     private var genderScreen = UIView()
     private var congrats = UIView()
-    
+
+    private let stackView = UIStackView()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -35,43 +37,49 @@ final class StackScreenView: UIView {
 private extension StackScreenView {
     
     func setupUI() {
-        views()
+        configureStackView()
+        configureViews()
         setupConstraints()
     }
-    
-    func createViews(cornerRadius: CGFloat) -> UIView {
-        let view = UIView()
-        self.addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = cornerRadius
-        
-        return view
+
+    func configureStackView() {
+        self.addSubview(stackView)
+        stackView.axis = .horizontal
+        stackView.spacing = 6
+        stackView.distribution = .equalSpacing
     }
-    
-    func views() {
+
+    func configureViews() {
         welcomeScreen = createViews(cornerRadius: Constants.cornerRadiusHistoryScreens)
         informationScreen = createViews(cornerRadius: Constants.cornerRadiusHistoryScreens)
         genderScreen = createViews(cornerRadius: Constants.cornerRadiusHistoryScreens)
         congrats = createViews(cornerRadius: Constants.cornerRadiusHistoryScreens)
+
+        [ welcomeScreen, informationScreen, genderScreen, congrats ]
+            .forEach { stackView.addArrangedSubview($0) }
+    }
+
+    func createViews(cornerRadius: CGFloat) -> UIView {
+        let view = UIView()
+        view.layer.cornerRadius = cornerRadius
+        return view
     }
     
     func setupConstraints() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-        welcomeScreen.heightAnchor.constraint(equalToConstant: 6),
-        welcomeScreen.widthAnchor.constraint(equalToConstant: 80),
-        welcomeScreen.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-        
-        informationScreen.heightAnchor.constraint(equalToConstant: 6),
-        informationScreen.widthAnchor.constraint(equalToConstant: 80),
-        informationScreen.leadingAnchor.constraint(equalTo: welcomeScreen.trailingAnchor, constant: 6),
-        
-        genderScreen.heightAnchor.constraint(equalToConstant: 6),
-        genderScreen.widthAnchor.constraint(equalToConstant: 80),
-        genderScreen.leadingAnchor.constraint(equalTo: informationScreen.trailingAnchor, constant: 6),
-        
-        congrats.heightAnchor.constraint(equalToConstant: 6),
-        congrats.widthAnchor.constraint(equalToConstant: 80),
-        congrats.leadingAnchor.constraint(equalTo: genderScreen.trailingAnchor, constant: 6),
+            stackView.topAnchor.constraint(equalTo: self.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+
+            welcomeScreen.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.23),
+            informationScreen.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.23),
+            genderScreen.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.23),
+            congrats.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.23),
+
+            heightAnchor.constraint(equalToConstant: 6)
         ])
     }
 }
