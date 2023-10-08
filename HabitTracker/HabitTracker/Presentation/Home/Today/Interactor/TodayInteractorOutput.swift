@@ -9,4 +9,5 @@ import Foundation
 
 protocol TodayInteractorOutput: AnyObject {
     
+    func dataLoaded(model: TodayViewModel)
 }

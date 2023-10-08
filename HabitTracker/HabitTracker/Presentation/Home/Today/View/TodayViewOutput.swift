@@ -9,6 +9,7 @@ import Foundation
 
 protocol TodayViewOutput {
     
+    func requestData()
     func statsButtonTapped()
     func calendarButtonTapped()
 }

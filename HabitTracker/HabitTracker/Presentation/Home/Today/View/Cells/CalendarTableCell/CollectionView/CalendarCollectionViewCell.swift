@@ -14,12 +14,20 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     private var currentDayLabel: UILabel?
     private var dateLabel: UILabel?
     
+    static let reuseIdentifier = String(describing: CalendarCollectionViewCell.self)
+
+    func configure(with model: CalendarDayItem) {
+        smileImage?.image = .init(systemName: "")
+        dateLabel?.text = model.dayNumber
+        currentDayLabel?.text = model.dayName
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         let dayView = UIView()
         dayView.translatesAutoresizingMaskIntoConstraints = false
-        dayView.backgroundColor = Colors.darkBlack
+        dayView.backgroundColor = Colors.lightBlack
         dayView.layer.cornerRadius = 10
         
         let currentDayLabel = UILabel()
@@ -45,17 +53,14 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
             dayView.topAnchor.constraint(equalTo: topAnchor),
             dayView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dayView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            dayView.widthAnchor.constraint(equalToConstant: 50),
+            dayView.widthAnchor.constraint(equalToConstant: 60),
+            dayView.heightAnchor.constraint(equalToConstant: 65),
             
-            currentDayLabel.topAnchor.constraint(equalTo: dayView.topAnchor, constant: 5),
-            currentDayLabel.leadingAnchor.constraint(equalTo: dayView.leadingAnchor, constant: 5),
-            currentDayLabel.trailingAnchor.constraint(equalTo: dayView.trailingAnchor, constant: -5),
-            currentDayLabel.bottomAnchor.constraint(equalTo: dayView.bottomAnchor, constant: -10),
+            currentDayLabel.topAnchor.constraint(equalTo: dayView.topAnchor, constant: 10),
+            currentDayLabel.centerXAnchor.constraint(equalTo: dayView.centerXAnchor),
             
-            dateLabel.topAnchor.constraint(equalTo: currentDayLabel.topAnchor, constant: 5),
-            dateLabel.leadingAnchor.constraint(equalTo: dayView.leadingAnchor, constant: 5),
-            dateLabel.trailingAnchor.constraint(equalTo: dayView.trailingAnchor, constant: -5),
-            dateLabel.bottomAnchor.constraint(equalTo: dayView.bottomAnchor, constant: -5),
+            dateLabel.topAnchor.constraint(equalTo: currentDayLabel.bottomAnchor, constant: 4),
+            dateLabel.centerXAnchor.constraint(equalTo: dayView.centerXAnchor),
             
             smileImage.topAnchor.constraint(equalTo: dayView.bottomAnchor, constant: 5),
             smileImage.widthAnchor.constraint(equalToConstant: 40),

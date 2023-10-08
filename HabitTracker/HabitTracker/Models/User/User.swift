@@ -82,6 +82,7 @@ enum DayStatus: String, PersistableEnum {
     case good
     case sad
     case awful
+    case empty
 }
 
 class CalendarDayObject: Object {

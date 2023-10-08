@@ -1,5 +1,5 @@
 //
-//  CheckInCollectionViewCell.swift
+//  OneStepCollectionViewCell.swift
 //  HabitTracker
 //
 //  Created by Артем Ступников on 20.09.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CheckInCollectionViewCell: UICollectionViewCell {
+final class MultiStepCollectionViewCell: UICollectionViewCell {
     
     private var background: UIView?
     private var viewForImage: UIView?
@@ -17,6 +17,14 @@ final class CheckInCollectionViewCell: UICollectionViewCell {
     private var viewForButtons: UIView?
     private var minusButton: UIButton?
     private var plusButton: UIButton?
+    
+    static let reuseIdentifier = String(describing: MultiStepCollectionViewCell.self)
+    
+    func configure(with model: OneStepHabit) {
+//        smileImage?.image = .init(systemName: "")
+//        dateLabel?.text = model.dayNumber
+//        currentDayLabel?.text = model.dayName
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -98,8 +106,7 @@ final class CheckInCollectionViewCell: UICollectionViewCell {
             plusButton.leadingAnchor.constraint(equalTo: viewForButtons.centerXAnchor),
             plusButton.trailingAnchor.constraint(equalTo: viewForButtons.trailingAnchor),
             plusButton.bottomAnchor.constraint(equalTo: viewForButtons.bottomAnchor),
-            
-            ])
+        ])
         
         self.background = background
         self.viewForImage = viewForImage

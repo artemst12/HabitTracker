@@ -7,13 +7,21 @@
 
 import UIKit
 
-final class TodayCollectionViewCell: UICollectionViewCell {
+final class OneStepCollectionViewCell: UICollectionViewCell {
     
     private var background: UIView?
     private var viewForImage: UIView?
     private var imageView: UIImageView?
     private var habitLabel: UILabel?
     private var activeButton: UIButton?
+    
+    static let reuseIdentifier = String(describing: OneStepCollectionViewCell.self)
+    
+    func configure(with model: OneStepHabit) {
+        imageView?.image = .init(systemName: "")
+        habitLabel?.text = model.name
+        activeButton?.isEnabled = model.done
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -10,9 +10,7 @@ import UIKit
 final class CustomTabBar: UIView {
     
     var output: TodayViewOutput?
-    
-//    private let tabBarView = UIView()
-    
+
     private var createNewHabitView: UIView!
     private var statsView: UIView!
     private var calendarView: UIView!
@@ -66,12 +64,12 @@ extension CustomTabBar {
     
     func setupTabBar() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = Colors.lightBlack
+        backgroundColor = Colors.blackForTabBar
         layer.cornerRadius = 36
         
-        createNewHabitView = createTabBarButtons(color: .lightGray, imageName: "", action: { _ in })
-        statsView = createTabBarButtons(color: .lightGray, imageName: "", action: { _ in self.output?.statsButtonTapped()})
-        calendarView = createTabBarButtons(color: .lightGray, imageName: "", action: { _ in self.output?.calendarButtonTapped()})
+        createNewHabitView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "", action: { _ in })
+        statsView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "stats", action: { _ in self.output?.statsButtonTapped()})
+        calendarView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "", action: { _ in self.output?.calendarButtonTapped()})
         
         let tabBarButtons: [UIView] = [
             createNewHabitView,

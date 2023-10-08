@@ -9,4 +9,5 @@ import Foundation
 
 protocol TodayInteractorInput {
     
+    func loadData()
 }

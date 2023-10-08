@@ -10,6 +10,7 @@
 		15C3404A2AB7017400471019 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 15C340492AB7017400471019 /* Realm */; };
 		15C3404C2AB7017400471019 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 15C3404B2AB7017400471019 /* RealmSwift */; };
 		15C340502AB7019000471019 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C3404F2AB7019000471019 /* User.swift */; };
+		15D763292AC9B3040025DBC4 /* CalendarItemTableCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D763282AC9B3040025DBC4 /* CalendarItemTableCellBuilder.swift */; };
 		15F7CE442A4844CE00F6041F /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE432A4844CE00F6041F /* WelcomePresenter.swift */; };
 		15F7CE462A48463700F6041F /* WelcomeViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE452A48463600F6041F /* WelcomeViewInput.swift */; };
 		15F7CE482A48464200F6041F /* WelcomeViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE472A48464200F6041F /* WelcomeViewOutput.swift */; };
@@ -22,6 +23,7 @@
 		15F7CE562A48489100F6041F /* WelcomeRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE552A48489100F6041F /* WelcomeRouterInput.swift */; };
 		15F7CE582A48489A00F6041F /* WelcomeRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE572A48489A00F6041F /* WelcomeRouterOutput.swift */; };
 		15F7CE5B2A484ACB00F6041F /* WelcomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE5A2A484ACB00F6041F /* WelcomeConfigurator.swift */; };
+		AC004E302AD1C49A000B50DA /* MultiStepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004E2F2AD1C49A000B50DA /* MultiStepTableViewCell.swift */; };
 		AC60FA6E2A4464CD00E6FD1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */; };
 		AC60FA702A4464CD00E6FD1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */; };
 		AC60FA722A4464CD00E6FD1A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA712A4464CD00E6FD1A /* WelcomeView.swift */; };
@@ -93,10 +95,10 @@
 		AC97975C2AA5CF480011EE94 /* TodayInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97975B2AA5CF480011EE94 /* TodayInteractorOutput.swift */; };
 		AC97975E2AA5CF550011EE94 /* TodayConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97975D2AA5CF550011EE94 /* TodayConfigurator.swift */; };
 		AC9797652AAF82C20011EE94 /* StackScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797642AAF82C20011EE94 /* StackScreenView.swift */; };
-		AC9797682ABA02BD0011EE94 /* TodayTableViewAdpater.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797672ABA02BD0011EE94 /* TodayTableViewAdpater.swift */; };
+		AC9797682ABA02BD0011EE94 /* TodayTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797672ABA02BD0011EE94 /* TodayTableViewAdapter.swift */; };
 		AC97976A2ABA06A60011EE94 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797692ABA06A60011EE94 /* CalendarCollectionViewCell.swift */; };
-		AC97976C2ABB22F40011EE94 /* CheckInCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97976B2ABB22F40011EE94 /* CheckInCollectionViewCell.swift */; };
-		AC97976E2ABB56E60011EE94 /* TodayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97976D2ABB56E60011EE94 /* TodayCollectionViewCell.swift */; };
+		AC97976C2ABB22F40011EE94 /* MultiStepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97976B2ABB22F40011EE94 /* MultiStepCollectionViewCell.swift */; };
+		AC97976E2ABB56E60011EE94 /* OneStepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97976D2ABB56E60011EE94 /* OneStepCollectionViewCell.swift */; };
 		AC9797772AC0483E0011EE94 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797762AC0483E0011EE94 /* StatsView.swift */; };
 		AC9797792AC048480011EE94 /* StatsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797782AC048480011EE94 /* StatsViewInput.swift */; };
 		AC97977B2AC048520011EE94 /* StatsViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97977A2AC048520011EE94 /* StatsViewOutput.swift */; };
@@ -123,14 +125,16 @@
 		AC9797AD2AC04A0F0011EE94 /* CalendarInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797AC2AC04A0F0011EE94 /* CalendarInteractorInput.swift */; };
 		AC9797AF2AC04A1D0011EE94 /* CalendarInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797AE2AC04A1D0011EE94 /* CalendarInteractorOutput.swift */; };
 		AC9797B12AC04A290011EE94 /* CalendarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797B02AC04A290011EE94 /* CalendarConfigurator.swift */; };
-		AC9797B32AC0865B0011EE94 /* CalendarCollectionViewAdpater.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797B22AC0865B0011EE94 /* CalendarCollectionViewAdpater.swift */; };
 		AC9797B52AC173370011EE94 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797B42AC173370011EE94 /* CustomTabBar.swift */; };
 		AC9797B72AC345700011EE94 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797B62AC345700011EE94 /* DatabaseService.swift */; };
 		AC9797B92AC806E10011EE94 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797B82AC806E10011EE94 /* CalendarTableViewCell.swift */; };
+		AC9797BD2ACDCC740011EE94 /* OneStepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797BC2ACDCC740011EE94 /* OneStepTableViewCell.swift */; };
+		AC9797BF2ACDE4B60011EE94 /* OneStepItemTableCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797BE2ACDE4B50011EE94 /* OneStepItemTableCellBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		15C3404F2AB7019000471019 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		15D763282AC9B3040025DBC4 /* CalendarItemTableCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarItemTableCellBuilder.swift; sourceTree = "<group>"; };
 		15F7CE432A4844CE00F6041F /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		15F7CE452A48463600F6041F /* WelcomeViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewInput.swift; sourceTree = "<group>"; };
 		15F7CE472A48464200F6041F /* WelcomeViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewOutput.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		15F7CE552A48489100F6041F /* WelcomeRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouterInput.swift; sourceTree = "<group>"; };
 		15F7CE572A48489A00F6041F /* WelcomeRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouterOutput.swift; sourceTree = "<group>"; };
 		15F7CE5A2A484ACB00F6041F /* WelcomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeConfigurator.swift; sourceTree = "<group>"; };
+		AC004E2F2AD1C49A000B50DA /* MultiStepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiStepTableViewCell.swift; sourceTree = "<group>"; };
 		AC60FA6A2A4464CD00E6FD1A /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,10 +224,10 @@
 		AC97975B2AA5CF480011EE94 /* TodayInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractorOutput.swift; sourceTree = "<group>"; };
 		AC97975D2AA5CF550011EE94 /* TodayConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayConfigurator.swift; sourceTree = "<group>"; };
 		AC9797642AAF82C20011EE94 /* StackScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackScreenView.swift; sourceTree = "<group>"; };
-		AC9797672ABA02BD0011EE94 /* TodayTableViewAdpater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTableViewAdpater.swift; sourceTree = "<group>"; };
+		AC9797672ABA02BD0011EE94 /* TodayTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTableViewAdapter.swift; sourceTree = "<group>"; };
 		AC9797692ABA06A60011EE94 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
-		AC97976B2ABB22F40011EE94 /* CheckInCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInCollectionViewCell.swift; sourceTree = "<group>"; };
-		AC97976D2ABB56E60011EE94 /* TodayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC97976B2ABB22F40011EE94 /* MultiStepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiStepCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC97976D2ABB56E60011EE94 /* OneStepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneStepCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC9797762AC0483E0011EE94 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		AC9797782AC048480011EE94 /* StatsViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewInput.swift; sourceTree = "<group>"; };
 		AC97977A2AC048520011EE94 /* StatsViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewOutput.swift; sourceTree = "<group>"; };
@@ -249,10 +254,11 @@
 		AC9797AC2AC04A0F0011EE94 /* CalendarInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInteractorInput.swift; sourceTree = "<group>"; };
 		AC9797AE2AC04A1D0011EE94 /* CalendarInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInteractorOutput.swift; sourceTree = "<group>"; };
 		AC9797B02AC04A290011EE94 /* CalendarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarConfigurator.swift; sourceTree = "<group>"; };
-		AC9797B22AC0865B0011EE94 /* CalendarCollectionViewAdpater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewAdpater.swift; sourceTree = "<group>"; };
 		AC9797B42AC173370011EE94 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		AC9797B62AC345700011EE94 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseService.swift; path = "HabitTracker/Design System/Reusable Components/DatabaseService.swift"; sourceTree = SOURCE_ROOT; };
 		AC9797B82AC806E10011EE94 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		AC9797BC2ACDCC740011EE94 /* OneStepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneStepTableViewCell.swift; sourceTree = "<group>"; };
+		AC9797BE2ACDE4B50011EE94 /* OneStepItemTableCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneStepItemTableCellBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +304,32 @@
 				15C3404F2AB7019000471019 /* User.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		15D763252AC9B0B40025DBC4 /* CalendarTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				15D763262AC9B0E20025DBC4 /* CollectionView */,
+				AC9797B82AC806E10011EE94 /* CalendarTableViewCell.swift */,
+			);
+			path = CalendarTableCell;
+			sourceTree = "<group>";
+		};
+		15D763262AC9B0E20025DBC4 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				AC9797692ABA06A60011EE94 /* CalendarCollectionViewCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		15D763272AC9B2E50025DBC4 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				15D763282AC9B3040025DBC4 /* CalendarItemTableCellBuilder.swift */,
+				AC9797BE2ACDE4B50011EE94 /* OneStepItemTableCellBuilder.swift */,
+			);
+			path = Builders;
 			sourceTree = "<group>";
 		};
 		15F7CE402A48432400F6041F /* Interactor */ = {
@@ -360,6 +392,23 @@
 				AC9797B42AC173370011EE94 /* CustomTabBar.swift */,
 			);
 			path = "Reusable Components";
+			sourceTree = "<group>";
+		};
+		AC004E2D2AD1C450000B50DA /* MultiStepTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC004E2E2AD1C45F000B50DA /* CollectionVIew */,
+				AC004E2F2AD1C49A000B50DA /* MultiStepTableViewCell.swift */,
+			);
+			path = MultiStepTableCell;
+			sourceTree = "<group>";
+		};
+		AC004E2E2AD1C45F000B50DA /* CollectionVIew */ = {
+			isa = PBXGroup;
+			children = (
+				AC97976B2ABB22F40011EE94 /* MultiStepCollectionViewCell.swift */,
+			);
+			path = CollectionVIew;
 			sourceTree = "<group>";
 		};
 		AC60FA612A4464CD00E6FD1A = {
@@ -663,6 +712,7 @@
 		AC9797402AA5CE180011EE94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				15D763272AC9B2E50025DBC4 /* Builders */,
 				AC9797662ABA029B0011EE94 /* Cells */,
 				AC97976F2ABDCEF00011EE94 /* Adapters */,
 				AC9797452AA5CE870011EE94 /* TodayView.swift */,
@@ -713,10 +763,9 @@
 		AC9797662ABA029B0011EE94 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				AC9797692ABA06A60011EE94 /* CalendarCollectionViewCell.swift */,
-				AC97976B2ABB22F40011EE94 /* CheckInCollectionViewCell.swift */,
-				AC97976D2ABB56E60011EE94 /* TodayCollectionViewCell.swift */,
-				AC9797B82AC806E10011EE94 /* CalendarTableViewCell.swift */,
+				15D763252AC9B0B40025DBC4 /* CalendarTableCell */,
+				AC9797BA2ACDCC280011EE94 /* OneStepTableCell */,
+				AC004E2D2AD1C450000B50DA /* MultiStepTableCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -724,8 +773,7 @@
 		AC97976F2ABDCEF00011EE94 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				AC9797672ABA02BD0011EE94 /* TodayTableViewAdpater.swift */,
-				AC9797B22AC0865B0011EE94 /* CalendarCollectionViewAdpater.swift */,
+				AC9797672ABA02BD0011EE94 /* TodayTableViewAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -850,6 +898,23 @@
 			path = Configurator;
 			sourceTree = "<group>";
 		};
+		AC9797BA2ACDCC280011EE94 /* OneStepTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC9797BB2ACDCC430011EE94 /* CollectionView */,
+				AC9797BC2ACDCC740011EE94 /* OneStepTableViewCell.swift */,
+			);
+			path = OneStepTableCell;
+			sourceTree = "<group>";
+		};
+		AC9797BB2ACDCC430011EE94 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				AC97976D2ABB56E60011EE94 /* OneStepCollectionViewCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -933,6 +998,7 @@
 				AC60FA722A4464CD00E6FD1A /* WelcomeView.swift in Sources */,
 				15F7CE442A4844CE00F6041F /* WelcomePresenter.swift in Sources */,
 				AC97976A2ABA06A60011EE94 /* CalendarCollectionViewCell.swift in Sources */,
+				15D763292AC9B3040025DBC4 /* CalendarItemTableCellBuilder.swift in Sources */,
 				AC9797B72AC345700011EE94 /* DatabaseService.swift in Sources */,
 				AC60FAF22A502B9C00E6FD1A /* CongratsConfigurator.swift in Sources */,
 				15F7CE582A48489A00F6041F /* WelcomeRouterOutput.swift in Sources */,
@@ -953,6 +1019,7 @@
 				AC9797852AC048BF0011EE94 /* StatsPresenter.swift in Sources */,
 				AC9797542AA5CF060011EE94 /* TodayPresenterInput.swift in Sources */,
 				AC60FABD2A4D759600E6FD1A /* GenderRouterOutput.swift in Sources */,
+				AC9797BD2ACDCC740011EE94 /* OneStepTableViewCell.swift in Sources */,
 				AC9797B92AC806E10011EE94 /* CalendarTableViewCell.swift in Sources */,
 				AC97975A2AA5CF340011EE94 /* TodayInteractorInput.swift in Sources */,
 				AC60FAAD2A4C5BEF00E6FD1A /* DatePicker.swift in Sources */,
@@ -976,7 +1043,7 @@
 				AC9797AD2AC04A0F0011EE94 /* CalendarInteractorInput.swift in Sources */,
 				AC60FA952A4A016B00E6FD1A /* InformationViewOutput.swift in Sources */,
 				15F7CE562A48489100F6041F /* WelcomeRouterInput.swift in Sources */,
-				AC97976E2ABB56E60011EE94 /* TodayCollectionViewCell.swift in Sources */,
+				AC97976E2ABB56E60011EE94 /* OneStepCollectionViewCell.swift in Sources */,
 				AC60FAA52A4B169F00E6FD1A /* InformationInteractorInput.swift in Sources */,
 				15F7CE4A2A48469400F6041F /* WelcomePresenterInput.swift in Sources */,
 				AC60FA972A4B10E800E6FD1A /* InformationRouter.swift in Sources */,
@@ -1000,11 +1067,11 @@
 				AC97977D2AC048650011EE94 /* StatsRouter.swift in Sources */,
 				AC9797482AA5CEA00011EE94 /* TodayViewInput.swift in Sources */,
 				AC60FACD2A4D78AF00E6FD1A /* GenderInteractorOutput.swift in Sources */,
-				AC97976C2ABB22F40011EE94 /* CheckInCollectionViewCell.swift in Sources */,
-				AC9797682ABA02BD0011EE94 /* TodayTableViewAdpater.swift in Sources */,
+				AC9797BF2ACDE4B60011EE94 /* OneStepItemTableCellBuilder.swift in Sources */,
+				AC97976C2ABB22F40011EE94 /* MultiStepCollectionViewCell.swift in Sources */,
+				AC9797682ABA02BD0011EE94 /* TodayTableViewAdapter.swift in Sources */,
 				AC60FADC2A501D5C00E6FD1A /* CongratsViewInput.swift in Sources */,
 				AC60FA912A4A005B00E6FD1A /* InformationView.swift in Sources */,
-				AC9797B32AC0865B0011EE94 /* CalendarCollectionViewAdpater.swift in Sources */,
 				AC97978B2AC048DE0011EE94 /* StatsInteractor.swift in Sources */,
 				AC9797832AC048B10011EE94 /* StatsRouterInput.swift in Sources */,
 				AC60FAFD2A5599AC00E6FD1A /* Extension + String.swift in Sources */,
@@ -1041,6 +1108,7 @@
 				AC60FAC92A4D77EE00E6FD1A /* GenderInteractor.swift in Sources */,
 				AC9797A32AC049CA0011EE94 /* CalendarRouterOutput.swift in Sources */,
 				AC60FAA32A4B161700E6FD1A /* InformationInteractor.swift in Sources */,
+				AC004E302AD1C49A000B50DA /* MultiStepTableViewCell.swift in Sources */,
 				AC9797A12AC049C10011EE94 /* CalendarRouterInput.swift in Sources */,
 				AC60FAC52A4D77B400E6FD1A /* GenderPresenterInput.swift in Sources */,
 				AC60FAB72A4D742200E6FD1A /* GenderConfigurator.swift in Sources */,

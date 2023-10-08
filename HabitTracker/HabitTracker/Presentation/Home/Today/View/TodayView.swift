@@ -14,17 +14,32 @@ final class TodayView: UIViewController {
     private let tabBarView = CustomTabBar()
     
     private let todayTableView = UITableView()
-    
-    private var calendarCollectionView: UICollectionView!
-    
+    private var todayTableAdapter: TodayTableViewAdapter?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        loadData()
+    }
+
+    func loadData() {
+        output?.requestData()
     }
 }
 
 extension TodayView: TodayViewInput {
     
+    func updateView(with model: TodayViewModel) {
+        let calendarBuilder = CalendarItemTableCellBuilder()
+        calendarBuilder.set(model: CalendarTableViewCellModel(items: model.calendarItems))
+        todayTableAdapter?.set(calendarItems: [calendarBuilder])
+        todayTableAdapter?.reload()
+        
+//        let oneStepBuilder = OneStepItemTableCellBuilder()
+//        oneStepBuilder.set(model: OneStepTableViewCellModel(items: model.oneStepHabbitSection))
+//        todayTableAdapter?.set(oneStepItems: [oneStepBuilder])
+//        todayTableAdapter?.reload()
+    }
 }
 
 private extension TodayView {
@@ -33,7 +48,6 @@ private extension TodayView {
         setupTitle()
         setupTabBar()
         setupTableView()
-        setupCalendarCollectionView()
         setupConstraints()
     }
     
@@ -46,6 +60,7 @@ private extension TodayView {
     
     func setupTabBar() {
         todayTableView.addSubview(tabBarView)
+        // tabBarView.output = self
     }
     
     func setupTableView() {
@@ -54,46 +69,21 @@ private extension TodayView {
         todayTableView.separatorStyle = .none
         todayTableView.rowHeight = UITableView.automaticDimension
         todayTableView.backgroundColor = Colors.background
-    }
-    
-    func setupCalendarCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.estimatedItemSize = .init(width: 50, height: 100)
-        layout.itemSize = .init(width: 50, height: 100)
-        layout.minimumLineSpacing = 16
-        layout.sectionInset = .init(top: 0, left: 25, bottom: 0, right: 25)
 
-        calendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        calendarCollectionView.dataSource = self
-        calendarCollectionView.delegate = self
-        calendarCollectionView.backgroundColor = .clear
-//        cardsCollectionView.isPagingEnabled = true
-
-        calendarCollectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: "CalendarCollectionViewCell")
-
-        todayTableView.addSubview(calendarCollectionView)
-        calendarCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.todayTableAdapter = TodayTableViewAdapter(tableView: todayTableView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             todayTableView.topAnchor.constraint(equalTo: view.topAnchor),
             todayTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             todayTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             todayTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-    
-            calendarCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
-            calendarCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            calendarCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            calendarCollectionView.heightAnchor.constraint(equalToConstant: 100),
-            
+
             tabBarView.heightAnchor.constraint(equalToConstant: 70),
             tabBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             tabBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             tabBarView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-
         ])
     }
 }

@@ -24,6 +24,7 @@ enum Colors {
     static let white = UIColor.white
     static let lightGray = UIColor.lightGray
     static let background = UIColor.init(red: 16/255, green: 16/255, blue: 16/255, alpha: 1)
+    static let blackForTabBar = UIColor.init(red: 35/255, green: 35/255, blue: 35/255, alpha: 1)
 }
 
 enum Constants {

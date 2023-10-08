@@ -23,8 +23,15 @@ extension TodayPresenter: TodayViewOutput {
     func calendarButtonTapped() {
         router?.next(CalendarConfigurator().configure())
     }
+
+    func requestData() {
+        interactor?.loadData()
+    }
 }
 
 extension TodayPresenter: TodayInteractorOutput {
     
+    func dataLoaded(model: TodayViewModel) {
+        view?.updateView(with: model)
+    }
 }
