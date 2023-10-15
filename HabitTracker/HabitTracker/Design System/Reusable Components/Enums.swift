@@ -21,6 +21,7 @@ enum Colors {
     static let lightBlack = UIColor.init(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     static let dark = UIColor.init(red: 6/255, green: 6/255, blue: 6/255, alpha: 1)
     static let darkBlack = UIColor.init(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
+    static let lightDark = UIColor.init(red: 60/255, green: 60/255, blue: 60/255, alpha: 1)
     static let white = UIColor.white
     static let lightGray = UIColor.lightGray
     static let background = UIColor.init(red: 16/255, green: 16/255, blue: 16/255, alpha: 1)

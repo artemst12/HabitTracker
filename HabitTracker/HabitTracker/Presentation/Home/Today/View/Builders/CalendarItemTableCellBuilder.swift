@@ -7,30 +7,29 @@
 
 import UIKit
 
-protocol TodayCalendarCellBuilder {
+final class CalendarItemTableCellBuilder: TodayCellBuilder {
 
-    associatedtype ViewModel
-
-    func set(model: ViewModel)
-    func set(cell: UITableViewCell)
-    func build() -> UITableViewCell
-}
-
-final class CalendarItemTableCellBuilder: TodayCalendarCellBuilder {
+    private weak var tableView: UITableView?
 
     private var model: CalendarTableViewCellModel?
     private var cell: UITableViewCell?
+
+    func set(tableView: UITableView?) {
+        self.tableView = tableView
+    }
 
     func set(model: CalendarTableViewCellModel) {
         self.model = model
     }
 
-    func set(cell: UITableViewCell) {
-        self.cell = cell
-    }
-
     func build() -> UITableViewCell {
-        guard let model, let cell = self.cell as? CalendarTableViewCell else {
+        guard let cell = self.tableView?.dequeueReusableCell(
+            withIdentifier: CalendarTableViewCell.reuseIdentifier
+        ) as? CalendarTableViewCell else {
+            return UITableViewCell()
+        }
+
+        guard let model else {
             return UITableViewCell()
         }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TodayViewOutput {
+protocol TodayViewOutput: AnyObject {
     
     func requestData()
     func statsButtonTapped()

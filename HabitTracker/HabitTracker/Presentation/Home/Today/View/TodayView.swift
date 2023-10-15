@@ -35,10 +35,15 @@ extension TodayView: TodayViewInput {
         todayTableAdapter?.set(calendarItems: [calendarBuilder])
         todayTableAdapter?.reload()
         
-//        let oneStepBuilder = OneStepItemTableCellBuilder()
-//        oneStepBuilder.set(model: OneStepTableViewCellModel(items: model.oneStepHabbitSection))
-//        todayTableAdapter?.set(oneStepItems: [oneStepBuilder])
-//        todayTableAdapter?.reload()
+        let oneStepBuilder = OneStepItemTableCellBuilder()
+        oneStepBuilder.set(model: OneStepTableViewCellModel(items: model.oneStepHabbitSection))
+        todayTableAdapter?.set(oneStepItems: [oneStepBuilder])
+        todayTableAdapter?.reload()
+        
+        let multiStepBuilder = MultiStepItemTableCellBuilder()
+        multiStepBuilder.set(model: MultiStepTableViewCellModel(items: model.multiStepHabitSection))
+        todayTableAdapter?.set(multiStepItems: [multiStepBuilder])
+        todayTableAdapter?.reload()
     }
 }
 
@@ -60,7 +65,9 @@ private extension TodayView {
     
     func setupTabBar() {
         todayTableView.addSubview(tabBarView)
-        // tabBarView.output = self
+        tabBarView.routeStatsActions = { [weak self] in
+            self?.output?.statsButtonTapped()
+        }
     }
     
     func setupTableView() {

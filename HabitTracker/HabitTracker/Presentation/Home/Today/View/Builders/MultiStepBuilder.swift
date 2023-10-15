@@ -1,30 +1,30 @@
 //
-//  OneStepItemTableCellBuilder.swift
+//  MultiStepBuilder.swift
 //  HabitTracker
 //
-//  Created by Артем Ступников on 04.10.2023.
+//  Created by Артем Ступников on 12.10.2023.
 //
 
 import UIKit
 
-final class OneStepItemTableCellBuilder: TodayCellBuilder {
+final class MultiStepItemTableCellBuilder: TodayCellBuilder {
 
     private weak var tableView: UITableView?
-    private var model: OneStepTableViewCellModel?
+    private var model: MultiStepTableViewCellModel?
     private var cell: UITableViewCell?
 
     func set(tableView: UITableView?) {
         self.tableView = tableView
     }
 
-    func set(model: OneStepTableViewCellModel) {
+    func set(model: MultiStepTableViewCellModel) {
         self.model = model
     }
 
     func build() -> UITableViewCell {
         guard let cell = self.tableView?.dequeueReusableCell(
-            withIdentifier: OneStepTableViewCell.reuseIdentifier
-        ) as? OneStepTableViewCell else {
+            withIdentifier: MultiStepTableViewCell.reuseIdentifier
+        ) as? MultiStepTableViewCell else {
             return UITableViewCell()
         }
 

@@ -12,12 +12,12 @@ final class TodayTableViewAdapter: NSObject {
 
     enum TodaySectionType: Int, Hashable, CaseIterable {
         case calendar = 0
-        case oneStepHabit = 1
-        case multiStepHabit = 2
+        case multiStepHabit = 1
+        case oneStepHabit = 2
     }
 
     private let tableView: UITableView
-    private var sections: [TodaySectionType: [any TodayCalendarCellBuilder]] = [
+    private var sections: [TodaySectionType: [any TodayCellBuilder]] = [
         .calendar: [],
         .multiStepHabit: [],
         .oneStepHabit: []
@@ -34,13 +34,25 @@ final class TodayTableViewAdapter: NSObject {
             CalendarTableViewCell.self,
             forCellReuseIdentifier: CalendarTableViewCell.reuseIdentifier
         )
+        self.tableView.register(
+            OneStepTableViewCell.self,
+            forCellReuseIdentifier: OneStepTableViewCell.reuseIdentifier
+        )
+        self.tableView.register(
+            MultiStepTableViewCell.self,
+            forCellReuseIdentifier: MultiStepTableViewCell.reuseIdentifier
+        )
     }
 
-    func set(calendarItems: [any TodayCalendarCellBuilder]) {
+    func set(calendarItems: [any TodayCellBuilder]) {
         self.sections[.calendar] = calendarItems
     }
+    
+    func set(multiStepItems: [any TodayCellBuilder]) {
+        self.sections[.multiStepHabit] = multiStepItems
+    }
 
-    func set(oneStepItems: [any TodayCalendarCellBuilder]) {
+    func set(oneStepItems: [any TodayCellBuilder]) {
         self.sections[.oneStepHabit] = oneStepItems
     }
 
@@ -64,15 +76,7 @@ extension TodayTableViewAdapter: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: CalendarTableViewCell.reuseIdentifier
-            ) as? CalendarTableViewCell
-        else {
-            return UITableViewCell()
-        }
-
-        let builder: (any TodayCalendarCellBuilder)?
+        let builder: (any TodayCellBuilder)?
 
         switch indexPath.section {
         case 0:
@@ -85,7 +89,7 @@ extension TodayTableViewAdapter: UITableViewDataSource, UITableViewDelegate {
             builder = nil
         }
 
-        builder?.set(cell: cell)
+        builder?.set(tableView: tableView)
         return builder?.build() ?? UITableViewCell()
     }
 }

@@ -17,7 +17,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = String(describing: CalendarCollectionViewCell.self)
 
     func configure(with model: CalendarDayItem) {
-        smileImage?.image = .init(systemName: "")
+        smileImage?.image = .init(systemName: model.rating.rawValue)
         dateLabel?.text = model.dayNumber
         currentDayLabel?.text = model.dayName
     }

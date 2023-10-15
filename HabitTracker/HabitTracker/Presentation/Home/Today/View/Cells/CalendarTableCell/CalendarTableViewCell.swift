@@ -22,17 +22,17 @@ final class CalendarTableViewCell: UITableViewCell {
     private var model: CalendarTableViewCellModel? = nil
 
     static let reuseIdentifier = String(describing: CalendarTableViewCell.self)
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         initCollectionView()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func configure(with model: CalendarTableViewCellModel) {
         self.model = model
         collectionView.reloadData()
@@ -48,12 +48,15 @@ final class CalendarTableViewCell: UITableViewCell {
 
         collectionView = .init(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
+        collectionView.backgroundColor = Colors.background
         // collectionView.delegate = self
 
         collectionView.register(
             CalendarCollectionViewCell.self,
             forCellWithReuseIdentifier: CalendarCollectionViewCell.reuseIdentifier
         )
+        
+        contentView.backgroundColor = Colors.background
 
         contentView.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false

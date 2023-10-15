@@ -7,24 +7,32 @@
 
 import UIKit
 
-final class OneStepCollectionViewCell: UICollectionViewCell {
+final class OneStepCollectionViewCell: UITableViewCell {
     
     private var background: UIView?
     private var viewForImage: UIView?
-    private var imageView: UIImageView?
+    private var image: UIImageView?
     private var habitLabel: UILabel?
     private var activeButton: UIButton?
     
     static let reuseIdentifier = String(describing: OneStepCollectionViewCell.self)
     
     func configure(with model: OneStepHabit) {
-        imageView?.image = .init(systemName: "")
+        image?.image = .init(systemName: "")
         habitLabel?.text = model.name
         activeButton?.isEnabled = model.done
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        initTableView()
+    }
+    
+    private func initTableView() {
         
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -78,12 +86,9 @@ final class OneStepCollectionViewCell: UICollectionViewCell {
         
         self.background = background
         self.viewForImage = viewForImage
-        self.imageView = imageView
+        self.image = imageView
         self.habitLabel = habitLabel
         self.activeButton = activeButton
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

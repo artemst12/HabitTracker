@@ -1,0 +1,17 @@
+//
+//  BuilderProtocol.swift
+//  HabitTracker
+//
+//  Created by Pavel Marinchenko on 08.10.2023.
+//
+
+import UIKit
+
+protocol TodayCellBuilder {
+
+    associatedtype ViewModel
+
+    func set(tableView: UITableView?)
+    func set(model: ViewModel)
+    func build() -> UITableViewCell
+}

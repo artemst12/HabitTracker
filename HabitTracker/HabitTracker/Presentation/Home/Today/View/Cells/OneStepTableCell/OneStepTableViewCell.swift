@@ -18,7 +18,7 @@ final class OneStepTableViewCellModel {
 
 final class OneStepTableViewCell: UITableViewCell {
     
-    private var collectionView: UICollectionView!
+    private var tableView: UITableView!
     private var model: OneStepTableViewCellModel? = nil
     
     static let reuseIdentifier = String(describing: OneStepTableViewCell.self)
@@ -26,7 +26,7 @@ final class OneStepTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        initCollectionView()
+        initTableView()
     }
     
     required init?(coder: NSCoder) {
@@ -35,53 +35,48 @@ final class OneStepTableViewCell: UITableViewCell {
     
     func configure(with model: OneStepTableViewCellModel) {
         self.model = model
-        collectionView.reloadData()
+        tableView.reloadData()
     }
     
-    private func initCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.estimatedItemSize = .init(width: 50, height: 300)
-        layout.itemSize = .init(width: 50, height: 300)
-        layout.minimumLineSpacing = 16
-//        layout.sectionInset = .init(top: 0, left: 25, bottom: 0, right: 25)
+    private func initTableView() {
+        
+        tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = .white
 
-        collectionView = .init(frame: .zero, collectionViewLayout: layout)
-        collectionView.dataSource = self
-        // collectionView.delegate = self
+        tableView.dataSource = self
+//        tableView.delegate = self
+        
+        addSubview(tableView)
 
-        collectionView.register(
-            OneStepCollectionViewCell.self,
-            forCellWithReuseIdentifier: OneStepCollectionViewCell.reuseIdentifier
-        )
-
-        contentView.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//        tableView.register(OneStepCollectionViewCell.self, forCellWithReuseIdentifier: OneStepCollectionViewCell.reuseIdentifier)
 
         NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 140)
+//            tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+//            tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+//            tableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+//            tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+//            tableView.heightAnchor.constraint(equalToConstant: 140)
         ])
     }
 
 }
 
-extension OneStepTableViewCell: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension OneStepTableViewCell: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         model?.items.count ?? 0
     }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: OneStepCollectionViewCell.reuseIdentifier,
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: OneStepCollectionViewCell.reuseIdentifier,
             for: indexPath
         ) as? OneStepCollectionViewCell,
               let model = self.model
         else {
-            return UICollectionViewCell()
+            return UITableViewCell()
         }
 
         let cellModel = model.items[indexPath.row]

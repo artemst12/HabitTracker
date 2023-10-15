@@ -24,6 +24,8 @@
 		15F7CE582A48489A00F6041F /* WelcomeRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE572A48489A00F6041F /* WelcomeRouterOutput.swift */; };
 		15F7CE5B2A484ACB00F6041F /* WelcomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F7CE5A2A484ACB00F6041F /* WelcomeConfigurator.swift */; };
 		AC004E302AD1C49A000B50DA /* MultiStepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004E2F2AD1C49A000B50DA /* MultiStepTableViewCell.swift */; };
+		AC004F722AD6F4EE000B50DA /* BuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F712AD6F4EE000B50DA /* BuilderProtocol.swift */; };
+		AC004F752AD8549D000B50DA /* MultiStepBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F742AD8549D000B50DA /* MultiStepBuilder.swift */; };
 		AC60FA6E2A4464CD00E6FD1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */; };
 		AC60FA702A4464CD00E6FD1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */; };
 		AC60FA722A4464CD00E6FD1A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA712A4464CD00E6FD1A /* WelcomeView.swift */; };
@@ -126,7 +128,6 @@
 		AC9797AF2AC04A1D0011EE94 /* CalendarInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797AE2AC04A1D0011EE94 /* CalendarInteractorOutput.swift */; };
 		AC9797B12AC04A290011EE94 /* CalendarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797B02AC04A290011EE94 /* CalendarConfigurator.swift */; };
 		AC9797B52AC173370011EE94 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797B42AC173370011EE94 /* CustomTabBar.swift */; };
-		AC9797B72AC345700011EE94 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797B62AC345700011EE94 /* DatabaseService.swift */; };
 		AC9797B92AC806E10011EE94 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797B82AC806E10011EE94 /* CalendarTableViewCell.swift */; };
 		AC9797BD2ACDCC740011EE94 /* OneStepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797BC2ACDCC740011EE94 /* OneStepTableViewCell.swift */; };
 		AC9797BF2ACDE4B60011EE94 /* OneStepItemTableCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797BE2ACDE4B50011EE94 /* OneStepItemTableCellBuilder.swift */; };
@@ -148,6 +149,8 @@
 		15F7CE572A48489A00F6041F /* WelcomeRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouterOutput.swift; sourceTree = "<group>"; };
 		15F7CE5A2A484ACB00F6041F /* WelcomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeConfigurator.swift; sourceTree = "<group>"; };
 		AC004E2F2AD1C49A000B50DA /* MultiStepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiStepTableViewCell.swift; sourceTree = "<group>"; };
+		AC004F712AD6F4EE000B50DA /* BuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderProtocol.swift; sourceTree = "<group>"; };
+		AC004F742AD8549D000B50DA /* MultiStepBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiStepBuilder.swift; sourceTree = "<group>"; };
 		AC60FA6A2A4464CD00E6FD1A /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,7 +258,6 @@
 		AC9797AE2AC04A1D0011EE94 /* CalendarInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInteractorOutput.swift; sourceTree = "<group>"; };
 		AC9797B02AC04A290011EE94 /* CalendarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarConfigurator.swift; sourceTree = "<group>"; };
 		AC9797B42AC173370011EE94 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		AC9797B62AC345700011EE94 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseService.swift; path = "HabitTracker/Design System/Reusable Components/DatabaseService.swift"; sourceTree = SOURCE_ROOT; };
 		AC9797B82AC806E10011EE94 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		AC9797BC2ACDCC740011EE94 /* OneStepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneStepTableViewCell.swift; sourceTree = "<group>"; };
 		AC9797BE2ACDE4B50011EE94 /* OneStepItemTableCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneStepItemTableCellBuilder.swift; sourceTree = "<group>"; };
@@ -274,22 +276,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15C340462AB7012700471019 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				15C340472AB7013500471019 /* Database */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		15C340472AB7013500471019 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				AC9797B62AC345700011EE94 /* DatabaseService.swift */,
-			);
-			path = Database;
-			sourceTree = "<group>";
-		};
 		15C3404D2AB7018000471019 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,8 +312,10 @@
 		15D763272AC9B2E50025DBC4 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
+				AC004F712AD6F4EE000B50DA /* BuilderProtocol.swift */,
 				15D763282AC9B3040025DBC4 /* CalendarItemTableCellBuilder.swift */,
 				AC9797BE2ACDE4B50011EE94 /* OneStepItemTableCellBuilder.swift */,
+				AC004F742AD8549D000B50DA /* MultiStepBuilder.swift */,
 			);
 			path = Builders;
 			sourceTree = "<group>";
@@ -434,7 +422,6 @@
 				15F7CE5C2A484EA400F6041F /* Design System */,
 				AC60FA822A44B8D200E6FD1A /* Presentation */,
 				15C3404D2AB7018000471019 /* Models */,
-				15C340462AB7012700471019 /* Service */,
 				AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */,
 				AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */,
 				AC60FA732A4464CD00E6FD1A /* Main.storyboard */,
@@ -999,7 +986,6 @@
 				15F7CE442A4844CE00F6041F /* WelcomePresenter.swift in Sources */,
 				AC97976A2ABA06A60011EE94 /* CalendarCollectionViewCell.swift in Sources */,
 				15D763292AC9B3040025DBC4 /* CalendarItemTableCellBuilder.swift in Sources */,
-				AC9797B72AC345700011EE94 /* DatabaseService.swift in Sources */,
 				AC60FAF22A502B9C00E6FD1A /* CongratsConfigurator.swift in Sources */,
 				15F7CE582A48489A00F6041F /* WelcomeRouterOutput.swift in Sources */,
 				AC9797462AA5CE870011EE94 /* TodayView.swift in Sources */,
@@ -1025,6 +1011,7 @@
 				AC60FAAD2A4C5BEF00E6FD1A /* DatePicker.swift in Sources */,
 				AC9797792AC048480011EE94 /* StatsViewInput.swift in Sources */,
 				AC9797582AA5CF270011EE94 /* TodayInteractor.swift in Sources */,
+				AC004F752AD8549D000B50DA /* MultiStepBuilder.swift in Sources */,
 				AC9797A72AC049E90011EE94 /* CalendarPresenterInput.swift in Sources */,
 				AC60FAC12A4D75E800E6FD1A /* GenderViewOutput.swift in Sources */,
 				AC9797A92AC049F30011EE94 /* CalendarPresenterOutput.swift in Sources */,
@@ -1050,6 +1037,7 @@
 				AC60FADA2A501C8D00E6FD1A /* CongratsView.swift in Sources */,
 				AC60FA932A4A011300E6FD1A /* InformationViewInput.swift in Sources */,
 				AC9797652AAF82C20011EE94 /* StackScreenView.swift in Sources */,
+				AC004F722AD6F4EE000B50DA /* BuilderProtocol.swift in Sources */,
 				AC60FA6E2A4464CD00E6FD1A /* AppDelegate.swift in Sources */,
 				AC97974E2AA5CECC0011EE94 /* TodayRouterInput.swift in Sources */,
 				15F7CE5B2A484ACB00F6041F /* WelcomeConfigurator.swift in Sources */,

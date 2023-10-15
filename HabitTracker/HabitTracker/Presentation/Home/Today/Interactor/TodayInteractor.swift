@@ -26,6 +26,11 @@ final class TodayInteractor {
     private let oneStepHabbits: [OneStepHabit] = [
         .init(emoji: "😁", name: "Laugh", done: false)
     ]
+    
+    private let multiStepHabits: [MultiStepHabit] = [
+        .init(image: "water", habitLabel: "Water", label: "glass", countLabel: "4/10", minusButton: "minus", plusButton: "plus"),
+        .init(image: "😴", habitLabel: "Sleep", label: "hours", countLabel: "5/8", minusButton: "minus", plusButton: "plus")
+    ]
 }
 
 extension TodayInteractor: TodayInteractorInput {
@@ -36,6 +41,7 @@ extension TodayInteractor: TodayInteractorInput {
             let model = TodayViewModel()
             model.calendarItems = self.calendarItems
             model.oneStepHabbitSection = self.oneStepHabbits
+            model.multiStepHabitSection = self.multiStepHabits
             self.output?.dataLoaded(model: model)
         }
     }
@@ -45,6 +51,7 @@ class TodayViewModel {
 
     var calendarItems: [CalendarDayItem] = []
     var oneStepHabbitSection: [OneStepHabit] = []
+    var multiStepHabitSection: [MultiStepHabit] = []
 
     init() { }
 }
@@ -59,4 +66,13 @@ struct OneStepHabit {
     let emoji: String
     let name: String
     let done: Bool
+}
+
+struct MultiStepHabit {
+    let image: String
+    let habitLabel: String
+    let label: String
+    let countLabel: String
+    let minusButton: String
+    let plusButton: String
 }

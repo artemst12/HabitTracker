@@ -9,7 +9,7 @@ import UIKit
 
 final class CustomTabBar: UIView {
     
-    var output: TodayViewOutput?
+    weak var output: TodayViewOutput?
 
     private var createNewHabitView: UIView!
     private var statsView: UIView!
@@ -18,7 +18,9 @@ final class CustomTabBar: UIView {
     private let createNewHabitButton = UIButton()
     private let statsButton = UIButton()
     private let calendarButton = UIButton()
-    
+
+    var routeStatsActions: (() -> Void)?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -68,7 +70,10 @@ extension CustomTabBar {
         layer.cornerRadius = 36
         
         createNewHabitView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "", action: { _ in })
-        statsView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "stats", action: { _ in self.output?.statsButtonTapped()})
+        statsView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "stats",
+                                        action: { _ in
+            self.routeStatsActions?()
+        })
         calendarView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "", action: { _ in self.output?.calendarButtonTapped()})
         
         let tabBarButtons: [UIView] = [
