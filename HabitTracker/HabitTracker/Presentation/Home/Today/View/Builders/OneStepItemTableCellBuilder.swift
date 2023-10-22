@@ -10,14 +10,18 @@ import UIKit
 final class OneStepItemTableCellBuilder: TodayCellBuilder {
 
     private weak var tableView: UITableView?
-    private var model: OneStepTableViewCellModel?
+    private var model: OneStepHabit?
     private var cell: UITableViewCell?
+
+    var isSelected: Bool {
+        return model?.done ?? false
+    }
 
     func set(tableView: UITableView?) {
         self.tableView = tableView
     }
 
-    func set(model: OneStepTableViewCellModel) {
+    func set(model: OneStepHabit) {
         self.model = model
     }
 
@@ -31,7 +35,8 @@ final class OneStepItemTableCellBuilder: TodayCellBuilder {
         guard let model else {
             return UITableViewCell()
         }
-
+        
+        cell.backgroundColor = Colors.background
         cell.configure(with: model)
 
         return cell

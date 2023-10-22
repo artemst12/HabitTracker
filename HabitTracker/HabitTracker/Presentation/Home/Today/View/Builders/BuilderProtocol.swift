@@ -11,6 +11,8 @@ protocol TodayCellBuilder {
 
     associatedtype ViewModel
 
+    var isSelected: Bool { get }
+
     func set(tableView: UITableView?)
     func set(model: ViewModel)
     func build() -> UITableViewCell

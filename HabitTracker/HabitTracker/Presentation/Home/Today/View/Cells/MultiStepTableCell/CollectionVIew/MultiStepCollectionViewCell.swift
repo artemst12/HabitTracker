@@ -28,8 +28,10 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         glassLabel?.text = model.label
         minusButton?.setImage(.init(named: model.minusButton), for: .normal)
         plusButton?.setImage(.init(named: model.plusButton), for: .normal)
+//        minusButton?.setTitle("+", for: .normal)
+//        minusButton?.titleLabel?.font = .systemFont(ofSize: 100)
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -79,7 +81,7 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         background.addSubview(viewForButtons)
         viewForButtons.addSubview(minusButton)
         viewForButtons.addSubview(plusButton)
-        
+
         NSLayoutConstraint.activate([
             
             background.topAnchor.constraint(equalTo: topAnchor),

@@ -26,6 +26,7 @@
 		AC004E302AD1C49A000B50DA /* MultiStepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004E2F2AD1C49A000B50DA /* MultiStepTableViewCell.swift */; };
 		AC004F722AD6F4EE000B50DA /* BuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F712AD6F4EE000B50DA /* BuilderProtocol.swift */; };
 		AC004F752AD8549D000B50DA /* MultiStepBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F742AD8549D000B50DA /* MultiStepBuilder.swift */; };
+		AC004F772AE2C9B2000B50DA /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F762AE2C9B2000B50DA /* CheckBox.swift */; };
 		AC60FA6E2A4464CD00E6FD1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */; };
 		AC60FA702A4464CD00E6FD1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */; };
 		AC60FA722A4464CD00E6FD1A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA712A4464CD00E6FD1A /* WelcomeView.swift */; };
@@ -100,7 +101,6 @@
 		AC9797682ABA02BD0011EE94 /* TodayTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797672ABA02BD0011EE94 /* TodayTableViewAdapter.swift */; };
 		AC97976A2ABA06A60011EE94 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797692ABA06A60011EE94 /* CalendarCollectionViewCell.swift */; };
 		AC97976C2ABB22F40011EE94 /* MultiStepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97976B2ABB22F40011EE94 /* MultiStepCollectionViewCell.swift */; };
-		AC97976E2ABB56E60011EE94 /* OneStepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97976D2ABB56E60011EE94 /* OneStepCollectionViewCell.swift */; };
 		AC9797772AC0483E0011EE94 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797762AC0483E0011EE94 /* StatsView.swift */; };
 		AC9797792AC048480011EE94 /* StatsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9797782AC048480011EE94 /* StatsViewInput.swift */; };
 		AC97977B2AC048520011EE94 /* StatsViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97977A2AC048520011EE94 /* StatsViewOutput.swift */; };
@@ -151,6 +151,7 @@
 		AC004E2F2AD1C49A000B50DA /* MultiStepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiStepTableViewCell.swift; sourceTree = "<group>"; };
 		AC004F712AD6F4EE000B50DA /* BuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderProtocol.swift; sourceTree = "<group>"; };
 		AC004F742AD8549D000B50DA /* MultiStepBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiStepBuilder.swift; sourceTree = "<group>"; };
+		AC004F762AE2C9B2000B50DA /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		AC60FA6A2A4464CD00E6FD1A /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -230,7 +231,6 @@
 		AC9797672ABA02BD0011EE94 /* TodayTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTableViewAdapter.swift; sourceTree = "<group>"; };
 		AC9797692ABA06A60011EE94 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC97976B2ABB22F40011EE94 /* MultiStepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiStepCollectionViewCell.swift; sourceTree = "<group>"; };
-		AC97976D2ABB56E60011EE94 /* OneStepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneStepCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC9797762AC0483E0011EE94 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		AC9797782AC048480011EE94 /* StatsViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewInput.swift; sourceTree = "<group>"; };
 		AC97977A2AC048520011EE94 /* StatsViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewOutput.swift; sourceTree = "<group>"; };
@@ -314,8 +314,8 @@
 			children = (
 				AC004F712AD6F4EE000B50DA /* BuilderProtocol.swift */,
 				15D763282AC9B3040025DBC4 /* CalendarItemTableCellBuilder.swift */,
-				AC9797BE2ACDE4B50011EE94 /* OneStepItemTableCellBuilder.swift */,
 				AC004F742AD8549D000B50DA /* MultiStepBuilder.swift */,
+				AC9797BE2ACDE4B50011EE94 /* OneStepItemTableCellBuilder.swift */,
 			);
 			path = Builders;
 			sourceTree = "<group>";
@@ -378,6 +378,7 @@
 				AC60FB0B2A60835400E6FD1A /* Extensions.swift */,
 				AC9797642AAF82C20011EE94 /* StackScreenView.swift */,
 				AC9797B42AC173370011EE94 /* CustomTabBar.swift */,
+				AC004F762AE2C9B2000B50DA /* CheckBox.swift */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -751,8 +752,8 @@
 			isa = PBXGroup;
 			children = (
 				15D763252AC9B0B40025DBC4 /* CalendarTableCell */,
-				AC9797BA2ACDCC280011EE94 /* OneStepTableCell */,
 				AC004E2D2AD1C450000B50DA /* MultiStepTableCell */,
+				AC9797BA2ACDCC280011EE94 /* OneStepTableCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -888,18 +889,9 @@
 		AC9797BA2ACDCC280011EE94 /* OneStepTableCell */ = {
 			isa = PBXGroup;
 			children = (
-				AC9797BB2ACDCC430011EE94 /* CollectionView */,
 				AC9797BC2ACDCC740011EE94 /* OneStepTableViewCell.swift */,
 			);
 			path = OneStepTableCell;
-			sourceTree = "<group>";
-		};
-		AC9797BB2ACDCC430011EE94 /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				AC97976D2ABB56E60011EE94 /* OneStepCollectionViewCell.swift */,
-			);
-			path = CollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1028,9 +1020,9 @@
 				AC60FAA72A4B16C300E6FD1A /* InformationInteractorOutput.swift in Sources */,
 				15F7CE522A48476A00F6041F /* WelcomeInteractorOutput.swift in Sources */,
 				AC9797AD2AC04A0F0011EE94 /* CalendarInteractorInput.swift in Sources */,
+				AC004F772AE2C9B2000B50DA /* CheckBox.swift in Sources */,
 				AC60FA952A4A016B00E6FD1A /* InformationViewOutput.swift in Sources */,
 				15F7CE562A48489100F6041F /* WelcomeRouterInput.swift in Sources */,
-				AC97976E2ABB56E60011EE94 /* OneStepCollectionViewCell.swift in Sources */,
 				AC60FAA52A4B169F00E6FD1A /* InformationInteractorInput.swift in Sources */,
 				15F7CE4A2A48469400F6041F /* WelcomePresenterInput.swift in Sources */,
 				AC60FA972A4B10E800E6FD1A /* InformationRouter.swift in Sources */,

@@ -17,7 +17,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = String(describing: CalendarCollectionViewCell.self)
 
     func configure(with model: CalendarDayItem) {
-        smileImage?.image = .init(systemName: model.rating.rawValue)
+        smileImage?.image = .init(named: model.rating.rawValue)
         dateLabel?.text = model.dayNumber
         currentDayLabel?.text = model.dayName
     }
@@ -63,6 +63,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
             dateLabel.centerXAnchor.constraint(equalTo: dayView.centerXAnchor),
             
             smileImage.topAnchor.constraint(equalTo: dayView.bottomAnchor, constant: 5),
+            smileImage.centerXAnchor.constraint(equalTo: dayView.centerXAnchor),
             smileImage.widthAnchor.constraint(equalToConstant: 40),
             smileImage.heightAnchor.constraint(equalToConstant: 40),
             

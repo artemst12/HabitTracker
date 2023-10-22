@@ -7,81 +7,99 @@
 
 import UIKit
 
-final class OneStepTableViewCellModel {
-
-    let items: [OneStepHabit]
-
-    init(items: [OneStepHabit]) {
-        self.items = items
-    }
-}
-
 final class OneStepTableViewCell: UITableViewCell {
     
     private var tableView: UITableView!
-    private var model: OneStepTableViewCellModel? = nil
     
+    private var background: UIView?
+    private var viewForImage: UIView?
+    private var image: UIImageView?
+    private var habitLabel: UILabel?
+    private var activeButton: UIButton?
+    private var checkBox: CheckBox?
+
+    private var model: OneStepHabit? = nil
+
     static let reuseIdentifier = String(describing: OneStepTableViewCell.self)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         initTableView()
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30))
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: OneStepTableViewCellModel) {
-        self.model = model
-        tableView.reloadData()
+    func configure(with model: OneStepHabit) {
+        image?.image = .init(systemName: "")
+        habitLabel?.text = model.name
+        activeButton?.isEnabled = model.done
     }
-    
+
     private func initTableView() {
+
+        let background = UIView()
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.layer.cornerRadius = 24
+        background.backgroundColor = Colors.lightBlack
+
+        let viewForImage = UIView()
+        viewForImage.translatesAutoresizingMaskIntoConstraints = false
+        viewForImage.layer.cornerRadius = 20
+        viewForImage.backgroundColor = Colors.lightDark
+
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        let habitLabel = UILabel()
+        habitLabel.translatesAutoresizingMaskIntoConstraints = false
+        habitLabel.font = .systemFont(ofSize: 16, weight: .bold)
+
+        let checkBox = CheckBox()
+        checkBox.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.backgroundColor = .white
+        addSubview(background)
+        background.addSubview(viewForImage)
+        viewForImage.addSubview(imageView)
+        background.addSubview(habitLabel)
+        background.addSubview(checkBox)
 
-        tableView.dataSource = self
-//        tableView.delegate = self
+        self.selectionStyle = .none
+        self.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         
-        addSubview(tableView)
-
-//        tableView.register(OneStepCollectionViewCell.self, forCellWithReuseIdentifier: OneStepCollectionViewCell.reuseIdentifier)
-
         NSLayoutConstraint.activate([
-//            tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-//            tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-//            tableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-//            tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-//            tableView.heightAnchor.constraint(equalToConstant: 140)
+
+            background.topAnchor.constraint(equalTo: topAnchor),
+            background.leadingAnchor.constraint(equalTo: leadingAnchor),
+            background.trailingAnchor.constraint(equalTo: trailingAnchor),
+            background.bottomAnchor.constraint(equalTo: bottomAnchor),
+            background.heightAnchor.constraint(equalToConstant: 80),
+
+            viewForImage.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 20),
+            viewForImage.centerYAnchor.constraint(equalTo: background.centerYAnchor),
+            viewForImage.heightAnchor.constraint(equalToConstant: 45),
+            viewForImage.widthAnchor.constraint(equalToConstant: 45),
+
+            imageView.centerXAnchor.constraint(equalTo: viewForImage.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: viewForImage.centerYAnchor),
+
+            habitLabel.centerYAnchor.constraint(equalTo: viewForImage.centerYAnchor),
+            habitLabel.leadingAnchor.constraint(equalTo: viewForImage.trailingAnchor, constant: 10),
+
+            checkBox.centerYAnchor.constraint(equalTo: background.centerYAnchor),
+            checkBox.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -10),
+            checkBox.heightAnchor.constraint(equalToConstant: 35),
+            checkBox.widthAnchor.constraint(equalToConstant: 35),
+
         ])
-    }
 
-}
-
-extension OneStepTableViewCell: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model?.items.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: OneStepCollectionViewCell.reuseIdentifier,
-            for: indexPath
-        ) as? OneStepCollectionViewCell,
-              let model = self.model
-        else {
-            return UITableViewCell()
-        }
-
-        let cellModel = model.items[indexPath.row]
-        cell.configure(with: cellModel)
-
-        return cell
+        self.background = background
+        self.viewForImage = viewForImage
+        self.image = imageView
+        self.habitLabel = habitLabel
+        self.checkBox = checkBox
     }
 }

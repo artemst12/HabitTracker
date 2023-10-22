@@ -80,7 +80,7 @@ class CalendarObject: Object {
 
 enum DayStatus: String, PersistableEnum {
     case good
-    case sad
+    case sad = "sad"
     case awful = "awful"
     case empty
 }

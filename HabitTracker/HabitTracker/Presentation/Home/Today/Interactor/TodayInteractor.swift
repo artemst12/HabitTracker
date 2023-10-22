@@ -14,7 +14,7 @@ final class TodayInteractor {
     private let calendarItems: [CalendarDayItem] = [
         .init(dayName: "Mon", dayNumber: "1", rating: .awful),
         .init(dayName: "Tue", dayNumber: "2", rating: .good),
-        .init(dayName: "Wed", dayNumber: "3", rating: .empty),
+        .init(dayName: "Wed", dayNumber: "3", rating: .sad),
         .init(dayName: "Tue", dayNumber: "2", rating: .good),
         .init(dayName: "Wed", dayNumber: "3", rating: .empty),
         .init(dayName: "Tue", dayNumber: "2", rating: .good),
@@ -24,12 +24,15 @@ final class TodayInteractor {
     ]
 
     private let oneStepHabbits: [OneStepHabit] = [
-        .init(emoji: "😁", name: "Laugh", done: false)
+        .init(emoji: "😁", name: "Laugh", done: false),
+        .init(emoji: "😁", name: "Laugh 2", done: true),
+        .init(emoji: "😁", name: "Laugh 3", done: true),
+        .init(emoji: "😁", name: "Laugh 4", done: false)
     ]
     
     private let multiStepHabits: [MultiStepHabit] = [
-        .init(image: "water", habitLabel: "Water", label: "glass", countLabel: "4/10", minusButton: "minus", plusButton: "plus"),
-        .init(image: "😴", habitLabel: "Sleep", label: "hours", countLabel: "5/8", minusButton: "minus", plusButton: "plus")
+        .init(image: "water", habitLabel: "Water", label: "glass", countLabel: "4/10", minusButton: "minus", plusButton: "plus", done: true),
+        .init(image: "😴", habitLabel: "Sleep", label: "hours", countLabel: "5/8", minusButton: "minus", plusButton: "plus", done: false)
     ]
 }
 
@@ -75,4 +78,5 @@ struct MultiStepHabit {
     let countLabel: String
     let minusButton: String
     let plusButton: String
+    let done: Bool
 }

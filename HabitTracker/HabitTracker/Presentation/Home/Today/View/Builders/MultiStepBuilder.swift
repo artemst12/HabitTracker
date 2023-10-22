@@ -11,7 +11,12 @@ final class MultiStepItemTableCellBuilder: TodayCellBuilder {
 
     private weak var tableView: UITableView?
     private var model: MultiStepTableViewCellModel?
+    private var multiStepModel: MultiStepHabit?
     private var cell: UITableViewCell?
+    
+    var isSelected: Bool {
+        return multiStepModel?.done ?? false
+    }
 
     func set(tableView: UITableView?) {
         self.tableView = tableView

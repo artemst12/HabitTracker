@@ -14,6 +14,7 @@ enum Fonts {
     static let buttonTitle: CGFloat = 18
     static let emojiSize: CGFloat = 72
     static let buttonLabelSize: CGFloat = 18
+    static let header: CGFloat = 22
 }
 
 enum Colors {
@@ -26,6 +27,7 @@ enum Colors {
     static let lightGray = UIColor.lightGray
     static let background = UIColor.init(red: 16/255, green: 16/255, blue: 16/255, alpha: 1)
     static let blackForTabBar = UIColor.init(red: 35/255, green: 35/255, blue: 35/255, alpha: 1)
+    static let forHeaderView = UIColor.init(red: 35/255, green: 35/255, blue: 35/255, alpha: 1)
 }
 
 enum Constants {

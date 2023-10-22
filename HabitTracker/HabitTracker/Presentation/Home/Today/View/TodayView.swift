@@ -33,16 +33,20 @@ extension TodayView: TodayViewInput {
         let calendarBuilder = CalendarItemTableCellBuilder()
         calendarBuilder.set(model: CalendarTableViewCellModel(items: model.calendarItems))
         todayTableAdapter?.set(calendarItems: [calendarBuilder])
-        todayTableAdapter?.reload()
-        
-        let oneStepBuilder = OneStepItemTableCellBuilder()
-        oneStepBuilder.set(model: OneStepTableViewCellModel(items: model.oneStepHabbitSection))
-        todayTableAdapter?.set(oneStepItems: [oneStepBuilder])
-        todayTableAdapter?.reload()
+
+        var oneStepBuilders: [any TodayCellBuilder] = []
+        for habit in model.oneStepHabbitSection {
+            let builder = OneStepItemTableCellBuilder()
+            builder.set(model: habit)
+            oneStepBuilders.append(builder)
+        }
+
+        todayTableAdapter?.set(oneStepItems: oneStepBuilders)
         
         let multiStepBuilder = MultiStepItemTableCellBuilder()
         multiStepBuilder.set(model: MultiStepTableViewCellModel(items: model.multiStepHabitSection))
         todayTableAdapter?.set(multiStepItems: [multiStepBuilder])
+
         todayTableAdapter?.reload()
     }
 }

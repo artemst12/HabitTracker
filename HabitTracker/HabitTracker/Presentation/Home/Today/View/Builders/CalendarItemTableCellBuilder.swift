@@ -9,6 +9,10 @@ import UIKit
 
 final class CalendarItemTableCellBuilder: TodayCellBuilder {
 
+    var isSelected: Bool {
+        return false
+    }
+
     private weak var tableView: UITableView?
 
     private var model: CalendarTableViewCellModel?
