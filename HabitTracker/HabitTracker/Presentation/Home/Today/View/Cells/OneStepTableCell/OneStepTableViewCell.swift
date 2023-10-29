@@ -34,7 +34,7 @@ final class OneStepTableViewCell: UITableViewCell {
     }
     
     func configure(with model: OneStepHabit) {
-        image?.image = .init(systemName: "")
+        image?.image = .init(named: model.emoji)
         habitLabel?.text = model.name
         activeButton?.isEnabled = model.done
     }
@@ -85,6 +85,10 @@ final class OneStepTableViewCell: UITableViewCell {
 
             imageView.centerXAnchor.constraint(equalTo: viewForImage.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: viewForImage.centerYAnchor),
+            imageView.leadingAnchor.constraint(equalTo: viewForImage.leadingAnchor, constant: 8),
+            imageView.trailingAnchor.constraint(equalTo: viewForImage.trailingAnchor, constant: -8),
+            imageView.topAnchor.constraint(equalTo: viewForImage.topAnchor, constant: 8),
+            imageView.bottomAnchor.constraint(equalTo: viewForImage.bottomAnchor, constant: -8),
 
             habitLabel.centerYAnchor.constraint(equalTo: viewForImage.centerYAnchor),
             habitLabel.leadingAnchor.constraint(equalTo: viewForImage.trailingAnchor, constant: 10),
@@ -92,7 +96,7 @@ final class OneStepTableViewCell: UITableViewCell {
             checkBox.centerYAnchor.constraint(equalTo: background.centerYAnchor),
             checkBox.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -10),
             checkBox.heightAnchor.constraint(equalToConstant: 35),
-            checkBox.widthAnchor.constraint(equalToConstant: 35),
+            checkBox.widthAnchor.constraint(equalToConstant: 35)
 
         ])
 

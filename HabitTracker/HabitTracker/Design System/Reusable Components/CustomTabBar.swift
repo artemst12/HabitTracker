@@ -69,12 +69,11 @@ extension CustomTabBar {
         backgroundColor = Colors.blackForTabBar
         layer.cornerRadius = 36
         
-        createNewHabitView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "", action: { _ in })
+        createNewHabitView = createTabBarButtons(color: Colors.lightGreen, imageName: "", action: { _ in })
         statsView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "stats",
-                                        action: { _ in
-            self.routeStatsActions?()
-        })
-        calendarView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "", action: { _ in self.output?.calendarButtonTapped()})
+                                        action: { _ in self.routeStatsActions?() })
+        calendarView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "calendar",
+                                        action: { _ in self.output?.calendarButtonTapped() })
         
         let tabBarButtons: [UIView] = [
             createNewHabitView,
@@ -93,18 +92,21 @@ extension CustomTabBar {
             createNewHabitView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             createNewHabitView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             createNewHabitView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            createNewHabitView.trailingAnchor.constraint(equalTo: statsView.leadingAnchor, constant: -10),
+//            createNewHabitView.trailingAnchor.constraint(equalTo: statsView.leadingAnchor, constant: -10),
+            createNewHabitView.widthAnchor.constraint(equalToConstant: 150),
             
-            statsView.trailingAnchor.constraint(equalTo: calendarView.leadingAnchor, constant: -10),
-            statsView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            statsView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            statsView.widthAnchor.constraint(equalToConstant: 70),
+            statsView.leadingAnchor.constraint(equalTo: createNewHabitView.trailingAnchor, constant: 40),
+            statsView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            statsView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            statsView.widthAnchor.constraint(equalToConstant: 40),
+//            statsView.heightAnchor.constraint(equalToConstant: 50),
             
-            calendarView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            calendarView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            calendarView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            calendarView.widthAnchor.constraint(equalToConstant: 70),
-
+            calendarView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            calendarView.leadingAnchor.constraint(equalTo: statsView.trailingAnchor, constant: 35),
+            calendarView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            calendarView.widthAnchor.constraint(equalToConstant: 40),
+//            calendarView.heightAnchor.constraint(equalToConstant: 50),
+            
         ])
     }
 }

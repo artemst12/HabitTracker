@@ -24,10 +24,10 @@ final class TodayInteractor {
     ]
 
     private let oneStepHabbits: [OneStepHabit] = [
-        .init(emoji: "😁", name: "Laugh", done: false),
-        .init(emoji: "😁", name: "Laugh 2", done: true),
-        .init(emoji: "😁", name: "Laugh 3", done: true),
-        .init(emoji: "😁", name: "Laugh 4", done: false)
+        .init(emoji: "cake", name: "Avoid sweets", done: false),
+        .init(emoji: "plant", name: "Plant-based diet", done: true),
+        .init(emoji: "workout", name: "Work out for 30 min", done: true),
+        .init(emoji: "breathe", name: "Breathe exercise", done: false)
     ]
     
     private let multiStepHabits: [MultiStepHabit] = [
