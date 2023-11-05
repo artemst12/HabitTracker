@@ -10,5 +10,4 @@ import Foundation
 protocol TodayViewInput: AnyObject {
  
     func updateView(with model: TodayViewModel)
-
 }

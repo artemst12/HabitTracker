@@ -11,6 +11,7 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
     
     private var background: UIView?
     private var viewForImage: UIView?
+    private var label: UILabel?
     private var imageView: UIImageView?
     private var habitLabel: UILabel?
     private var countLabel: UILabel?
@@ -18,18 +19,35 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
     private var viewForButtons: UIView?
     private var minusButton: UIButton?
     private var plusButton: UIButton?
+    private var countDone = 0
+    private var presenter: TodayPresenter?
     
     static let reuseIdentifier = String(describing: MultiStepCollectionViewCell.self)
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // reset all data
+    }
+    
     func configure(with model: MultiStepHabit) {
-        imageView?.image = .init(named: model.image)
+        
+        switch model.image {
+        case .image(let image):
+            imageView?.image = .init(named: image)
+            imageView?.isHidden = false
+            label?.isHidden = true
+        
+        case .emoji(let emoji):
+            label?.text = emoji
+            imageView?.isHidden = true
+            label?.isHidden = false
+        }
+        
         habitLabel?.text = model.habitLabel
         countLabel?.text = model.countLabel
         glassLabel?.text = model.label
         minusButton?.setImage(.init(named: model.minusButton), for: .normal)
         plusButton?.setImage(.init(named: model.plusButton), for: .normal)
-//        minusButton?.setTitle("+", for: .normal)
-//        minusButton?.titleLabel?.font = .systemFont(ofSize: 100)
     }
 
     override init(frame: CGRect) {
@@ -49,6 +67,11 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 24)
+        label.textAlignment = .center
+        
         let habitLabel = UILabel()
         habitLabel.translatesAutoresizingMaskIntoConstraints = false
         habitLabel.font = .systemFont(ofSize: 20, weight: .bold)
@@ -65,9 +88,10 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         viewForButtons.translatesAutoresizingMaskIntoConstraints = false
         viewForButtons.backgroundColor = Colors.lightDark
         viewForButtons.layer.cornerRadius = 20
-        
+                
         let minusButton = UIButton()
         minusButton.translatesAutoresizingMaskIntoConstraints = false
+//        minusButton.addTarget(self, action: #selector(), for: .touchUpInside)
         
         let plusButton = UIButton()
         plusButton.translatesAutoresizingMaskIntoConstraints = false
@@ -75,6 +99,7 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         addSubview(background)
         background.addSubview(viewForImage)
         viewForImage.addSubview(imageView)
+        viewForImage.addSubview(label)
         background.addSubview(habitLabel)
         background.addSubview(countLabel)
         background.addSubview(glassLabel)
@@ -102,6 +127,11 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: viewForImage.trailingAnchor, constant: -8),
             imageView.topAnchor.constraint(equalTo: viewForImage.topAnchor, constant: 8),
             imageView.bottomAnchor.constraint(equalTo: viewForImage.bottomAnchor, constant: -8),
+            
+            label.topAnchor.constraint(equalTo: viewForImage.topAnchor),
+            label.leadingAnchor.constraint(equalTo: viewForImage.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: viewForImage.trailingAnchor),
+            label.bottomAnchor.constraint(equalTo: viewForImage.bottomAnchor),
             
             habitLabel.centerYAnchor.constraint(equalTo: viewForImage.centerYAnchor),
             habitLabel.leadingAnchor.constraint(equalTo: viewForImage.trailingAnchor, constant: 10),
@@ -132,6 +162,7 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         self.background = background
         self.viewForImage = viewForImage
         self.imageView = imageView
+        self.label = label
         self.habitLabel = habitLabel
         self.countLabel = countLabel
         self.glassLabel = glassLabel

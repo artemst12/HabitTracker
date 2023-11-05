@@ -13,6 +13,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     private var smileImage: UIImageView?
     private var currentDayLabel: UILabel?
     private var dateLabel: UILabel?
+    private let calendar = Calendar.current
     
     static let reuseIdentifier = String(describing: CalendarCollectionViewCell.self)
 
@@ -42,6 +43,8 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         
         let smileImage = UIImageView()
         smileImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        let weekdays = calendar.standaloneWeekdaySymbols
         
         addSubview(dayView)
         dayView.addSubview(currentDayLabel)

@@ -1,13 +1,13 @@
 //
-//  OneStepTableViewCell.swift
+//  NewHabitTableCell.swift
 //  HabitTracker
 //
-//  Created by Артем Ступников on 04.10.2023.
+//  Created by Артем Ступников on 03.11.2023.
 //
 
 import UIKit
 
-final class OneStepTableViewCell: UITableViewCell {
+final class NewHabitTableCell: UITableViewCell {
     
     private var tableView: UITableView!
     
@@ -18,25 +18,23 @@ final class OneStepTableViewCell: UITableViewCell {
     private var activeButton: UIButton?
     private var checkBox: CheckBox?
 
-    private var model: OneStepHabit? = nil
+    private var model: NewHabitStruct? = nil
 
-    static let reuseIdentifier = String(describing: OneStepTableViewCell.self)
+    static let reuseIdentifier = String(describing: NewHabitTableCell.self)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         initTableView()
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30))
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: OneStepHabit) {
-        image?.image = .init(named: model.emoji)
-        habitLabel?.text = model.name
-        activeButton?.isEnabled = model.done
+    func configure(picture: String, label: String, button: Bool) {
+        image?.image = .init(named: picture)
+        habitLabel?.text = label
+        activeButton?.isEnabled = button
     }
 
     private func initTableView() {

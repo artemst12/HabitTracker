@@ -10,6 +10,7 @@ import Foundation
 protocol TodayViewOutput: AnyObject {
     
     func requestData()
+    func newHabitButtonTapped()
     func statsButtonTapped()
     func calendarButtonTapped()
 }

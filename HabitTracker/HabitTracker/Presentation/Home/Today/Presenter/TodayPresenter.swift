@@ -16,6 +16,10 @@ final class TodayPresenter {
 
 extension TodayPresenter: TodayViewOutput {
     
+    func newHabitButtonTapped() {
+        router?.next(NewHabitConfigurator().configure())
+    }
+    
     func statsButtonTapped() {
         router?.next(StatsConfigurator().configure())
     }

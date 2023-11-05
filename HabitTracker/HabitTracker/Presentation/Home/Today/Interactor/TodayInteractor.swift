@@ -6,10 +6,23 @@
 //
 
 import Foundation
+import UIKit
+
+extension Date {
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+           return calendar.dateComponents(Set(components), from: self)
+       }
+
+       func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+           return calendar.component(component, from: self)
+       }
+}
 
 final class TodayInteractor {
 
     weak var output: TodayInteractorOutput?
+//    let date = Date()
+//    let components = date.get(.day, .month, .year)
 
     private let calendarItems: [CalendarDayItem] = [
         .init(dayName: "Mon", dayNumber: "1", rating: .awful),
@@ -31,8 +44,8 @@ final class TodayInteractor {
     ]
     
     private let multiStepHabits: [MultiStepHabit] = [
-        .init(image: "water", habitLabel: "Water", label: "glass", countLabel: "4/10", minusButton: "minus", plusButton: "plus", done: true),
-        .init(image: "😴", habitLabel: "Sleep", label: "hours", countLabel: "5/8", minusButton: "minus", plusButton: "plus", done: false)
+        .init(image: .image("water"), habitLabel: "Water", label: "glass", countLabel: "5/10", minusButton: "minus", plusButton: "plus", done: true),
+        .init(image: .emoji("😴"), habitLabel: "Sleep", label: "hours", countLabel: "5/8", minusButton: "minus", plusButton: "plus", done: false)
     ]
 }
 
@@ -71,8 +84,13 @@ struct OneStepHabit {
     let done: Bool
 }
 
+enum MultiStepHabitImageType {
+    case image(String)
+    case emoji(String)
+}
+
 struct MultiStepHabit {
-    let image: String
+    let image: MultiStepHabitImageType
     let habitLabel: String
     let label: String
     let countLabel: String

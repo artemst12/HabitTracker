@@ -20,6 +20,7 @@ final class CustomTabBar: UIView {
     private let calendarButton = UIButton()
 
     var routeStatsActions: (() -> Void)?
+    var routeNewHabitActions: (() -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,7 +70,8 @@ extension CustomTabBar {
         backgroundColor = Colors.blackForTabBar
         layer.cornerRadius = 36
         
-        createNewHabitView = createTabBarButtons(color: Colors.lightGreen, imageName: "", action: { _ in })
+        createNewHabitView = createTabBarButtons(color: Colors.lightGreen, imageName: "",
+                                        action: { _ in self.routeNewHabitActions?() })
         statsView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "stats",
                                         action: { _ in self.routeStatsActions?() })
         calendarView = createTabBarButtons(color: Colors.blackForTabBar, imageName: "calendar",

@@ -27,6 +27,21 @@
 		AC004F722AD6F4EE000B50DA /* BuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F712AD6F4EE000B50DA /* BuilderProtocol.swift */; };
 		AC004F752AD8549D000B50DA /* MultiStepBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F742AD8549D000B50DA /* MultiStepBuilder.swift */; };
 		AC004F772AE2C9B2000B50DA /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F762AE2C9B2000B50DA /* CheckBox.swift */; };
+		AC004F7F2AF517C6000B50DA /* NewHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F7E2AF517C6000B50DA /* NewHabitView.swift */; };
+		AC004F812AF517D6000B50DA /* NewHabitViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F802AF517D6000B50DA /* NewHabitViewInput.swift */; };
+		AC004F832AF517E0000B50DA /* NewHabitViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F822AF517E0000B50DA /* NewHabitViewOutput.swift */; };
+		AC004F852AF51800000B50DA /* NewHabitRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F842AF51800000B50DA /* NewHabitRouter.swift */; };
+		AC004F872AF5180C000B50DA /* NewHabitRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F862AF5180C000B50DA /* NewHabitRouterInput.swift */; };
+		AC004F892AF51814000B50DA /* NewHabitRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F882AF51814000B50DA /* NewHabitRouterOutput.swift */; };
+		AC004F8B2AF51834000B50DA /* NewHabitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F8A2AF51834000B50DA /* NewHabitPresenter.swift */; };
+		AC004F8D2AF5183E000B50DA /* NewHabitPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F8C2AF5183E000B50DA /* NewHabitPresenterInput.swift */; };
+		AC004F8F2AF51846000B50DA /* NewHabitPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F8E2AF51846000B50DA /* NewHabitPresenterOutput.swift */; };
+		AC004F912AF51852000B50DA /* NewHabitInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F902AF51852000B50DA /* NewHabitInteractor.swift */; };
+		AC004F932AF51861000B50DA /* NewHabitInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F922AF51861000B50DA /* NewHabitInteractorInput.swift */; };
+		AC004F952AF5186D000B50DA /* NewHabitInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F942AF5186D000B50DA /* NewHabitInteractorOutput.swift */; };
+		AC004F982AF51894000B50DA /* NewHabitConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F972AF51894000B50DA /* NewHabitConfigurator.swift */; };
+		AC004F9B2AF52378000B50DA /* NewHabitTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F9A2AF52378000B50DA /* NewHabitTableViewAdapter.swift */; };
+		AC004F9E2AF527B6000B50DA /* NewHabitTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F9D2AF527B6000B50DA /* NewHabitTableCell.swift */; };
 		AC60FA6E2A4464CD00E6FD1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */; };
 		AC60FA702A4464CD00E6FD1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */; };
 		AC60FA722A4464CD00E6FD1A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA712A4464CD00E6FD1A /* WelcomeView.swift */; };
@@ -152,6 +167,21 @@
 		AC004F712AD6F4EE000B50DA /* BuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderProtocol.swift; sourceTree = "<group>"; };
 		AC004F742AD8549D000B50DA /* MultiStepBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiStepBuilder.swift; sourceTree = "<group>"; };
 		AC004F762AE2C9B2000B50DA /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		AC004F7E2AF517C6000B50DA /* NewHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitView.swift; sourceTree = "<group>"; };
+		AC004F802AF517D6000B50DA /* NewHabitViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewInput.swift; sourceTree = "<group>"; };
+		AC004F822AF517E0000B50DA /* NewHabitViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewOutput.swift; sourceTree = "<group>"; };
+		AC004F842AF51800000B50DA /* NewHabitRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitRouter.swift; sourceTree = "<group>"; };
+		AC004F862AF5180C000B50DA /* NewHabitRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitRouterInput.swift; sourceTree = "<group>"; };
+		AC004F882AF51814000B50DA /* NewHabitRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitRouterOutput.swift; sourceTree = "<group>"; };
+		AC004F8A2AF51834000B50DA /* NewHabitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitPresenter.swift; sourceTree = "<group>"; };
+		AC004F8C2AF5183E000B50DA /* NewHabitPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitPresenterInput.swift; sourceTree = "<group>"; };
+		AC004F8E2AF51846000B50DA /* NewHabitPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitPresenterOutput.swift; sourceTree = "<group>"; };
+		AC004F902AF51852000B50DA /* NewHabitInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitInteractor.swift; sourceTree = "<group>"; };
+		AC004F922AF51861000B50DA /* NewHabitInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitInteractorInput.swift; sourceTree = "<group>"; };
+		AC004F942AF5186D000B50DA /* NewHabitInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitInteractorOutput.swift; sourceTree = "<group>"; };
+		AC004F972AF51894000B50DA /* NewHabitConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitConfigurator.swift; sourceTree = "<group>"; };
+		AC004F9A2AF52378000B50DA /* NewHabitTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitTableViewAdapter.swift; sourceTree = "<group>"; };
+		AC004F9D2AF527B6000B50DA /* NewHabitTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitTableCell.swift; sourceTree = "<group>"; };
 		AC60FA6A2A4464CD00E6FD1A /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -398,6 +428,84 @@
 				AC97976B2ABB22F40011EE94 /* MultiStepCollectionViewCell.swift */,
 			);
 			path = CollectionVIew;
+			sourceTree = "<group>";
+		};
+		AC004F782AF5175D000B50DA /* NewHabit */ = {
+			isa = PBXGroup;
+			children = (
+				AC004F7D2AF51796000B50DA /* Configurator */,
+				AC004F7C2AF51790000B50DA /* Interactor */,
+				AC004F7B2AF51780000B50DA /* Presenter */,
+				AC004F7A2AF5177B000B50DA /* Router */,
+				AC004F792AF51773000B50DA /* View */,
+			);
+			path = NewHabit;
+			sourceTree = "<group>";
+		};
+		AC004F792AF51773000B50DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC004F9C2AF5279B000B50DA /* NewHabitTableCell */,
+				AC004F992AF52354000B50DA /* Adapter */,
+				AC004F7E2AF517C6000B50DA /* NewHabitView.swift */,
+				AC004F802AF517D6000B50DA /* NewHabitViewInput.swift */,
+				AC004F822AF517E0000B50DA /* NewHabitViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC004F7A2AF5177B000B50DA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AC004F842AF51800000B50DA /* NewHabitRouter.swift */,
+				AC004F862AF5180C000B50DA /* NewHabitRouterInput.swift */,
+				AC004F882AF51814000B50DA /* NewHabitRouterOutput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AC004F7B2AF51780000B50DA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC004F8A2AF51834000B50DA /* NewHabitPresenter.swift */,
+				AC004F8C2AF5183E000B50DA /* NewHabitPresenterInput.swift */,
+				AC004F8E2AF51846000B50DA /* NewHabitPresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC004F7C2AF51790000B50DA /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				AC004F902AF51852000B50DA /* NewHabitInteractor.swift */,
+				AC004F922AF51861000B50DA /* NewHabitInteractorInput.swift */,
+				AC004F942AF5186D000B50DA /* NewHabitInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		AC004F7D2AF51796000B50DA /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				AC004F972AF51894000B50DA /* NewHabitConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		AC004F992AF52354000B50DA /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				AC004F9A2AF52378000B50DA /* NewHabitTableViewAdapter.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		AC004F9C2AF5279B000B50DA /* NewHabitTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC004F9D2AF527B6000B50DA /* NewHabitTableCell.swift */,
+			);
+			path = NewHabitTableCell;
 			sourceTree = "<group>";
 		};
 		AC60FA612A4464CD00E6FD1A = {
@@ -681,6 +789,7 @@
 				AC97973F2AA5CD020011EE94 /* Today */,
 				AC9797702AC047E70011EE94 /* Stats */,
 				AC9797922AC0491C0011EE94 /* Calendar */,
+				AC004F782AF5175D000B50DA /* NewHabit */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -979,6 +1088,7 @@
 				AC97976A2ABA06A60011EE94 /* CalendarCollectionViewCell.swift in Sources */,
 				15D763292AC9B3040025DBC4 /* CalendarItemTableCellBuilder.swift in Sources */,
 				AC60FAF22A502B9C00E6FD1A /* CongratsConfigurator.swift in Sources */,
+				AC004F8D2AF5183E000B50DA /* NewHabitPresenterInput.swift in Sources */,
 				15F7CE582A48489A00F6041F /* WelcomeRouterOutput.swift in Sources */,
 				AC9797462AA5CE870011EE94 /* TodayView.swift in Sources */,
 				AC9797562AA5CF1A0011EE94 /* TodayPresenterOutput.swift in Sources */,
@@ -988,7 +1098,9 @@
 				AC60FA9D2A4B12EF00E6FD1A /* InformationPresenter.swift in Sources */,
 				AC60FAE82A502A3300E6FD1A /* CongratsPresenterInput.swift in Sources */,
 				AC97974A2AA5CEAC0011EE94 /* TodayViewOutput.swift in Sources */,
+				AC004F8F2AF51846000B50DA /* NewHabitPresenterOutput.swift in Sources */,
 				AC60FAEC2A502A8E00E6FD1A /* CongratsInteractor.swift in Sources */,
+				AC004F952AF5186D000B50DA /* NewHabitInteractorOutput.swift in Sources */,
 				AC97975E2AA5CF550011EE94 /* TodayConfigurator.swift in Sources */,
 				AC60FAF02A502B5300E6FD1A /* CongratsInteractorOutput.swift in Sources */,
 				AC97979F2AC049B60011EE94 /* CalendarRouter.swift in Sources */,
@@ -1002,7 +1114,9 @@
 				AC97975A2AA5CF340011EE94 /* TodayInteractorInput.swift in Sources */,
 				AC60FAAD2A4C5BEF00E6FD1A /* DatePicker.swift in Sources */,
 				AC9797792AC048480011EE94 /* StatsViewInput.swift in Sources */,
+				AC004F8B2AF51834000B50DA /* NewHabitPresenter.swift in Sources */,
 				AC9797582AA5CF270011EE94 /* TodayInteractor.swift in Sources */,
+				AC004F912AF51852000B50DA /* NewHabitInteractor.swift in Sources */,
 				AC004F752AD8549D000B50DA /* MultiStepBuilder.swift in Sources */,
 				AC9797A72AC049E90011EE94 /* CalendarPresenterInput.swift in Sources */,
 				AC60FAC12A4D75E800E6FD1A /* GenderViewOutput.swift in Sources */,
@@ -1017,12 +1131,15 @@
 				15F7CE462A48463700F6041F /* WelcomeViewInput.swift in Sources */,
 				AC60FAE22A501E9500E6FD1A /* CongratsRouterInput.swift in Sources */,
 				AC60FAF42A541F1800E6FD1A /* Enums.swift in Sources */,
+				AC004F872AF5180C000B50DA /* NewHabitRouterInput.swift in Sources */,
 				AC60FAA72A4B16C300E6FD1A /* InformationInteractorOutput.swift in Sources */,
 				15F7CE522A48476A00F6041F /* WelcomeInteractorOutput.swift in Sources */,
 				AC9797AD2AC04A0F0011EE94 /* CalendarInteractorInput.swift in Sources */,
 				AC004F772AE2C9B2000B50DA /* CheckBox.swift in Sources */,
 				AC60FA952A4A016B00E6FD1A /* InformationViewOutput.swift in Sources */,
+				AC004F812AF517D6000B50DA /* NewHabitViewInput.swift in Sources */,
 				15F7CE562A48489100F6041F /* WelcomeRouterInput.swift in Sources */,
+				AC004F9E2AF527B6000B50DA /* NewHabitTableCell.swift in Sources */,
 				AC60FAA52A4B169F00E6FD1A /* InformationInteractorInput.swift in Sources */,
 				15F7CE4A2A48469400F6041F /* WelcomePresenterInput.swift in Sources */,
 				AC60FA972A4B10E800E6FD1A /* InformationRouter.swift in Sources */,
@@ -1034,12 +1151,15 @@
 				AC97974E2AA5CECC0011EE94 /* TodayRouterInput.swift in Sources */,
 				15F7CE5B2A484ACB00F6041F /* WelcomeConfigurator.swift in Sources */,
 				AC9797772AC0483E0011EE94 /* StatsView.swift in Sources */,
+				AC004F9B2AF52378000B50DA /* NewHabitTableViewAdapter.swift in Sources */,
 				AC9797912AC0490B0011EE94 /* StatsConfigurator.swift in Sources */,
 				AC97978F2AC048F90011EE94 /* StatsInteractorOutput.swift in Sources */,
 				AC9797502AA5CEE10011EE94 /* TodayRouterOutput.swift in Sources */,
 				AC9797B12AC04A290011EE94 /* CalendarConfigurator.swift in Sources */,
 				AC60FB082A56B6F300E6FD1A /* CustomTextFieldValidator.swift in Sources */,
+				AC004F7F2AF517C6000B50DA /* NewHabitView.swift in Sources */,
 				AC97979B2AC0498D0011EE94 /* CalendarViewInput.swift in Sources */,
+				AC004F932AF51861000B50DA /* NewHabitInteractorInput.swift in Sources */,
 				15F7CE4C2A4846A200F6041F /* WelcomePresenterOutput.swift in Sources */,
 				AC60FAA12A4B15A600E6FD1A /* InformationPresenterOutput.swift in Sources */,
 				AC60FA702A4464CD00E6FD1A /* SceneDelegate.swift in Sources */,
@@ -1058,6 +1178,8 @@
 				AC9797522AA5CEF50011EE94 /* TodayPresenter.swift in Sources */,
 				AC60FA9F2A4B157F00E6FD1A /* InformationPresenterInput.swift in Sources */,
 				AC9797892AC048D20011EE94 /* StatsPresenterOutput.swift in Sources */,
+				AC004F852AF51800000B50DA /* NewHabitRouter.swift in Sources */,
+				AC004F982AF51894000B50DA /* NewHabitConfigurator.swift in Sources */,
 				AC9797812AC048840011EE94 /* StatsRouterOutput.swift in Sources */,
 				AC60FAD22A4DDD9D00E6FD1A /* GenderItems.swift in Sources */,
 				AC97979D2AC049A50011EE94 /* CalendarViewOutput.swift in Sources */,
@@ -1067,9 +1189,11 @@
 				AC60FAE42A501EB200E6FD1A /* CongratsRouterOutput.swift in Sources */,
 				AC60FAB52A4CA43400E6FD1A /* GenderView.swift in Sources */,
 				AC60FAB92A4D74B100E6FD1A /* GenderRouter.swift in Sources */,
+				AC004F832AF517E0000B50DA /* NewHabitViewOutput.swift in Sources */,
 				AC60FADE2A501D8600E6FD1A /* CongratsViewOutput.swift in Sources */,
 				AC97974C2AA5CEBF0011EE94 /* TodayRouter.swift in Sources */,
 				AC60FA872A45AFB200E6FD1A /* StyledLabel.swift in Sources */,
+				AC004F892AF51814000B50DA /* NewHabitRouterOutput.swift in Sources */,
 				AC9797AF2AC04A1D0011EE94 /* CalendarInteractorOutput.swift in Sources */,
 				AC60FAE02A501DED00E6FD1A /* CongratsRouter.swift in Sources */,
 				AC97978D2AC048EB0011EE94 /* StatsInteractorInput.swift in Sources */,

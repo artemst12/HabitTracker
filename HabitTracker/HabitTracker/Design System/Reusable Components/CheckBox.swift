@@ -31,6 +31,7 @@ class CheckBox: UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addTarget(self, action:#selector(buttonClicked(sender:)), for: .touchUpInside)
         self.isDone = false
+        self.setImage(undoneImage, for: .normal)
         self.contentMode = .scaleAspectFit
     }
     

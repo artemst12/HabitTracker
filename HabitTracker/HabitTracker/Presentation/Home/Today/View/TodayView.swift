@@ -72,6 +72,9 @@ private extension TodayView {
         tabBarView.routeStatsActions = { [weak self] in
             self?.output?.statsButtonTapped()
         }
+        tabBarView.routeNewHabitActions = { [weak self] in
+            self?.output?.newHabitButtonTapped()
+        }
     }
     
     func setupTableView() {
