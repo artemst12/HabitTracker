@@ -13,6 +13,7 @@ final class MultiStepItemTableCellBuilder: TodayCellBuilder {
     private var model: MultiStepTableViewCellModel?
     private var multiStepModel: MultiStepHabit?
     private var cell: UITableViewCell?
+    private var output: MultiStepCollectionViewCellProtocol?
     
     var isSelected: Bool {
         return multiStepModel?.done ?? false
@@ -25,6 +26,10 @@ final class MultiStepItemTableCellBuilder: TodayCellBuilder {
     func set(model: MultiStepTableViewCellModel) {
         self.model = model
     }
+    
+    func set(output: MultiStepCollectionViewCellProtocol) {
+        self.output = output
+    }
 
     func build() -> UITableViewCell {
         guard let cell = self.tableView?.dequeueReusableCell(
@@ -33,11 +38,11 @@ final class MultiStepItemTableCellBuilder: TodayCellBuilder {
             return UITableViewCell()
         }
 
-        guard let model else {
+        guard let model, let output else {
             return UITableViewCell()
         }
 
-        cell.configure(with: model)
+        cell.configure(with: model, output: output)
 
         return cell
     }

@@ -15,6 +15,8 @@ final class TodayRouter: TodayRouterInput {
 extension TodayRouter {
     
     func next(_ vc: UIViewController) {
-        view?.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        let navC = UINavigationController(rootViewController: vc)
+        view?.navigationController?.present(navC, animated: true)
     }
 }

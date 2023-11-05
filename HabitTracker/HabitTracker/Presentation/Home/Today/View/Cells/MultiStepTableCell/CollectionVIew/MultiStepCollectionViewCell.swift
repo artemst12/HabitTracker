@@ -7,8 +7,12 @@
 
 import UIKit
 
+protocol MultiStepCollectionViewCellProtocol {
+    func loadMinus(for id: UUID)
+}
+
 final class MultiStepCollectionViewCell: UICollectionViewCell {
-    
+        
     private var background: UIView?
     private var viewForImage: UIView?
     private var label: UILabel?
@@ -20,7 +24,9 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
     private var minusButton: UIButton?
     private var plusButton: UIButton?
     private var countDone = 0
-    private var presenter: TodayPresenter?
+    private var output: MultiStepCollectionViewCellProtocol?
+    
+    private var id: UUID?
     
     static let reuseIdentifier = String(describing: MultiStepCollectionViewCell.self)
     
@@ -29,7 +35,10 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         // reset all data
     }
     
-    func configure(with model: MultiStepHabit) {
+    func configure(
+        with model: MultiStepHabit,
+        output: MultiStepCollectionViewCellProtocol
+    ) {
         
         switch model.image {
         case .image(let image):
@@ -48,6 +57,14 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         glassLabel?.text = model.label
         minusButton?.setImage(.init(named: model.minusButton), for: .normal)
         plusButton?.setImage(.init(named: model.plusButton), for: .normal)
+        
+        self.output = output
+        self.id = model.id
+    }
+    
+    @objc func minusButtonTapped() {
+        guard let id else { return }
+        output?.loadMinus(for: id)
     }
 
     override init(frame: CGRect) {
@@ -91,7 +108,7 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
                 
         let minusButton = UIButton()
         minusButton.translatesAutoresizingMaskIntoConstraints = false
-//        minusButton.addTarget(self, action: #selector(), for: .touchUpInside)
+        minusButton.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
         
         let plusButton = UIButton()
         plusButton.translatesAutoresizingMaskIntoConstraints = false

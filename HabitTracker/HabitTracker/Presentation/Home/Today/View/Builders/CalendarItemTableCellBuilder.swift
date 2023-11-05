@@ -8,6 +8,8 @@
 import UIKit
 
 final class CalendarItemTableCellBuilder: TodayCellBuilder {
+    
+    func set(output: MultiStepCollectionViewCellProtocol) { }
 
     var isSelected: Bool {
         return false

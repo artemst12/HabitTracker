@@ -10,4 +10,5 @@ import Foundation
 protocol TodayInteractorInput {
     
     func loadData()
+    func changeData(id: UUID, type: TodayInteractorMultistepAction)
 }

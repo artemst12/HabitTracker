@@ -15,5 +15,6 @@ protocol TodayCellBuilder {
 
     func set(tableView: UITableView?)
     func set(model: ViewModel)
+    func set(output: MultiStepCollectionViewCellProtocol)
     func build() -> UITableViewCell
 }

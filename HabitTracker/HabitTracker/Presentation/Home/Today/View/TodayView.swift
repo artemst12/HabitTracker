@@ -27,6 +27,12 @@ final class TodayView: UIViewController {
     }
 }
 
+extension TodayView: MultiStepCollectionViewCellProtocol {
+    func loadMinus(for id: UUID) {
+        output?.minusCount(id: id)
+    }
+}
+
 extension TodayView: TodayViewInput {
     
     func updateView(with model: TodayViewModel) {
@@ -46,6 +52,7 @@ extension TodayView: TodayViewInput {
         let multiStepBuilder = MultiStepItemTableCellBuilder()
         multiStepBuilder.set(model: MultiStepTableViewCellModel(items: model.multiStepHabitSection))
         todayTableAdapter?.set(multiStepItems: [multiStepBuilder])
+        multiStepBuilder.set(output: self)
 
         todayTableAdapter?.reload()
     }

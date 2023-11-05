@@ -49,14 +49,19 @@ private extension NewHabitView {
 //            style: .plain,
 //            target: self,
 //            action: nil)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add new habit", style: .plain, target: self, action: #selector(backButtonTapped))
+//        self.navigationItem/*.leftBarButtonItem = UIBarButtonItem(image: backButtonItem, title: "Add new habit", style: .plain, target: self, action: #*/selector(backButtonTapped))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add new habit", image: backButtonItem, primaryAction: .init(handler: { action in
+            self.backButtonTapped()
+        }))
+                                                                
         
 //        self.navigationController?.navigationBar.prefersLargeTitles = true
 //        self.navigationItem.largeTitleDisplayMode = .always
-        
-        self.navigationController?.navigationBar.backIndicatorImage = backButtonItem
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonItem
+        self.navigationController?.navigationBar.backItem?.hidesBackButton = true
+//        self.navigationController?.navigationBar.backIndicatorImage = backButtonItem
+//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonItem
 //        self.navigationController?.navigationBar.backItem?.title = "Add new habit"
+//        self.navigationController?.navigationItem.leftBarButtonItem =
     }
     
     @objc func backButtonTapped() {

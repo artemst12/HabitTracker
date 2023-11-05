@@ -38,10 +38,6 @@ extension NewHabitTableViewAdapter {
 
 extension NewHabitTableViewAdapter: UITableViewDataSource, UITableViewDelegate {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -51,7 +47,8 @@ extension NewHabitTableViewAdapter: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewHabitTableCell") as? NewHabitTableCell else {
             return UITableViewCell()
         }
-        let currentItem = data[indexPath.section]
+        
+        let currentItem = data[indexPath.row]
         
         cell.configure(picture: currentItem.emoji, label: currentItem.name, button: currentItem.add)
     

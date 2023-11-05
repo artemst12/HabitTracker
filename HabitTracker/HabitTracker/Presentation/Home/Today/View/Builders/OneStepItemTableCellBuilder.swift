@@ -8,6 +8,10 @@
 import UIKit
 
 final class OneStepItemTableCellBuilder: TodayCellBuilder {
+    func set(output: MultiStepCollectionViewCellProtocol) {
+        
+    }
+    
 
     private weak var tableView: UITableView?
     private var model: OneStepHabit?

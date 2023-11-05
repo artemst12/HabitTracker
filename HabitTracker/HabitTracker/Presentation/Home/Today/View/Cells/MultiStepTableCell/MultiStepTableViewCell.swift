@@ -20,6 +20,7 @@ final class MultiStepTableViewCell: UITableViewCell {
     
     private var collectionView: UICollectionView!
     private var model: MultiStepTableViewCellModel? = nil
+    private var output: MultiStepCollectionViewCellProtocol?
     
     static let reuseIdentifier = String(describing: MultiStepTableViewCell.self)
     
@@ -33,8 +34,9 @@ final class MultiStepTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: MultiStepTableViewCellModel) {
+    func configure(with model: MultiStepTableViewCellModel, output: MultiStepCollectionViewCellProtocol) {
         self.model = model
+        self.output = output
         collectionView.reloadData()
     }
     
@@ -82,13 +84,15 @@ extension MultiStepTableViewCell: UICollectionViewDataSource {
             withReuseIdentifier: MultiStepCollectionViewCell.reuseIdentifier,
             for: indexPath
         ) as? MultiStepCollectionViewCell,
-              let model = self.model
+              let model = self.model,
+              let output = self.output
         else {
             return UICollectionViewCell()
         }
 
         let cellModel = model.items[indexPath.row]
-        cell.configure(with: cellModel)
+
+        cell.configure(with: cellModel, output: output)
 
         return cell
     }

@@ -14,6 +14,11 @@ final class TodayPresenter {
     weak var view: TodayViewInput?
 }
 
+enum TodayInteractorMultistepAction {
+    case minus
+    case plus
+}
+
 extension TodayPresenter: TodayViewOutput {
     
     func newHabitButtonTapped() {
@@ -30,6 +35,10 @@ extension TodayPresenter: TodayViewOutput {
 
     func requestData() {
         interactor?.loadData()
+    }
+    
+    func minusCount(id: UUID) {
+        interactor?.changeData(id: id, type: .minus)
     }
 }
 
