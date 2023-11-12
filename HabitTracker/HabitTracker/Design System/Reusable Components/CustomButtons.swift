@@ -99,7 +99,7 @@ private extension CustomGenderButton {
         genderLabel.font = .systemFont(ofSize: Fonts.buttonLabelSize, weight: Weigth.bold)
         genderLabel.textAlignment = .center
 
-        self.backgroundColor = Colors.lightBlack
+        self.backgroundColor = Colors.disable
         self.layer.cornerRadius = Constants.cornerRadiusGenderButton
         
         self.addTarget(self, action: #selector(animateClick(sender:)), for: .touchUpInside)

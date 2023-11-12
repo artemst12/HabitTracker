@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NewHabitTableCellProtocol {
+    func checkBoxActive()
+}
+
 final class NewHabitTableCell: UITableViewCell {
     
     private var tableView: UITableView!
@@ -15,12 +19,16 @@ final class NewHabitTableCell: UITableViewCell {
     private var viewForImage: UIView?
     private var image: UIImageView?
     private var habitLabel: UILabel?
-    private var activeButton: UIButton?
-    private var checkBox: CheckBox?
+    private var checkBox: CheckBoxNewHabit?
+    private var output: NewHabitTableCellProtocol?
 
     private var model: NewHabitStruct? = nil
 
     static let reuseIdentifier = String(describing: NewHabitTableCell.self)
+    
+    @objc func checkBoxTapped() {
+        output?.checkBoxActive()
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -34,7 +42,6 @@ final class NewHabitTableCell: UITableViewCell {
     func configure(picture: String, label: String, button: Bool) {
         image?.image = .init(named: picture)
         habitLabel?.text = label
-        activeButton?.isEnabled = button
     }
 
     private func initTableView() {
@@ -42,7 +49,7 @@ final class NewHabitTableCell: UITableViewCell {
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
         background.layer.cornerRadius = 24
-        background.backgroundColor = Colors.lightBlack
+        background.backgroundColor = Colors.disable
 
         let viewForImage = UIView()
         viewForImage.translatesAutoresizingMaskIntoConstraints = false
@@ -56,8 +63,9 @@ final class NewHabitTableCell: UITableViewCell {
         habitLabel.translatesAutoresizingMaskIntoConstraints = false
         habitLabel.font = .systemFont(ofSize: 16, weight: .bold)
 
-        let checkBox = CheckBox()
+        let checkBox = CheckBoxNewHabit()
         checkBox.translatesAutoresizingMaskIntoConstraints = false
+        checkBox.addTarget(self, action: #selector(checkBoxTapped), for: .touchUpInside)
         
         contentView.addSubview(background)
         background.addSubview(viewForImage)

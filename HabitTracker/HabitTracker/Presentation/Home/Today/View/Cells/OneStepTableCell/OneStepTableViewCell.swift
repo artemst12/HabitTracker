@@ -9,8 +9,6 @@ import UIKit
 
 final class OneStepTableViewCell: UITableViewCell {
     
-    private var tableView: UITableView!
-    
     private var background: UIView?
     private var viewForImage: UIView?
     private var image: UIImageView?
@@ -26,7 +24,6 @@ final class OneStepTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         initTableView()
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30))
     }
     
     required init?(coder: NSCoder) {
@@ -44,7 +41,7 @@ final class OneStepTableViewCell: UITableViewCell {
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
         background.layer.cornerRadius = 24
-        background.backgroundColor = Colors.lightBlack
+        background.backgroundColor = Colors.disable
 
         let viewForImage = UIView()
         viewForImage.translatesAutoresizingMaskIntoConstraints = false

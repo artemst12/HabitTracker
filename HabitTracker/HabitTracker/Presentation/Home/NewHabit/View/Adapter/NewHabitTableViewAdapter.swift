@@ -50,9 +50,10 @@ extension NewHabitTableViewAdapter: UITableViewDataSource, UITableViewDelegate {
         
         let currentItem = data[indexPath.row]
         
+//        if currentItem.add
+        
         cell.configure(picture: currentItem.emoji, label: currentItem.name, button: currentItem.add)
-    
+        
         return cell
     }
-    
 }

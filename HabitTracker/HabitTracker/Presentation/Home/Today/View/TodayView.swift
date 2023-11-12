@@ -28,6 +28,10 @@ final class TodayView: UIViewController {
 }
 
 extension TodayView: MultiStepCollectionViewCellProtocol {
+    func loadPlus(for id: UUID) {
+        output?.plusCount(id: id)
+    }
+    
     func loadMinus(for id: UUID) {
         output?.minusCount(id: id)
     }

@@ -67,7 +67,7 @@ extension TodayInteractor: TodayInteractorInput {
             return
         }
         
-        let maxCount = waterHabit.maxCount
+//        let maxCount = waterHabit.maxCount
 //        let counters = waterHabit.countLabel.split(separator: "/")
         
         switch type {
@@ -77,7 +77,10 @@ extension TodayInteractor: TodayInteractorInput {
             }
             // waterHabit.currentCount = max(0, waterHabit.currentCount - 1)
         case .plus:
-            // waterHabit.currentCount = min(waterHabit.maxCount, waterHabit.currentCount + 1)
+            if waterHabit.currentCount < 10 {
+                waterHabit.currentCount += 1
+            }
+//             waterHabit.currentCount = min(waterHabit.maxCount, waterHabit.currentCount + 1)
             return
         }
         

@@ -28,7 +28,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         
         let dayView = UIView()
         dayView.translatesAutoresizingMaskIntoConstraints = false
-        dayView.backgroundColor = Colors.lightBlack
+        dayView.backgroundColor = Colors.disable
         dayView.layer.cornerRadius = 10
         
         let currentDayLabel = UILabel()

@@ -121,7 +121,7 @@ extension InformationView: InformationViewInput {
                 .contains(false)
 
             self.nextButton.isUserInteractionEnabled = !isInvalid
-            self.nextButton.backgroundColor = isInvalid ? Colors.lightBlack : Colors.lightGreen
+            self.nextButton.backgroundColor = isInvalid ? Colors.disable : Colors.lightGreen
             self.nextButton.setTitleColor(isInvalid ? .white : .black, for: .normal)
         }
 

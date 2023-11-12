@@ -53,7 +53,7 @@ private extension CustomTextField {
     }
 
     func setupTextField() {
-        self.backgroundColor = Colors.lightBlack
+        self.backgroundColor = Colors.disable
         self.layer.cornerRadius = Constants.radiusTextField
         self.textColor = Colors.white
     }

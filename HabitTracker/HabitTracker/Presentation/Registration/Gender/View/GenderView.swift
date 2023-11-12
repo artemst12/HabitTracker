@@ -121,7 +121,7 @@ private extension GenderView {
             self?.output?.nextButtonTapped()
         }), for: .touchUpInside)
         nextButton.isEnabled = false
-        nextButton.backgroundColor = Colors.lightBlack
+        nextButton.backgroundColor = Colors.disable
         nextButton.setTitleColor(.white, for: .normal)
     }
 

@@ -15,11 +15,19 @@ final class NewHabitView: UIViewController {
     private var newHabitTableViewAdapter: NewHabitTableViewAdapter?
     
     private var doneButton = CustomButton()
-//    private var backButtonItem: UIImage?
+    private let backButton = UIButton(type: .custom)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+}
+
+extension NewHabitView: NewHabitTableCellProtocol {
+    func checkBoxActive() {
+        doneButton.isEnabled = true
+        doneButton.backgroundColor = Colors.lightGreen
+        doneButton.setTitleColor(.black, for: .normal)
     }
 }
 
@@ -43,21 +51,32 @@ private extension NewHabitView {
     func setupView() {
         view.backgroundColor = Colors.background
         
-        let backButtonItem = UIImage(named: "backButton")
+//        let backButtonItem = UIImage(named: "backButton")
+//        backButton.setImage(UIImage(named: "backButton"), for: .normal)
+//        backButton.setTitle("Add new habit", for: .normal)
+//        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+//        backButton.sizeToFit()
+//        
+//        let barButton = UIBarButtonItem(customView: backButton)
+//        navigationItem.leftBarButtonItem = barButton
+        
 //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
 //            image: UIImage(named: "backButton"),
 //            style: .plain,
 //            target: self,
 //            action: nil)
 //        self.navigationItem/*.leftBarButtonItem = UIBarButtonItem(image: backButtonItem, title: "Add new habit", style: .plain, target: self, action: #*/selector(backButtonTapped))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add new habit", image: backButtonItem, primaryAction: .init(handler: { action in
-            self.backButtonTapped()
-        }))
-                                                                
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add new habit", image: backButtonItem, primaryAction: .init(handler: { action in
+//            self.backButtonTapped()
+//        }))
+                                                        
+//        self.navigationController?.navigationBar.backIndicatorImage = backButtonItem
+//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonItem
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Add new habit", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         
 //        self.navigationController?.navigationBar.prefersLargeTitles = true
 //        self.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.backItem?.hidesBackButton = true
+//        self.navigationController?.navigationBar.backItem?.hidesBackButton = true
 //        self.navigationController?.navigationBar.backIndicatorImage = backButtonItem
 //        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonItem
 //        self.navigationController?.navigationBar.backItem?.title = "Add new habit"
@@ -83,12 +102,13 @@ private extension NewHabitView {
             self?.output?.backButtonTapped()
         }), for: .touchUpInside)
         doneButton.isEnabled = false
-        doneButton.backgroundColor = Colors.lightGreen
-        doneButton.setTitleColor(.black, for: .normal)
+        doneButton.backgroundColor = Colors.disable
+        doneButton.setTitleColor(.white, for: .normal)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            
             NewHabitTableView.topAnchor.constraint(equalTo: view.topAnchor),
             NewHabitTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             NewHabitTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

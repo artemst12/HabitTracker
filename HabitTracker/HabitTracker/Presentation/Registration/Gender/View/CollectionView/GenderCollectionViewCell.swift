@@ -18,7 +18,7 @@ final class GenderCollectionViewCell: UICollectionViewCell {
         
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
-        background.backgroundColor = Colors.lightBlack
+        background.backgroundColor = Colors.disable
         background.layer.cornerRadius = Constants.cornerRadiusGenderButton
 
         let emojiLabel = UILabel()
@@ -57,7 +57,7 @@ final class GenderCollectionViewCell: UICollectionViewCell {
         self.isSelected = selected
         self.background?.backgroundColor = selected
             ? Colors.lightGreen
-            : Colors.lightBlack
+            : Colors.disable
 
         self.genderLabel?.textColor = selected
             ? .black

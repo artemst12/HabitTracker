@@ -9,6 +9,7 @@ import UIKit
 
 protocol MultiStepCollectionViewCellProtocol {
     func loadMinus(for id: UUID)
+    func loadPlus(for id: UUID)
 }
 
 final class MultiStepCollectionViewCell: UICollectionViewCell {
@@ -66,6 +67,11 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         guard let id else { return }
         output?.loadMinus(for: id)
     }
+    
+    @objc func plusButtonTapped() {
+        guard let id else { return }
+        output?.loadPlus(for: id)
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,7 +79,7 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
         background.layer.cornerRadius = 24
-        background.backgroundColor = Colors.lightBlack
+        background.backgroundColor = Colors.disable
         
         let viewForImage = UIView()
         viewForImage.translatesAutoresizingMaskIntoConstraints = false
@@ -112,6 +118,7 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         
         let plusButton = UIButton()
         plusButton.translatesAutoresizingMaskIntoConstraints = false
+        plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
         
         addSubview(background)
         background.addSubview(viewForImage)

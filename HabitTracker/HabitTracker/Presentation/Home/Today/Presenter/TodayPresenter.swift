@@ -40,6 +40,10 @@ extension TodayPresenter: TodayViewOutput {
     func minusCount(id: UUID) {
         interactor?.changeData(id: id, type: .minus)
     }
+    
+    func plusCount(id: UUID) {
+        interactor?.changeData(id: id, type: .plus)
+    }
 }
 
 extension TodayPresenter: TodayInteractorOutput {

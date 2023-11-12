@@ -41,7 +41,7 @@ extension DatePicker {
     func createDatepicker() {
         self.preferredDatePickerStyle = .wheels
         self.datePickerMode = .date
-        self.backgroundColor = Colors.lightBlack
+        self.backgroundColor = Colors.disable
     }
 
     func createToolbar() -> UIToolbar {

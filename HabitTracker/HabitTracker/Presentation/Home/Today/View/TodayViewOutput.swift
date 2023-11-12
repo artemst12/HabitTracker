@@ -14,4 +14,5 @@ protocol TodayViewOutput: AnyObject {
     func statsButtonTapped()
     func calendarButtonTapped()
     func minusCount(id: UUID)
+    func plusCount(id: UUID)
 }
