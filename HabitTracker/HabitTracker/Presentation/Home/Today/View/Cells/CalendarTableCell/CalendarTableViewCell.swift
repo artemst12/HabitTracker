@@ -62,9 +62,10 @@ final class CalendarTableViewCell: UITableViewCell {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
+            
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -20),
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: 140)
         ])

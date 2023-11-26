@@ -18,9 +18,10 @@ final class NewHabitTableViewAdapter: NSObject {
         self.data = data
         super.init()
         
+        self.tableView.separatorStyle = .none
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+
         tableView?.register(NewHabitTableCell.self, forCellReuseIdentifier: NewHabitTableCell.reuseIdentifier)
     }
 }

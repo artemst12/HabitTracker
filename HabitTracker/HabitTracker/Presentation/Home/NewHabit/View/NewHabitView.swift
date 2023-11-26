@@ -7,20 +7,83 @@
 
 import UIKit
 
+func anyfunc() {
+    let parentVC = UIApplication.shared.keyWindow?.rootViewController
+
+    let vc = NewHabitView(nibName: nil, bundle: nil)
+
+    // UINavigationController().addSubview()
+    parentVC?.present(vc, animated: true)
+}
+
 final class NewHabitView: UIViewController {
     
     var output: NewHabitViewOutput?
-    
+
+//    let containerView = UIView()
+//    var view: UIView! = .init()
+//
+//    var view: UIView! = {
+//        let uiview = UIView(frame: .zero)
+//        uiview.backgroundColor = .white
+//        return uiview
+//    }()
+
     private var NewHabitTableView = UITableView()
     private var newHabitTableViewAdapter: NewHabitTableViewAdapter?
     
     private var doneButton = CustomButton()
     private let backButton = UIButton(type: .custom)
     
+//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//    }
+
+//    override func loadView() {
+//        super.loadView()
+//        self.view = containerView
+//        self.view.topAnchor
+//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+
+//        self.view.addSubview(containerView)
+//        view.backgroundColor = .red
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // code ...
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+
+    // animation ... 0.3sec
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+
+    // animation ... 0.3sec
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+
+    deinit { }
 }
 
 extension NewHabitView: NewHabitTableCellProtocol {
@@ -47,40 +110,18 @@ private extension NewHabitView {
         setupButton()
         setupConstraints()
     }
-    
+
     func setupView() {
         view.backgroundColor = Colors.background
-        
-//        let backButtonItem = UIImage(named: "backButton")
-//        backButton.setImage(UIImage(named: "backButton"), for: .normal)
-//        backButton.setTitle("Add new habit", for: .normal)
-//        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-//        backButton.sizeToFit()
-//        
-//        let barButton = UIBarButtonItem(customView: backButton)
-//        navigationItem.leftBarButtonItem = barButton
-        
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-//            image: UIImage(named: "backButton"),
-//            style: .plain,
-//            target: self,
-//            action: nil)
-//        self.navigationItem/*.leftBarButtonItem = UIBarButtonItem(image: backButtonItem, title: "Add new habit", style: .plain, target: self, action: #*/selector(backButtonTapped))
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add new habit", image: backButtonItem, primaryAction: .init(handler: { action in
-//            self.backButtonTapped()
-//        }))
-                                                        
-//        self.navigationController?.navigationBar.backIndicatorImage = backButtonItem
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonItem
-//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Add new habit", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
-        
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationItem.largeTitleDisplayMode = .always
-//        self.navigationController?.navigationBar.backItem?.hidesBackButton = true
-//        self.navigationController?.navigationBar.backIndicatorImage = backButtonItem
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonItem
-//        self.navigationController?.navigationBar.backItem?.title = "Add new habit"
-//        self.navigationController?.navigationItem.leftBarButtonItem =
+
+        let backTitledButton = BackTitledButton(
+            title: "Add new habit",
+            type: .crosshair) { [weak self] in
+                self?.output?.backButtonTapped()
+            }
+
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.leftBarButtonItem = .init(customView: backTitledButton)
     }
     
     @objc func backButtonTapped() {
@@ -99,9 +140,9 @@ private extension NewHabitView {
         view.addSubview(doneButton)
         doneButton.setTitle("Done".localized(), for: .normal)
         doneButton.addAction(.init(handler: { [weak self] action in
-            self?.output?.backButtonTapped()
+            self?.output?.doneButtonTapped()
         }), for: .touchUpInside)
-        doneButton.isEnabled = false
+        doneButton.isEnabled = true
         doneButton.backgroundColor = Colors.disable
         doneButton.setTitleColor(.white, for: .normal)
     }

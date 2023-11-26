@@ -16,6 +16,9 @@ final class NewHabitPresenter {
 
 extension NewHabitPresenter: NewHabitViewOutput {
     
+    func doneButtonTapped() {
+        router?.next(CreateHabitConfigurator().configure())
+    }
 }
 
 extension NewHabitPresenter: NewHabitInteractorOutput {
@@ -29,6 +32,6 @@ extension NewHabitPresenter: NewHabitInteractorOutput {
     }
     
     func backButtonTapped() {
-        router?.next(TodayConfigurator().configure())
+        router?.dismiss()
     }
 }

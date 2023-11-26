@@ -8,7 +8,8 @@
 import UIKit
 
 protocol NewHabitRouterInput {
-    
+
     func next(_ vc: UIViewController)
+    func dismiss()
 }
 

@@ -11,7 +11,7 @@ final class NewHabitInteractor {
      
     weak var output: NewHabitInteractorOutput?
     
-    private var NewHabitItems: [NewHabitStruct] = [
+    private var newHabitItems: [NewHabitStruct] = [
         .init(emoji: "health", name: "Health", add: false),
         .init(emoji: "arts", name: "Arts", add: false),
         .init(emoji: "sport", name: "Sport", add: false),
@@ -22,10 +22,16 @@ final class NewHabitInteractor {
 }
 
 extension NewHabitInteractor: NewHabitInteractorInput {
-    
+
     func loadData() -> [NewHabitStruct] {
-        return NewHabitItems
+        return newHabitItems
     }
+
+//    updateView() {
+//        let model = ...
+//        model.isCompleted = newHabitItems.contains(where: { $0.add == true })
+//        loadData(with: model)
+//    }
 }
 
 struct NewHabitStruct {

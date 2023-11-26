@@ -19,7 +19,7 @@ final class NewHabitTableCell: UITableViewCell {
     private var viewForImage: UIView?
     private var image: UIImageView?
     private var habitLabel: UILabel?
-    private var checkBox: CheckBoxNewHabit?
+    private var checkBox: CheckBox?
     private var output: NewHabitTableCellProtocol?
 
     private var model: NewHabitStruct? = nil
@@ -42,6 +42,7 @@ final class NewHabitTableCell: UITableViewCell {
     func configure(picture: String, label: String, button: Bool) {
         image?.image = .init(named: picture)
         habitLabel?.text = label
+        checkBox?.set(state: button)
     }
 
     private func initTableView() {
@@ -63,10 +64,15 @@ final class NewHabitTableCell: UITableViewCell {
         habitLabel.translatesAutoresizingMaskIntoConstraints = false
         habitLabel.font = .systemFont(ofSize: 16, weight: .bold)
 
-        let checkBox = CheckBoxNewHabit()
+        let checkBox = CheckBox()
         checkBox.translatesAutoresizingMaskIntoConstraints = false
-        checkBox.addTarget(self, action: #selector(checkBoxTapped), for: .touchUpInside)
-        
+
+        checkBox.set(done: "addActive", undone: "add")
+        checkBox.set { [weak self] isDone in
+            self?.output?.checkBoxActive() 
+            // output?.checkBoxActive(id: id, enabled: isDone)
+        }
+
         contentView.addSubview(background)
         background.addSubview(viewForImage)
         viewForImage.addSubview(imageView)

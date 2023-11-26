@@ -41,6 +41,7 @@ final class MultiStepCollectionViewCell: UICollectionViewCell {
         output: MultiStepCollectionViewCellProtocol
     ) {
         
+        print(model.id)
         switch model.image {
         case .image(let image):
             imageView?.image = .init(named: image)

@@ -13,7 +13,6 @@ final class OneStepTableViewCell: UITableViewCell {
     private var viewForImage: UIView?
     private var image: UIImageView?
     private var habitLabel: UILabel?
-    private var activeButton: UIButton?
     private var checkBox: CheckBox?
 
     private var model: OneStepHabit? = nil
@@ -25,15 +24,22 @@ final class OneStepTableViewCell: UITableViewCell {
 
         initTableView()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        image?.image = nil
+        habitLabel?.text = nil
+        checkBox?.set(state: false)
+    }
+
     func configure(with model: OneStepHabit) {
         image?.image = .init(named: model.emoji)
         habitLabel?.text = model.name
-        activeButton?.isEnabled = model.done
+        checkBox?.set(state: model.done)
     }
 
     private func initTableView() {
@@ -57,7 +63,11 @@ final class OneStepTableViewCell: UITableViewCell {
 
         let checkBox = CheckBox()
         checkBox.translatesAutoresizingMaskIntoConstraints = false
-        
+        checkBox.set(done: "done", undone: "undone")
+        checkBox.set { [weak self] isDone in
+            // self?.output?.checkBoxActive(isDone)
+        }
+
         contentView.addSubview(background)
         background.addSubview(viewForImage)
         viewForImage.addSubview(imageView)
@@ -67,7 +77,7 @@ final class OneStepTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         
         NSLayoutConstraint.activate([
-            
+                        
             background.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),

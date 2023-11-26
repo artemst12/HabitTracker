@@ -66,8 +66,8 @@ private extension TodayView {
     
     func setupUI() {
         setupTitle()
-        setupTabBar()
         setupTableView()
+        setupTabBar()
         setupConstraints()
     }
     
@@ -79,7 +79,7 @@ private extension TodayView {
     }
     
     func setupTabBar() {
-        todayTableView.addSubview(tabBarView)
+        view.addSubview(tabBarView)
         tabBarView.routeStatsActions = { [weak self] in
             self?.output?.statsButtonTapped()
         }

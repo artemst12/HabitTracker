@@ -7,72 +7,52 @@
 
 import UIKit
 
-class CheckBox: UIButton {
-    
-    let doneImage = UIImage(named: "done")
-    let undoneImage = UIImage(named: "undone")
-    
-    var isDone: Bool = false {
-        didSet {
-            if isDone == true {
-                self.setImage(doneImage, for: .normal)
-            } else {
-                self.setImage(undoneImage, for: .normal)
-            }
-        }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: .touchUpInside)
-        self.isDone = false
-        self.setImage(undoneImage, for: .normal)
-        self.contentMode = .scaleAspectFit
-    }
-    
-    @objc func buttonClicked(sender: UIButton) {
-        if sender == self {
-            isDone = !isDone
-        }
-    }
-}
+final class CheckBox: UIButton {
 
-class CheckBoxNewHabit: UIButton {
-    
-    let doneImage = UIImage(named: "addActive")
-    let undoneImage = UIImage(named: "add")
-    
-    var isDone: Bool = false {
-        didSet {
-            if isDone == true {
-                self.setImage(doneImage, for: .normal)
-            } else {
-                self.setImage(undoneImage, for: .normal)
-            }
-        }
-    }
-    
+    private var doneImage: UIImage?
+    private var undoneImage: UIImage?
+    private(set) var isDone: Bool = false
+
+    private var action: ((Bool) -> Void)?
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    func set(done: String, undone: String) {
+        self.doneImage = .init(named: done)
+        self.undoneImage = .init(named: undone)
+    }
+
+    func set(action: @escaping (Bool) -> Void) {
+        self.action = action
+    }
+
+    func set(state enabled: Bool) {
+        self.isDone = enabled
+
+        if enabled {
+            self.setImage(doneImage, for: .normal)
+        } else {
+            self.setImage(undoneImage, for: .normal)
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addTarget(self, action:#selector(buttonClicked(sender:)), for: .touchUpInside)
-        self.isDone = false
-        self.setImage(undoneImage, for: .normal)
+
         self.contentMode = .scaleAspectFit
     }
     
-    @objc func buttonClicked(sender: UIButton) {
+
+
+    @objc
+    private func buttonClicked(sender: UIButton) {
         if sender == self {
-            isDone = !isDone
+            set(state: !isDone)
+            action?(isDone)
         }
     }
 }

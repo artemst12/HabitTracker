@@ -11,4 +11,5 @@ protocol NewHabitViewOutput {
     
     func getItems() -> [NewHabitStruct]
     func backButtonTapped()
+    func doneButtonTapped()
 }

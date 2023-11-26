@@ -42,6 +42,24 @@
 		AC004F982AF51894000B50DA /* NewHabitConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F972AF51894000B50DA /* NewHabitConfigurator.swift */; };
 		AC004F9B2AF52378000B50DA /* NewHabitTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F9A2AF52378000B50DA /* NewHabitTableViewAdapter.swift */; };
 		AC004F9E2AF527B6000B50DA /* NewHabitTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004F9D2AF527B6000B50DA /* NewHabitTableCell.swift */; };
+		AC004FA62B037BFF000B50DA /* CreateHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FA52B037BFF000B50DA /* CreateHabitView.swift */; };
+		AC004FA82B037C10000B50DA /* CreateHabitViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FA72B037C10000B50DA /* CreateHabitViewInput.swift */; };
+		AC004FAA2B037C1F000B50DA /* CreateHabitOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FA92B037C1F000B50DA /* CreateHabitOutput.swift */; };
+		AC004FAC2B037C31000B50DA /* CreateHabitRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FAB2B037C31000B50DA /* CreateHabitRouter.swift */; };
+		AC004FAE2B037C44000B50DA /* CreateHabitRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FAD2B037C44000B50DA /* CreateHabitRouterInput.swift */; };
+		AC004FB02B037C4E000B50DA /* CreateHabitRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FAF2B037C4E000B50DA /* CreateHabitRouterOutput.swift */; };
+		AC004FB22B037C5D000B50DA /* CreateHabitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FB12B037C5D000B50DA /* CreateHabitPresenter.swift */; };
+		AC004FB42B037C67000B50DA /* CreateHabitPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FB32B037C67000B50DA /* CreateHabitPresenterInput.swift */; };
+		AC004FB62B037C72000B50DA /* CreateHabitPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FB52B037C72000B50DA /* CreateHabitPresenterOutput.swift */; };
+		AC004FB82B037C83000B50DA /* CreateHabitInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FB72B037C83000B50DA /* CreateHabitInteractor.swift */; };
+		AC004FBA2B037C92000B50DA /* CreateHabitInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FB92B037C92000B50DA /* CreateHabitInteractorInput.swift */; };
+		AC004FBC2B037C9D000B50DA /* CreateHabitInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FBB2B037C9D000B50DA /* CreateHabitInteractorOutput.swift */; };
+		AC004FBE2B037CA9000B50DA /* CreateHabitConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FBD2B037CA9000B50DA /* CreateHabitConfigurator.swift */; };
+		AC004FC02B04B42A000B50DA /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FBF2B04B42A000B50DA /* CustomBackButton.swift */; };
+		AC004FC22B04DFCD000B50DA /* CustomPersonalHabitStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FC12B04DFCD000B50DA /* CustomPersonalHabitStackView.swift */; };
+		AC004FC42B05492D000B50DA /* CustomSettingsHabitStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FC32B05492D000B50DA /* CustomSettingsHabitStackView.swift */; };
+		AC004FC62B11F954000B50DA /* RepeatsBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FC52B11F953000B50DA /* RepeatsBottomSheet.swift */; };
+		AC004FC82B1206C7000B50DA /* RemindersBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC004FC72B1206C7000B50DA /* RemindersBottomSheet.swift */; };
 		AC60FA6E2A4464CD00E6FD1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */; };
 		AC60FA702A4464CD00E6FD1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */; };
 		AC60FA722A4464CD00E6FD1A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60FA712A4464CD00E6FD1A /* WelcomeView.swift */; };
@@ -182,6 +200,24 @@
 		AC004F972AF51894000B50DA /* NewHabitConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitConfigurator.swift; sourceTree = "<group>"; };
 		AC004F9A2AF52378000B50DA /* NewHabitTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitTableViewAdapter.swift; sourceTree = "<group>"; };
 		AC004F9D2AF527B6000B50DA /* NewHabitTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitTableCell.swift; sourceTree = "<group>"; };
+		AC004FA52B037BFF000B50DA /* CreateHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitView.swift; sourceTree = "<group>"; };
+		AC004FA72B037C10000B50DA /* CreateHabitViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitViewInput.swift; sourceTree = "<group>"; };
+		AC004FA92B037C1F000B50DA /* CreateHabitOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitOutput.swift; sourceTree = "<group>"; };
+		AC004FAB2B037C31000B50DA /* CreateHabitRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitRouter.swift; sourceTree = "<group>"; };
+		AC004FAD2B037C44000B50DA /* CreateHabitRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitRouterInput.swift; sourceTree = "<group>"; };
+		AC004FAF2B037C4E000B50DA /* CreateHabitRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitRouterOutput.swift; sourceTree = "<group>"; };
+		AC004FB12B037C5D000B50DA /* CreateHabitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitPresenter.swift; sourceTree = "<group>"; };
+		AC004FB32B037C67000B50DA /* CreateHabitPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitPresenterInput.swift; sourceTree = "<group>"; };
+		AC004FB52B037C72000B50DA /* CreateHabitPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitPresenterOutput.swift; sourceTree = "<group>"; };
+		AC004FB72B037C83000B50DA /* CreateHabitInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitInteractor.swift; sourceTree = "<group>"; };
+		AC004FB92B037C92000B50DA /* CreateHabitInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitInteractorInput.swift; sourceTree = "<group>"; };
+		AC004FBB2B037C9D000B50DA /* CreateHabitInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitInteractorOutput.swift; sourceTree = "<group>"; };
+		AC004FBD2B037CA9000B50DA /* CreateHabitConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitConfigurator.swift; sourceTree = "<group>"; };
+		AC004FBF2B04B42A000B50DA /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		AC004FC12B04DFCD000B50DA /* CustomPersonalHabitStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersonalHabitStackView.swift; sourceTree = "<group>"; };
+		AC004FC32B05492D000B50DA /* CustomSettingsHabitStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingsHabitStackView.swift; sourceTree = "<group>"; };
+		AC004FC52B11F953000B50DA /* RepeatsBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatsBottomSheet.swift; sourceTree = "<group>"; };
+		AC004FC72B1206C7000B50DA /* RemindersBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersBottomSheet.swift; sourceTree = "<group>"; };
 		AC60FA6A2A4464CD00E6FD1A /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC60FA6D2A4464CD00E6FD1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC60FA6F2A4464CD00E6FD1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -409,6 +445,11 @@
 				AC9797642AAF82C20011EE94 /* StackScreenView.swift */,
 				AC9797B42AC173370011EE94 /* CustomTabBar.swift */,
 				AC004F762AE2C9B2000B50DA /* CheckBox.swift */,
+				AC004FBF2B04B42A000B50DA /* CustomBackButton.swift */,
+				AC004FC12B04DFCD000B50DA /* CustomPersonalHabitStackView.swift */,
+				AC004FC32B05492D000B50DA /* CustomSettingsHabitStackView.swift */,
+				AC004FC52B11F953000B50DA /* RepeatsBottomSheet.swift */,
+				AC004FC72B1206C7000B50DA /* RemindersBottomSheet.swift */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -506,6 +547,66 @@
 				AC004F9D2AF527B6000B50DA /* NewHabitTableCell.swift */,
 			);
 			path = NewHabitTableCell;
+			sourceTree = "<group>";
+		};
+		AC004F9F2B037BB4000B50DA /* CreateHabit */ = {
+			isa = PBXGroup;
+			children = (
+				AC004FA42B037BE0000B50DA /* Configurator */,
+				AC004FA32B037BDB000B50DA /* Interactor */,
+				AC004FA22B037BD6000B50DA /* Presenter */,
+				AC004FA12B037BD1000B50DA /* Router */,
+				AC004FA02B037BCC000B50DA /* View */,
+			);
+			path = CreateHabit;
+			sourceTree = "<group>";
+		};
+		AC004FA02B037BCC000B50DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC004FA52B037BFF000B50DA /* CreateHabitView.swift */,
+				AC004FA72B037C10000B50DA /* CreateHabitViewInput.swift */,
+				AC004FA92B037C1F000B50DA /* CreateHabitOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC004FA12B037BD1000B50DA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AC004FAB2B037C31000B50DA /* CreateHabitRouter.swift */,
+				AC004FAD2B037C44000B50DA /* CreateHabitRouterInput.swift */,
+				AC004FAF2B037C4E000B50DA /* CreateHabitRouterOutput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AC004FA22B037BD6000B50DA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC004FB12B037C5D000B50DA /* CreateHabitPresenter.swift */,
+				AC004FB32B037C67000B50DA /* CreateHabitPresenterInput.swift */,
+				AC004FB52B037C72000B50DA /* CreateHabitPresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC004FA32B037BDB000B50DA /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				AC004FB72B037C83000B50DA /* CreateHabitInteractor.swift */,
+				AC004FB92B037C92000B50DA /* CreateHabitInteractorInput.swift */,
+				AC004FBB2B037C9D000B50DA /* CreateHabitInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		AC004FA42B037BE0000B50DA /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				AC004FBD2B037CA9000B50DA /* CreateHabitConfigurator.swift */,
+			);
+			path = Configurator;
 			sourceTree = "<group>";
 		};
 		AC60FA612A4464CD00E6FD1A = {
@@ -787,9 +888,10 @@
 			isa = PBXGroup;
 			children = (
 				AC97973F2AA5CD020011EE94 /* Today */,
+				AC004F782AF5175D000B50DA /* NewHabit */,
+				AC004F9F2B037BB4000B50DA /* CreateHabit */,
 				AC9797702AC047E70011EE94 /* Stats */,
 				AC9797922AC0491C0011EE94 /* Calendar */,
-				AC004F782AF5175D000B50DA /* NewHabit */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1106,6 +1208,7 @@
 				AC97979F2AC049B60011EE94 /* CalendarRouter.swift in Sources */,
 				15F7CE502A48476100F6041F /* WelcomeInteractorInput.swift in Sources */,
 				15F7CE4E2A4846EA00F6041F /* WelcomeInteractor.swift in Sources */,
+				AC004FB02B037C4E000B50DA /* CreateHabitRouterOutput.swift in Sources */,
 				AC9797852AC048BF0011EE94 /* StatsPresenter.swift in Sources */,
 				AC9797542AA5CF060011EE94 /* TodayPresenterInput.swift in Sources */,
 				AC60FABD2A4D759600E6FD1A /* GenderRouterOutput.swift in Sources */,
@@ -1116,9 +1219,12 @@
 				AC9797792AC048480011EE94 /* StatsViewInput.swift in Sources */,
 				AC004F8B2AF51834000B50DA /* NewHabitPresenter.swift in Sources */,
 				AC9797582AA5CF270011EE94 /* TodayInteractor.swift in Sources */,
+				AC004FB62B037C72000B50DA /* CreateHabitPresenterOutput.swift in Sources */,
 				AC004F912AF51852000B50DA /* NewHabitInteractor.swift in Sources */,
 				AC004F752AD8549D000B50DA /* MultiStepBuilder.swift in Sources */,
 				AC9797A72AC049E90011EE94 /* CalendarPresenterInput.swift in Sources */,
+				AC004FB22B037C5D000B50DA /* CreateHabitPresenter.swift in Sources */,
+				AC004FC02B04B42A000B50DA /* CustomBackButton.swift in Sources */,
 				AC60FAC12A4D75E800E6FD1A /* GenderViewOutput.swift in Sources */,
 				AC9797A92AC049F30011EE94 /* CalendarPresenterOutput.swift in Sources */,
 				AC97975C2AA5CF480011EE94 /* TodayInteractorOutput.swift in Sources */,
@@ -1142,16 +1248,20 @@
 				AC004F9E2AF527B6000B50DA /* NewHabitTableCell.swift in Sources */,
 				AC60FAA52A4B169F00E6FD1A /* InformationInteractorInput.swift in Sources */,
 				15F7CE4A2A48469400F6041F /* WelcomePresenterInput.swift in Sources */,
+				AC004FC42B05492D000B50DA /* CustomSettingsHabitStackView.swift in Sources */,
 				AC60FA972A4B10E800E6FD1A /* InformationRouter.swift in Sources */,
+				AC004FAE2B037C44000B50DA /* CreateHabitRouterInput.swift in Sources */,
 				AC60FADA2A501C8D00E6FD1A /* CongratsView.swift in Sources */,
 				AC60FA932A4A011300E6FD1A /* InformationViewInput.swift in Sources */,
 				AC9797652AAF82C20011EE94 /* StackScreenView.swift in Sources */,
 				AC004F722AD6F4EE000B50DA /* BuilderProtocol.swift in Sources */,
 				AC60FA6E2A4464CD00E6FD1A /* AppDelegate.swift in Sources */,
+				AC004FC62B11F954000B50DA /* RepeatsBottomSheet.swift in Sources */,
 				AC97974E2AA5CECC0011EE94 /* TodayRouterInput.swift in Sources */,
 				15F7CE5B2A484ACB00F6041F /* WelcomeConfigurator.swift in Sources */,
 				AC9797772AC0483E0011EE94 /* StatsView.swift in Sources */,
 				AC004F9B2AF52378000B50DA /* NewHabitTableViewAdapter.swift in Sources */,
+				AC004FA62B037BFF000B50DA /* CreateHabitView.swift in Sources */,
 				AC9797912AC0490B0011EE94 /* StatsConfigurator.swift in Sources */,
 				AC97978F2AC048F90011EE94 /* StatsInteractorOutput.swift in Sources */,
 				AC9797502AA5CEE10011EE94 /* TodayRouterOutput.swift in Sources */,
@@ -1159,8 +1269,10 @@
 				AC60FB082A56B6F300E6FD1A /* CustomTextFieldValidator.swift in Sources */,
 				AC004F7F2AF517C6000B50DA /* NewHabitView.swift in Sources */,
 				AC97979B2AC0498D0011EE94 /* CalendarViewInput.swift in Sources */,
+				AC004FAC2B037C31000B50DA /* CreateHabitRouter.swift in Sources */,
 				AC004F932AF51861000B50DA /* NewHabitInteractorInput.swift in Sources */,
 				15F7CE4C2A4846A200F6041F /* WelcomePresenterOutput.swift in Sources */,
+				AC004FA82B037C10000B50DA /* CreateHabitViewInput.swift in Sources */,
 				AC60FAA12A4B15A600E6FD1A /* InformationPresenterOutput.swift in Sources */,
 				AC60FA702A4464CD00E6FD1A /* SceneDelegate.swift in Sources */,
 				AC60FB032A55AA9D00E6FD1A /* GenderCollectionViewAdapter.swift in Sources */,
@@ -1169,16 +1281,20 @@
 				AC60FACD2A4D78AF00E6FD1A /* GenderInteractorOutput.swift in Sources */,
 				AC9797BF2ACDE4B60011EE94 /* OneStepItemTableCellBuilder.swift in Sources */,
 				AC97976C2ABB22F40011EE94 /* MultiStepCollectionViewCell.swift in Sources */,
+				AC004FB42B037C67000B50DA /* CreateHabitPresenterInput.swift in Sources */,
 				AC9797682ABA02BD0011EE94 /* TodayTableViewAdapter.swift in Sources */,
 				AC60FADC2A501D5C00E6FD1A /* CongratsViewInput.swift in Sources */,
 				AC60FA912A4A005B00E6FD1A /* InformationView.swift in Sources */,
+				AC004FBE2B037CA9000B50DA /* CreateHabitConfigurator.swift in Sources */,
 				AC97978B2AC048DE0011EE94 /* StatsInteractor.swift in Sources */,
 				AC9797832AC048B10011EE94 /* StatsRouterInput.swift in Sources */,
 				AC60FAFD2A5599AC00E6FD1A /* Extension + String.swift in Sources */,
+				AC004FBC2B037C9D000B50DA /* CreateHabitInteractorOutput.swift in Sources */,
 				AC9797522AA5CEF50011EE94 /* TodayPresenter.swift in Sources */,
 				AC60FA9F2A4B157F00E6FD1A /* InformationPresenterInput.swift in Sources */,
 				AC9797892AC048D20011EE94 /* StatsPresenterOutput.swift in Sources */,
 				AC004F852AF51800000B50DA /* NewHabitRouter.swift in Sources */,
+				AC004FB82B037C83000B50DA /* CreateHabitInteractor.swift in Sources */,
 				AC004F982AF51894000B50DA /* NewHabitConfigurator.swift in Sources */,
 				AC9797812AC048840011EE94 /* StatsRouterOutput.swift in Sources */,
 				AC60FAD22A4DDD9D00E6FD1A /* GenderItems.swift in Sources */,
@@ -1187,9 +1303,12 @@
 				15F7CE542A48488000F6041F /* WelcomeRouter.swift in Sources */,
 				AC97977B2AC048520011EE94 /* StatsViewOutput.swift in Sources */,
 				AC60FAE42A501EB200E6FD1A /* CongratsRouterOutput.swift in Sources */,
+				AC004FC22B04DFCD000B50DA /* CustomPersonalHabitStackView.swift in Sources */,
 				AC60FAB52A4CA43400E6FD1A /* GenderView.swift in Sources */,
+				AC004FC82B1206C7000B50DA /* RemindersBottomSheet.swift in Sources */,
 				AC60FAB92A4D74B100E6FD1A /* GenderRouter.swift in Sources */,
 				AC004F832AF517E0000B50DA /* NewHabitViewOutput.swift in Sources */,
+				AC004FBA2B037C92000B50DA /* CreateHabitInteractorInput.swift in Sources */,
 				AC60FADE2A501D8600E6FD1A /* CongratsViewOutput.swift in Sources */,
 				AC97974C2AA5CEBF0011EE94 /* TodayRouter.swift in Sources */,
 				AC60FA872A45AFB200E6FD1A /* StyledLabel.swift in Sources */,
@@ -1200,6 +1319,7 @@
 				AC60FACB2A4D788B00E6FD1A /* GenderInteractorInput.swift in Sources */,
 				15C340502AB7019000471019 /* User.swift in Sources */,
 				AC60FABF2A4D75BA00E6FD1A /* GenderViewInput.swift in Sources */,
+				AC004FAA2B037C1F000B50DA /* CreateHabitOutput.swift in Sources */,
 				AC60FAEE2A502B3500E6FD1A /* CongratsInteractorInput.swift in Sources */,
 				AC60FA892A47102D00E6FD1A /* CustomButtons.swift in Sources */,
 				AC60FA9B2A4B11F600E6FD1A /* InformationRouterOutput.swift in Sources */,

@@ -66,22 +66,16 @@ extension TodayInteractor: TodayInteractorInput {
         guard let waterHabit = multi.filter({ $0.id == id }).first else {
             return
         }
-        
-//        let maxCount = waterHabit.maxCount
-//        let counters = waterHabit.countLabel.split(separator: "/")
-        
+
         switch type {
         case .minus:
             if waterHabit.currentCount > 0 {
                 waterHabit.currentCount -= 1
             }
-            // waterHabit.currentCount = max(0, waterHabit.currentCount - 1)
         case .plus:
             if waterHabit.currentCount < 10 {
                 waterHabit.currentCount += 1
             }
-//             waterHabit.currentCount = min(waterHabit.maxCount, waterHabit.currentCount + 1)
-            return
         }
         
         updateState()
@@ -125,6 +119,7 @@ enum MultiStepHabitImageType {
 
 final class MultiStepHabit {
     let id: UUID = .init()
+    
     let image: MultiStepHabitImageType
     let habitLabel: String
     let label: String

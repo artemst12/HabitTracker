@@ -8,10 +8,6 @@
 import UIKit
 
 final class OneStepItemTableCellBuilder: TodayCellBuilder {
-    func set(output: MultiStepCollectionViewCellProtocol) {
-        
-    }
-    
 
     private weak var tableView: UITableView?
     private var model: OneStepHabit?
@@ -27,6 +23,9 @@ final class OneStepItemTableCellBuilder: TodayCellBuilder {
 
     func set(model: OneStepHabit) {
         self.model = model
+    }
+
+    func set(output: MultiStepCollectionViewCellProtocol) {
     }
 
     func build() -> UITableViewCell {

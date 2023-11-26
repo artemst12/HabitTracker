@@ -119,6 +119,22 @@ extension TodayTableViewAdapter: UITableViewDataSource, UITableViewDelegate {
 //        }
 //    }
 //
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let type = TodaySectionType(rawValue: section) else {
+            return 0
+        }
+
+        switch type {
+        case .calendar:
+            return 0
+        case .multiStepHabit:
+            return UITableView.automaticDimension
+        case .oneStepHabit:
+            return UITableView.automaticDimension
+        }
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let type = TodaySectionType(rawValue: section) else {
             return nil
@@ -217,7 +233,7 @@ extension TodayTableViewAdapter: UITableViewDataSource, UITableViewDelegate {
             countView.translatesAutoresizingMaskIntoConstraints = false
             countLabel.translatesAutoresizingMaskIntoConstraints = false
             
-            NSLayoutConstraint.activate([
+            NSLayoutConstraint.activate([                
                 label.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
                 label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
                 label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),

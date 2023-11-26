@@ -18,5 +18,6 @@ extension TodayRouter {
         vc.modalPresentationStyle = .fullScreen
         let navC = UINavigationController(rootViewController: vc)
         view?.navigationController?.present(navC, animated: true)
+//        view?.navigationController?.pushViewController(vc, animated: true)
     }
 }
